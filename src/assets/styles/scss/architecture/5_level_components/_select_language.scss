@@ -1,0 +1,20 @@
+.language__span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  line-height: 2;
+  margin: 20px;
+  height: 32px;
+  border: 1px solid $color-1-primary;
+}
+
+.language__select {
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%
+}

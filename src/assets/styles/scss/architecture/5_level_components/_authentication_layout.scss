@@ -1,0 +1,57 @@
+.authentication-block {
+    margin: auto;
+    
+    .authentication__section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        min-height: 75vh;
+        
+        .loading {
+            margin-top: 100px !important;
+        }
+
+        .authentication__figure {
+            text-align: center;
+            
+            img {
+                width: 90px;
+            }
+        }
+
+        .authentication__form {
+            .fields-block {     
+                .field__div {  
+                    p {
+                        margin: 10px 0 0 0
+                    }
+                }
+            }
+        }
+
+        .authentication-password__div,
+        .authentication-email__div,
+        .authentication-forgot__div {
+            min-height: 18vw;
+        }
+
+        .authentication-email__div {
+            .paragraph__p:not(.--description) {
+                margin: 0
+            }
+            .btn {
+                width: 270px;
+            }
+        }
+
+        .authentication-password__div,
+        .authentication-forgot__div {
+            .btn.--primary {
+                margin-left: 30px
+            }
+        }
+    }
+
+    .authenticaton__footer {
+        text-align: center;
+    }
+}

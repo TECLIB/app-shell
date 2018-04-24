@@ -1,0 +1,48 @@
+.flex-block {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  align-content: flex-start;
+  width: 100%;
+  height: 100%;
+
+  .flex-block-list {
+    height: 100%; 
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .flex-block-content {
+    display: inline-block;
+  }
+
+
+  &.--with-scroll {
+    @extend %content-with-scroll;
+  }
+
+  &.--with-content-pane {
+    @extend %content-pane;
+    flex: 1 100%;
+  }
+}
+
+.content-pane {
+  @extend %content-pane;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.content-pane--animate {
+  @include animation('slide-up 0.1s')  
+}
+
+.center-block-content {
+  display: flex; 
+  height: 100%;
+  width: 100%;
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column;
+}

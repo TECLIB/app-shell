@@ -1,0 +1,25 @@
+.header-block {
+  background: transparent;
+  height: $header-height;
+
+  nav {
+    display: inline-block;
+  }
+
+  .header-icon {
+    display: inline-block;
+    font-size: 16px;
+    width: 54px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .header-breadcrumb {
+    line-height: 2.5;
+  }
+
+  .header-breadcrumb-separator {
+    margin: 0 5px;
+  }
+
+}
