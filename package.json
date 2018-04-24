@@ -3,16 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "node-sass": "^4.8.3",
     "react-scripts": "1.1.4"
   },
   "dependencies": {
+    "office-ui-fabric-react": "^5.87.0",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react-content-loader": "^3.1.1",
+    "react-dom": "^16.3.2",
+    "react-i18nify": "^1.11.12",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-winjs": "git+https://github.com/TECLIB/react-winjs.git#develop",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.2.0",
+    "winjs": "^4.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
   }
 }
