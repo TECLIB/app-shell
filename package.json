@@ -7,7 +7,7 @@
     "react-scripts": "1.1.4"
   },
   "dependencies": {
-    "office-ui-fabric-react": "^5.87.0",
+    "office-ui-fabric-react": "^5.88.0",
     "react": "^16.3.2",
     "react-content-loader": "^3.1.1",
     "react-dom": "^16.3.2",
