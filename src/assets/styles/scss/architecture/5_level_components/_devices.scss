@@ -1,0 +1,89 @@
+.devices {
+    height: 100%;
+    .contentHeader { 
+        button {
+            float: right;
+            height: 20px;
+            margin-top: -30px;
+        }
+    }
+
+    .contentInfo {
+        .detailContent {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        ul {
+            list-style: none;
+        }
+    }
+
+    .applications {
+        .win-listview > .win-vertical .win-container {
+            margin: 0;
+        }
+        .win-listview ._win-dynamic-containersize-1 .win-container {
+            height: auto;
+        }
+
+        .list-content {
+            padding: 14px;
+
+            .list-col:first-child {
+                padding: 0;
+                width: 70px;
+                vertical-align: top;
+            }
+            .list-col {
+                width: -webkit-calc(100% - 98px);
+                width:    -moz-calc(100% - 98px);
+                width:         calc(100% - 98px);
+                overflow: auto;
+
+                .aplication {
+                    font-weight: 400;
+                    .aplication-detail {
+                        color: $text-detail-color;
+                        display: inline-block;
+                        font-size: 13px;
+                        line-height: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    .system-report {
+
+        .list-content {
+            padding: 5px 5px 5px 30px;
+            
+            .list-col:first-child {
+                padding: 0;
+                width: 30%;
+                vertical-align: top;
+                color: black;
+            }
+            .list-col {
+                display: inline-block;
+                width: 70%;
+                overflow: auto;
+                font-weight: 400;
+                color: $text-detail-color;
+            }
+
+            @media screen and (max-width: 772px) {
+                .list-col {
+                    display: block !important; 
+                    width: 100% !important;
+                }
+            }
+        }
+
+        .list-content:nth-child(even) {
+            background: #f2f2f2;
+        }
+    }
+
+}
