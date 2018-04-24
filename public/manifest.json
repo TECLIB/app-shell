@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "App Shell",
+  "name": "The App Shell Model of Teclib",
   "icons": [
     {
       "src": "favicon.ico",
