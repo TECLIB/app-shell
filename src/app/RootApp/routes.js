@@ -7,13 +7,13 @@ const routes = [
         path: `${publicURL}/`,
         component: SignIn,
         exact: true,
-        private: false
+        authenticate: false
     },
     {
         path: `${publicURL}/app`,
         component: asyncAdminApp,
         exact: false,
-        private: false
+        authenticate: true
     }
 ]
 
