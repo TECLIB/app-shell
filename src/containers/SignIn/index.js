@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import UsernameFieldset from './components/UsernameFieldset'
 import withAuthenticationLayout from '../../hoc/withAuthenticationLayout'
+import withAuthentication from '../../hoc/withAuthentication'
 import withHandleMessages from '../../hoc/withHandleMessages'
 import { fetchSignIn } from '../../store/authentication/actions'
 import { I18n } from "react-i18nify"
@@ -43,7 +44,7 @@ class SignIn extends Component {
     }
 
     render () {
-        if (localStorage.getItem('currentUser') && localStorage.getItem('sessionToken')) {
+        if (this.props.authentication.currentUser && this.props.authentication.sessionToken) {
             return <Redirect to={`${publicURL}/app`}/>
         } else {
             let form
@@ -78,4 +79,4 @@ SignIn.propTypes = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withAuthenticationLayout(withHandleMessages(SignIn), { centerContent: true }))
+)(withAuthentication(withAuthenticationLayout(withHandleMessages(SignIn), { centerContent: true })))

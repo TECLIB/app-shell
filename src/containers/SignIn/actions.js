@@ -18,8 +18,12 @@ export const changePhase = (ctx, newPhase) => {
 export const handleFormSubmit = (ctx, event) => {
   event.preventDefault()
 
-  ctx.props.actions.fetchSignIn(
-      ctx.state.username,
-      ctx.state.password
-  )
+  const user = {
+    id: 1,
+    name: 'User App',
+    email: 'user@teclib.com',
+    picture: null
+  }
+
+  ctx.props.authentication.setCurrentUser(user,'token')
 }
