@@ -1,3 +1,4 @@
+import config from '../../config/config.json'
 /**
  * Actions Pattern for Form SignIn Data Flow
  * 
@@ -26,4 +27,9 @@ export const handleFormSubmit = (ctx, event) => {
   }
 
   ctx.props.authentication.setCurrentUser(user,'token')
+  ctx.props.toast.setNotification({
+    title: config.appName,
+    body: 'Welcome!',
+    type: 'success'
+  })
 }
