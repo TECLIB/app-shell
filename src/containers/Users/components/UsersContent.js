@@ -45,7 +45,7 @@ export default class UsersContent extends Component {
             })
             
             try {
-                this.props.setNotification({
+                this.props.toast.setNotification({
                     title: I18n.t('commons.success'),
                     body: I18n.t('notifications.elements_successfully_removed'),
                     type: 'success'
@@ -54,7 +54,7 @@ export default class UsersContent extends Component {
                 this.props.changeSelectionMode(false)
                 this.props.history.push(`${publicURL}/app/users`)
             } catch (error) {                
-                this.props.setNotification(this.props.handleMessage({ type: 'alert', message: error }))
+                this.props.toast.setNotification(this.props.handleMessage({ type: 'alert', message: error }))
             }
             
         }
@@ -84,7 +84,7 @@ export default class UsersContent extends Component {
                 emails 
             })
         } catch (error) {
-            this.props.setNotification(this.props.handleMessage({ type: 'alert', message: error }))
+            this.props.toast.setNotification(this.props.handleMessage({ type: 'alert', message: error }))
             this.props.history.push(`${publicURL}/app/users`)
         }
     }
@@ -172,5 +172,5 @@ UsersContent.propTypes = {
     changeAction: PropTypes.func.isRequired,
     changeSelectionMode: PropTypes.func.isRequired,
     history: PropTypes.object.isRequired,
-    setNotification: PropTypes.func.isRequired
+    toast: PropTypes.object.isRequired,
 }

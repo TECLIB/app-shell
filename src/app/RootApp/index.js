@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch } from 'react-router-dom'
 import withI18NTranslation from '../../hoc/withI18NTranslation'
-import withNotification from '../../hoc/withNotification'
+import withToastNotification from '../../hoc/withToastNotification'
 import GenerateRoutes from '../../components/GenerateRoutes'
 import routes from './routes'
 
@@ -14,12 +14,12 @@ class RootApp extends Component {
     render() {
         return (
             <Switch>
-                <GenerateRoutes routes={routes} withNotFound />
+                <GenerateRoutes routes={routes} withNotFound toast={this.props.toast} />
             </Switch>
         )
     }
 }
 
-export default withNotification(
+export default withToastNotification(
     withI18NTranslation(RootApp)
 )

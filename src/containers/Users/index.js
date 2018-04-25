@@ -1,21 +1,12 @@
 import React, { Component } from 'react'
 import routes from './routes'
 import withHandleMessages from '../../hoc/withHandleMessages'
+import withToasNotification from '../../hoc/withHandleMessages'
 import GenerateRoutes from '../../components/GenerateRoutes'
 import UsersList from './components/UsersList'
-import { uiSetNotification } from '../../store/ui/actions'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import getMode from '../../shared/getMode'
 import calc100PercentMinus from '../../shared/calc100PercentMinus'
 import publicURL from '../../shared/publicURL'
-
-function mapDispatchToProps(dispatch) {
-    const actions = {
-        setNotification: bindActionCreators(uiSetNotification, dispatch)
-    }
-    return { actions }
-}
 
 class Users extends Component {
 
@@ -74,9 +65,9 @@ class Users extends Component {
             changeSelectedItems: this.changeSelectedItems,
             action: this.state.action,
             changeAction: this.changeAction,
-            setNotification: this.props.actions.setNotification,
             history: this.props.history,
-            handleMessage: this.props.handleMessage
+            handleMessage: this.props.handleMessage,
+            toast: this.props.toast,
         }
     }
 
@@ -133,7 +124,6 @@ class Users extends Component {
     }
 
     render() {
-
         let renderComponents = (
 
             <React.Fragment>
@@ -162,7 +152,5 @@ class Users extends Component {
         )
     }
 }
-export default connect(
-    null,
-    mapDispatchToProps
-)(withHandleMessages(Users))
+
+export default withToasNotification(withHandleMessages(Users))

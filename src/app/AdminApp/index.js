@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import withAdminAppLayout from '../../hoc/withAdminAppLayout'
+import withToastNotification from '../../hoc/withToastNotification'
 
 import routes from './routes'
-import GenerateRoutes from '../../components/GenerateRoutes';
+import GenerateRoutes from '../../components/GenerateRoutes'
 
 class AdminApp extends Component {
     render() {
-        return <GenerateRoutes routes={routes} rootPath={this.props.match.url} />
+        return <GenerateRoutes routes={routes} rootPath={this.props.match.url} toast={this.props.toast}/>
     }
 }
 
-export default withAdminAppLayout(AdminApp)
+export default withAdminAppLayout(withToastNotification(AdminApp))

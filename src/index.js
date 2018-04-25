@@ -4,6 +4,7 @@ import { Router } from 'react-router-dom'
 import history from './shared/history'
 import RootApp from './app/RootApp'
 import { AuthenticationProvider } from './providers/AuthenticationProvider'
+import { NotificationsProvider } from './providers/NotificationsProvider'
 import { Provider } from 'react-redux'
 import {
     createStore,
@@ -27,11 +28,13 @@ ReactDOM.render(
                     applyMiddleware(thunk)
                 ))
         }>
+            <NotificationsProvider>
             <AuthenticationProvider>
                 <Router history={history}>
                     <RootApp />
                 </Router>
-            </AuthenticationProvider>  
+            </AuthenticationProvider>
+            </NotificationsProvider>
         </Provider>
     ),
     document.getElementById('root')

@@ -137,7 +137,7 @@ export default class UsersList extends Component {
             }, async () => {
                 try {
 
-                    this.props.setNotification({
+                    this.props.toast.setNotification({
                         title: I18n.t('commons.success'),
                         body: I18n.t('notifications.user_successfully_removed'),
                         type: 'success'
@@ -146,7 +146,7 @@ export default class UsersList extends Component {
                     this.props.changeSelectedItems([])
                     this.props.changeAction('reload')
                 } catch (error) {
-                    this.props.setNotification(this.props.handleMessage({ type: 'alert', message: error }))
+                    this.props.toast.setNotification(this.props.handleMessage({ type: 'alert', message: error }))
                     this.props.changeSelectionMode(false)
                     this.props.changeSelectedItems([])
                     if (this.listView) {
@@ -292,5 +292,5 @@ UsersList.propTypes = {
     changeSelectionMode: PropTypes.func.isRequired,
     action: PropTypes.string,
     changeAction: PropTypes.func.isRequired,
-    setNotification: PropTypes.func.isRequired
+    toast: PropTypes.object.isRequired,
 }
