@@ -1,17 +1,17 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
+import PrivateRoute from './PrivateRoute'
 import PropsRoute from './PropsRoute'
 import NotFound from '../../components/NotFound'
 
-// TODO: Enable PrivateRoute if route if private
-
 const GenerateRoutes = ({ routes, rootPath, withNotFound, data }) => {
-  let r = routes.map(({ exact, path, component }, i) => {
+  let r = routes.map(({ exact, path, component, authenticate }, i) => {
     if (typeof (data) === 'object') {
       return (
         <PropsRoute
           exact={exact}
           component={component}
+          authenticate={authenticate}
           key={i}
           {...data}
           path={
@@ -24,19 +24,34 @@ const GenerateRoutes = ({ routes, rootPath, withNotFound, data }) => {
       )
     }
     else {
-      return (
-        <Route
-          exact={exact}
-          component={component}
-          key={i}
-          path={
-            typeof (rootPath) === "string"
-              ? path === '/'
-                ? rootPath
-                : rootPath + path
-              : path
-          } />
-      )
+      if (authenticate) {
+        return (
+          <PrivateRoute redirectTo="/" exact={exact}
+            component={component}
+            key={i}
+            path={
+              typeof (rootPath) === "string"
+                ? path === '/'
+                  ? rootPath
+                  : rootPath + path
+                : path
+            } />
+        )
+      } else {
+        return (
+          <Route
+            exact={exact}
+            component={component}
+            key={i}
+            path={
+              typeof (rootPath) === "string"
+                ? path === '/'
+                  ? rootPath
+                  : rootPath + path
+                : path
+            } />
+        )
+      }
     }
   });
 
