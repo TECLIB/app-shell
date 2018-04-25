@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { Router } from 'react-router-dom'
 import history from './shared/history'
 import RootApp from './app/RootApp'
+import { AuthenticationProvider } from './providers/AuthenticationProvider'
 import { Provider } from 'react-redux'
 import {
     createStore,
@@ -26,9 +27,11 @@ ReactDOM.render(
                     applyMiddleware(thunk)
                 ))
         }>
-            <Router history={history}>
-                <RootApp />
-            </Router>
+            <AuthenticationProvider>
+                <Router history={history}>
+                    <RootApp />
+                </Router>
+            </AuthenticationProvider>  
         </Provider>
     ),
     document.getElementById('root')
