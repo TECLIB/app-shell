@@ -7,13 +7,15 @@ const routes = [
         path: '/',
         name: I18n.t('commons.home'),
         component: Home,
-        exact: true
+        exact: true,
+        authenticate: true
     }, 
     {
         path: '/users',
         name: I18n.t('commons.users'),
         component: Users,
-        exact: false
+        exact: false,
+        authenticate: true
     }
 ]
 
