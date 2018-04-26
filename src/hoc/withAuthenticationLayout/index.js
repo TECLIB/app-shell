@@ -1,15 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import { I18n } from 'react-i18nify'
-import { changeLanguage } from '../../store/i18n/actions'
-
-function mapDispatchToProps(dispatch) {
-    return { 
-        changeLanguage: bindActionCreators(changeLanguage, dispatch) 
-    }
-}
+import withI18n from '../withI18n'
 
 /**
  * Wrapper a component with divs's stylizeds
@@ -42,7 +34,7 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
                     </span>
                     <br/>
                     <select onChange={
-                        event => props.changeLanguage(event.target.value)
+                        event => props.language.changeLanguage(event.target.value)
                     }>
                         <option value='en_GB'>
                             {I18n.t('commons.english')}
@@ -75,7 +67,7 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
         ]).isRequired
     }
 
-    return connect(null, mapDispatchToProps)(authenticationLayout)
+    return withI18n(authenticationLayout)
 }
 
 

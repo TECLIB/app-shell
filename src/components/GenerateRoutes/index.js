@@ -3,12 +3,13 @@ import { Route, Switch } from 'react-router-dom'
 import PropsRoute from './PropsRoute'
 import NotFound from '../../components/NotFound'
 
-const GenerateRoutes = ({ routes, rootPath, withNotFound, data, toast }) => {
+const GenerateRoutes = ({ routes, rootPath, withNotFound, data, toast, language }) => {
   let r = routes.map(({ exact, path, component, authenticate }, i) => {
     return (<PropsRoute
       exact={exact}
       component={component}
       toast={toast}
+      language={language}
       authenticate={authenticate}
       key={i}
       {...data}
