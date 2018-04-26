@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import UsernameFieldset from './components/UsernameFieldset'
 import withAuthenticationLayout from '../../hoc/withAuthenticationLayout'
 import withAuthentication from '../../hoc/withAuthentication'
 import withHandleMessages from '../../hoc/withHandleMessages'
-import { fetchSignIn } from '../../store/authentication/actions'
 import { I18n } from "react-i18nify"
 import publicURL from '../../shared/publicURL'
 // Async Component
@@ -15,24 +12,12 @@ import { Redirect } from 'react-router'
 import Loading from '../../components/Loading'
 import { changeInput, changePhase, handleFormSubmit } from './actions'
 
-function mapStateToProps(state, props) {
-    return {
-        isLoading: state.ui.loading
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    const actions = {
-        fetchSignIn: bindActionCreators(fetchSignIn, dispatch)
-    }
-    return { actions }
-}
-
 class SignIn extends Component {
 
     constructor (props) {
         super(props)
         this.state = {
+            isLoading: false,
             username: '',
             password: '',
             phase: 1
@@ -65,18 +50,13 @@ class SignIn extends Component {
                     handleOnSubmit={this.handleFormSubmit}
                 />
             }
-            return this.props.isLoading ? <div style={{ height: '140px' }}><Loading message={`${I18n.t('commons.loading')}...`} /></div> : form 
+            return this.state.isLoading ? <div style={{ height: '140px' }}><Loading message={`${I18n.t('commons.loading')}...`} /></div> : form 
         }
     }
 }
 
 SignIn.propTypes = {
-    isLoading: PropTypes.bool.isRequired,
-    history: PropTypes.object.isRequired,
-    actions: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(withAuthentication(withAuthenticationLayout(withHandleMessages(SignIn), { centerContent: true })))
+export default withAuthentication(withAuthenticationLayout(withHandleMessages(SignIn), { centerContent: true }))
