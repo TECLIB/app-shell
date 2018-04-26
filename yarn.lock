@@ -13,26 +13,26 @@
     "@uifabric/styling" ">=5.23.1 <6.0.0"
     tslib "^1.7.1"
 
-"@uifabric/merge-styles@>=5.16.0 <6.0.0":
-  version "5.16.0"
-  resolved "https://registry.yarnpkg.com/@uifabric/merge-styles/-/merge-styles-5.16.0.tgz#beb1ee29f2c69161ce29b7fe8909547eb439429e"
+"@uifabric/merge-styles@>=5.16.1 <6.0.0", "@uifabric/merge-styles@>=5.17.0 <6.0.0":
+  version "5.17.0"
+  resolved "https://registry.yarnpkg.com/@uifabric/merge-styles/-/merge-styles-5.17.0.tgz#96de616cb9fa5c05a79ac18ff96db9fe5644f2d2"
   dependencies:
     tslib "^1.7.1"
 
-"@uifabric/styling@>=5.23.1 <6.0.0", "@uifabric/styling@>=5.26.0 <6.0.0":
-  version "5.26.0"
-  resolved "https://registry.yarnpkg.com/@uifabric/styling/-/styling-5.26.0.tgz#40e32ad75453d10a4042b19a18ded24dd77bf70f"
+"@uifabric/styling@>=5.23.1 <6.0.0", "@uifabric/styling@>=5.27.0 <6.0.0":
+  version "5.27.0"
+  resolved "https://registry.yarnpkg.com/@uifabric/styling/-/styling-5.27.0.tgz#dbc0a58da82b67eb64938caf4180189e23334dff"
   dependencies:
     "@microsoft/load-themed-styles" "^1.7.13"
-    "@uifabric/merge-styles" ">=5.16.0 <6.0.0"
-    "@uifabric/utilities" ">=5.27.0 <6.0.0"
+    "@uifabric/merge-styles" ">=5.16.1 <6.0.0"
+    "@uifabric/utilities" ">=5.28.0 <6.0.0"
     tslib "^1.7.1"
 
-"@uifabric/utilities@>=5.27.0 <6.0.0":
-  version "5.27.0"
-  resolved "https://registry.yarnpkg.com/@uifabric/utilities/-/utilities-5.27.0.tgz#cb45418475b338065a44bbfce9af27aff535d66a"
+"@uifabric/utilities@>=5.28.0 <6.0.0":
+  version "5.28.0"
+  resolved "https://registry.yarnpkg.com/@uifabric/utilities/-/utilities-5.28.0.tgz#d4fb5a731f7fa79d761d17da75225180a6ec89c8"
   dependencies:
-    "@uifabric/merge-styles" ">=5.16.0 <6.0.0"
+    "@uifabric/merge-styles" ">=5.16.1 <6.0.0"
     prop-types "^15.5.10"
     tslib "^1.7.1"
 
@@ -1397,8 +1397,8 @@ chalk@1.1.3, chalk@^1.1.1, chalk@^1.1.3:
     supports-color "^2.0.0"
 
 chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.2:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.0.tgz#a060a297a6b57e15b61ca63ce84995daa0fe6e52"
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.1.tgz#18c49ab16a037b6eb0152cc83e3471338215b66e"
   dependencies:
     ansi-styles "^3.2.1"
     escape-string-regexp "^1.0.5"
@@ -2514,8 +2514,8 @@ event-emitter@~0.3.5:
     es5-ext "~0.10.14"
 
 eventemitter3@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.0.1.tgz#4ce66c3fc5b5a6b9f2245e359e1938f1ab10f960"
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.0.tgz#090b4d6cdbd645ed10bf750d4b5407942d7ba163"
 
 events@^1.0.0:
   version "1.1.1"
@@ -2921,8 +2921,8 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
 
 fsevents@^1.0.0, fsevents@^1.1.2, fsevents@^1.1.3:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-1.2.0.tgz#e11a5ff285471e4cc43ab9cd09bb7986c565dcdc"
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-1.2.2.tgz#4f598f0f69b273188ef4a62ca4e9e08ace314bbf"
   dependencies:
     nan "^2.9.2"
     node-pre-gyp "^0.9.0"
@@ -3274,7 +3274,7 @@ hoek@4.x.x:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
 
-hoist-non-react-statics@^2.3.0, hoist-non-react-statics@^2.5.0:
+hoist-non-react-statics@^2.3.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.0.tgz#d2ca2dfc19c5a91c5a6615ce8e564ef0347e2a40"
 
@@ -3373,8 +3373,8 @@ http-errors@~1.6.2:
     statuses ">= 1.4.0 < 2"
 
 http-parser-js@>=0.4.0:
-  version "0.4.11"
-  resolved "https://registry.yarnpkg.com/http-parser-js/-/http-parser-js-0.4.11.tgz#5b720849c650903c27e521633d94696ee95f3529"
+  version "0.4.12"
+  resolved "https://registry.yarnpkg.com/http-parser-js/-/http-parser-js-0.4.12.tgz#b9cfbf4a2cf26f0fc34b10ca1489a27771e3474f"
 
 http-proxy-middleware@~0.17.4:
   version "0.17.4"
@@ -3444,8 +3444,8 @@ ignore-walk@^3.0.1:
     minimatch "^3.0.4"
 
 ignore@^3.3.3:
-  version "3.3.7"
-  resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.7.tgz#612289bfb3c220e186a58118618d5be8c1bab021"
+  version "3.3.8"
+  resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.8.tgz#3f8e9c35d38708a3a7e0e9abb6c73e7ee7707b2b"
 
 import-lazy@^2.1.0:
   version "2.1.0"
@@ -3532,7 +3532,7 @@ intl@^1.2:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
 
-invariant@^2.0.0, invariant@^2.2.1, invariant@^2.2.2:
+invariant@^2.2.1, invariant@^2.2.2:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   dependencies:
@@ -4395,10 +4395,6 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-lodash-es@^4.17.5:
-  version "4.17.8"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.8.tgz#6fa8c8c5d337481df0bdf1c0d899d42473121e45"
-
 lodash._reinterpolate@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
@@ -4448,9 +4444,9 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-"lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@~4.17.4:
-  version "4.17.5"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
+"lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.3.0, lodash@~4.17.4:
+  version "4.17.10"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
 loglevel@^1.4.1:
   version "1.6.1"
@@ -4856,8 +4852,8 @@ node-pre-gyp@^0.9.0:
     tar "^4"
 
 node-sass@^4.8.3:
-  version "4.8.3"
-  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.8.3.tgz#d077cc20a08ac06f661ca44fb6f19cd2ed41debb"
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.9.0.tgz#d1b8aa855d98ed684d6848db929a20771cc2ae52"
   dependencies:
     async-foreach "^0.1.3"
     chalk "^1.1.1"
@@ -5012,14 +5008,14 @@ obuf@^1.0.0, obuf@^1.1.1:
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
 
 office-ui-fabric-react@^5.88.0:
-  version "5.88.0"
-  resolved "https://registry.yarnpkg.com/office-ui-fabric-react/-/office-ui-fabric-react-5.88.0.tgz#0005e6a9753d853ac28234c1d8a9dd42b0b5e78b"
+  version "5.90.0"
+  resolved "https://registry.yarnpkg.com/office-ui-fabric-react/-/office-ui-fabric-react-5.90.0.tgz#d5dda0bb21f20c6d542ba6277b398b9ae73eaf27"
   dependencies:
     "@microsoft/load-themed-styles" "^1.7.13"
     "@uifabric/icons" ">=5.7.1 <6.0.0"
-    "@uifabric/merge-styles" ">=5.16.0 <6.0.0"
-    "@uifabric/styling" ">=5.26.0 <6.0.0"
-    "@uifabric/utilities" ">=5.27.0 <6.0.0"
+    "@uifabric/merge-styles" ">=5.17.0 <6.0.0"
+    "@uifabric/styling" ">=5.27.0 <6.0.0"
+    "@uifabric/utilities" ">=5.28.0 <6.0.0"
     prop-types "^15.5.10"
     tslib "^1.7.1"
 
@@ -5834,17 +5830,6 @@ react-i18nify@^1.11.12:
     moment "^2.20.1"
     prop-types "^15.6.0"
 
-react-redux@^5.0.7:
-  version "5.0.7"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
-  dependencies:
-    hoist-non-react-statics "^2.5.0"
-    invariant "^2.0.0"
-    lodash "^4.17.5"
-    lodash-es "^4.17.5"
-    loose-envify "^1.1.0"
-    prop-types "^15.6.0"
-
 react-router-dom@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.2.2.tgz#c8a81df3adc58bba8a76782e946cbd4eae649b8d"
@@ -5915,7 +5900,7 @@ react-scripts@1.1.4:
 
 "react-winjs@git+https://github.com/TECLIB/react-winjs.git#develop":
   version "2.5.0"
-  resolved "git+https://github.com/TECLIB/react-winjs.git#283b9865d2d182cc1da77860717e34543e508a55"
+  resolved "git+https://github.com/TECLIB/react-winjs.git#9e3fa05c84e63223a9dbf43288b514e9a5f76678"
 
 react@^16.3.2:
   version "16.3.2"
@@ -6012,17 +5997,6 @@ reduce-function-call@^1.0.1:
   resolved "https://registry.yarnpkg.com/reduce-function-call/-/reduce-function-call-1.0.2.tgz#5a200bf92e0e37751752fe45b0ab330fd4b6be99"
   dependencies:
     balanced-match "^0.4.2"
-
-redux-thunk@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
-
-redux@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.0.tgz#aa698a92b729315d22b34a0553d7e6533555cc03"
-  dependencies:
-    loose-envify "^1.1.0"
-    symbol-observable "^1.2.0"
 
 regenerate@^1.2.1:
   version "1.3.3"
@@ -6290,9 +6264,13 @@ rx-lite@*, rx-lite@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-4.0.8.tgz#0b1e11af8bc44836f04a6407e92da42467b79444"
 
-safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
+safe-buffer@5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
+
+safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
 
 safe-regex@^1.1.0:
   version "1.1.0"
@@ -6844,10 +6822,6 @@ sw-toolbox@^3.4.0:
   dependencies:
     path-to-regexp "^1.0.1"
     serviceworker-cache-polyfill "^4.0.0"
-
-symbol-observable@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
 
 symbol-tree@^3.2.1:
   version "3.2.2"
