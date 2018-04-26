@@ -6,11 +6,21 @@ import RootApp from './app/RootApp'
 import { AuthenticationProvider } from './providers/AuthenticationProvider'
 import { NotificationsProvider } from './providers/NotificationsProvider'
 import { I18nProvider } from './providers/I18nProvider'
-import './assets/styles/css/index.css'
 import registerServiceWorker from './registerServiceWorker'
+import './assets/styles/css/index.css'
+import { Fabric } from 'office-ui-fabric-react/lib/Fabric'
+import { initializeIcons } from 'office-ui-fabric-react/lib/Icons'
+import { setIconOptions } from 'office-ui-fabric-react/lib/Styling'
+
+initializeIcons(/* optional base url */)
+// Suppress icon warnings.
+setIconOptions({
+    disableWarnings: true
+})
 
 ReactDOM.render(
     (
+    <Fabric>
         <I18nProvider>
             <NotificationsProvider>
                 <AuthenticationProvider>
@@ -20,6 +30,7 @@ ReactDOM.render(
                 </AuthenticationProvider>
             </NotificationsProvider>
         </I18nProvider>
+    </Fabric>
     ),
     document.getElementById('root')
 )
