@@ -2,16 +2,28 @@ import React, { Component } from 'react'
 
 const I18nContext = React.createContext()
 
-class I18nProvider extends Component {
+export const I18nConsumer = I18nContext.Consumer
+
+export class I18nProvider extends Component {
     state = {
         languageDefault: 'en_GB',
-        languageCurrent: 'en_GB',
+        languageCurrent: 'en_GB',        
+        changeLanguage: (language) => {
+            this.setState({
+                languageCurrent: language
+            })
+        },
+        changeLanguageFallBack: () => {
+            this.setState({
+                languageCurrent: this.state.languageDefault
+            })
+        },
     }
     render() {
         return (
-            <I18nProvider.Provider value={{ state: this.state }}>
+            <I18nContext.Provider value={{ state: this.state }}>
                 {this.props.children}
-            </I18nProvider.Provider>
+            </I18nContext.Provider>
         );
     }
 }
