@@ -1,17 +1,9 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { I18n } from 'react-i18nify'
-import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
+import withI18n from '../withI18n'
 
 import source_file_translation from './i18n/source_file.json'
-
-function mapStateToProps(state, props) {
-  return {
-      languageDefault: state.language.languageDefault,
-      languageCurrent: state.language.languageCurrent
-  }
-}
 
 /**
  * Translations HOC
@@ -23,7 +15,7 @@ const withI18NTranslation = WrappedComponent => {
      * @param {*} i18nConvention -> String, e.g: 'pt_BR'
      */
     findI18NString = i18nConvention => {
-      let path = i18nConvention === this.props.languageDefault
+      let path = i18nConvention === this.props.language.languageDefault
         ? `./i18n/source_file`
         : `./i18n/translations/${i18nConvention}`
 
@@ -35,24 +27,24 @@ const withI18NTranslation = WrappedComponent => {
             I18n.setLocale(i18nConvention)
             this.forceUpdate()
           }).catch((error) => {
-            I18n.setTranslations(this.props.languageDefault)
+            I18n.setTranslations(this.props.language.languageDefault)
             this.forceUpdate()
         })
     }
   
     componentWillMount() {
       I18n.setTranslations({
-        [this.props.languageDefault]: source_file_translation
+        [this.props.language.languageDefault]: source_file_translation
       })
     }
 
     componentDidMount() {
-      this.findI18NString(this.props.languageCurrent)
+      this.findI18NString(this.props.language.languageCurrent)
     }
 
     componentWillReceiveProps(nextProps) {
-      if (nextProps.languageCurrent !== this.props.languageCurrent) {        
-        this.findI18NString(nextProps.languageCurrent)
+      if (nextProps.language.languageCurrent !== this.props.language.languageCurrent) {        
+        this.findI18NString(nextProps.language.languageCurrent)
       }
     }
 
@@ -61,14 +53,7 @@ const withI18NTranslation = WrappedComponent => {
     }
   }
 
-  I18NTranslation.propTypes = {
-    languageDefault: PropTypes.string.isRequired,
-    languageCurrent: PropTypes.string.isRequired
-  }
-
-  return withRouter(
-    connect(mapStateToProps, null)(I18NTranslation)
-  )
+  return withI18n(withRouter(I18NTranslation))
 }
 
 export default withI18NTranslation

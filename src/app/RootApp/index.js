@@ -14,7 +14,7 @@ class RootApp extends Component {
     render() {
         return (
             <Switch>
-                <GenerateRoutes routes={routes} withNotFound toast={this.props.toast} />
+                <GenerateRoutes routes={routes} withNotFound toast={this.props.toast} language={this.props.language} />
             </Switch>
         )
     }
