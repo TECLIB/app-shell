@@ -8,9 +8,12 @@ import { NotificationsProvider } from './providers/NotificationsProvider'
 import { I18nProvider } from './providers/I18nProvider'
 import registerServiceWorker from './registerServiceWorker'
 import './assets/styles/css/index.css'
+import theme from './config/theme.json'
 import { Fabric } from 'office-ui-fabric-react/lib/Fabric'
 import { initializeIcons } from 'office-ui-fabric-react/lib/Icons'
-import { setIconOptions } from 'office-ui-fabric-react/lib/Styling'
+import { loadTheme, setIconOptions } from 'office-ui-fabric-react/lib/Styling'
+
+loadTheme(theme)
 
 initializeIcons(/* optional base url */)
 // Suppress icon warnings.
