@@ -6,14 +6,13 @@ import Loading from '../../../components/Loading'
 import { I18n } from "react-i18nify"
 import getID from '../../../shared/getID'
 import publicURL from '../../../shared/publicURL'
-
+import { Icon } from 'office-ui-fabric-react/lib/Icon'
+import { CommandBarButton } from 'office-ui-fabric-react/lib/Button';
 import {
     Persona,
     PersonaSize,
     PersonaPresence
 } from 'office-ui-fabric-react/lib/Persona'
-import { initializeIcons } from '@uifabric/icons'
-initializeIcons(undefined, { disableWarnings: true })
 
 export default class UsersContent extends Component {
 
@@ -106,23 +105,27 @@ export default class UsersContent extends Component {
                         </div>
                         <div className="contentStatus" style={{ padding: '0 110px' }}>
                             <br />
-                            <span
-                                className="editIcon"
-                                style={{ padding: '0 10px', fontSize: '20px' }}
-                                onClick={() => this.props.history.push(`${publicURL}/app/users`)}
+                            <div style={{ display: 'flex', alignItems: 'stretch', height: '40px' }}>
+                            <CommandBarButton
+                                data-automation-id='edit'
+                                iconProps={{ iconName: 'edit' }}
+                                text='Edit'
+                                    onClick={() => this.props.history.push(`${publicURL}/app/users`)}
                             />
-                            <span
-                                className="deleteIcon"
-                                style={{ padding: '0 10px', fontSize: '20px', display: this.props.selectedItems.length === 0 ? 'none' : '' }}
+                            <CommandBarButton
+                                data-automation-id='remove'
+                                iconProps={{ iconName: 'delete' }}
+                                text='Delete'
                                 onClick={this.handleDelete}
                             />
+                            </div>
                         </div>
                     </div>
                     <div className="separator" />
                     <div className="contentInfo">
                         <ul>
                             <li>
-                                <span className="phoneIcon" />
+                                <Icon iconName="phone" />
                                 <div className="callContent">
                                     <a href={this.state.data.mobile ? "tel:" + this.state.data.mobile : "#call"}>
                                         {I18n.t('commons.call_mobile')}
@@ -133,7 +136,7 @@ export default class UsersContent extends Component {
                                 </div>
                             </li>
                             <li>
-                                <span className="phoneIcon" />
+                                <Icon iconName="phone" />
                                 <div className="callContent">
                                     <a href={this.state.data.phone2 ? "tel:" + this.state.data.phone2 : "#call"}>
                                         {I18n.t('commons.call_work')}
@@ -144,7 +147,7 @@ export default class UsersContent extends Component {
                                 </div>
                             </li>
                             <li>
-                                <span className="emailIcon" />
+                                <Icon iconName="mail" />
                                 <div className="callContent">
                                     <a href={this.state.emails.length > 0 ? "mailto:" + this.state.emails[0]["email"] : "#email"}>
                                         {I18n.t('commons.email')}

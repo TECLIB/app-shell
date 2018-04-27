@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { I18n } from "react-i18nify"
 import publicURL from '../../shared/publicURL'
+import { Icon } from 'office-ui-fabric-react/lib/Icon'
 
 class HeaderBreadcrumb extends React.Component {
 
@@ -35,7 +36,7 @@ class HeaderBreadcrumb extends React.Component {
       <header className="header-block">
   
         <div className="header-icon">
-          <span className="burgerIcon" onClick={this.props.handleToggleExpand}/>
+          <Icon iconName="CollapseMenu" onClick={this.props.handleToggleExpand} />
         </div>
   
         <nav className="header-breadcrumb">
