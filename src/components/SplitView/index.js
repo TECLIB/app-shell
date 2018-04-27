@@ -38,15 +38,15 @@ class SplitView extends React.Component {
                         />
                         <IconWithPopper
                           to={`${publicURL}/app/users`}
-                          iconName='peopleIcon'
-                          title={I18n.t('commons.device')}
+                          iconName='Contact'
+                          title={I18n.t('commons.user')}
                           disabled={this.props.expanded}
                         />
                       </section>
                       <section className="splitview-wrapped-navbar-wrapped-bottom__section">
                         <IconWithPopper
                           click={this.logout}
-                          iconName='PowerButtonIcon'
+                          iconName='SignOut'
                           title={I18n.t('commons.logout')}
                           disabled={this.props.expanded}
                         />
@@ -62,6 +62,7 @@ class SplitView extends React.Component {
                       }`}>
                       <section className="splitview-wrapped-navbar-wrapped-top__section --description">
                         <SpanWithPopper description={I18n.t('commons.dashboard')} to={`${publicURL}/app`} />
+                        <SpanWithPopper description={I18n.t('commons.user')} to={`${publicURL}/app/users`} />
                       </section>
                       <section className="splitview-wrapped-navbar-wrapped-bottom__section --description">
                         <SpanWithPopper description={I18n.t('commons.logout')} click={this.logout} />

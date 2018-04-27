@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
+import { Icon } from 'office-ui-fabric-react/lib/Icon'
+
 
 class iconWithPopper extends Component {
   render () {
@@ -8,7 +10,7 @@ class iconWithPopper extends Component {
       return (
         <div>
           <NavLink to={this.props.to} activeClassName="selected">
-            <span className={this.props.iconName} title={this.props.title}/>
+            <Icon iconName={this.props.iconName} ariaLabel={this.props.title} />
           </NavLink>
         </div>
       )
@@ -16,7 +18,7 @@ class iconWithPopper extends Component {
       return (
         <div onClick={this.props.click}>
           <a>
-            <span className={this.props.iconName} title={this.props.title}/>
+            <Icon iconName={this.props.iconName} ariaLabel={this.props.title} />
           </a>
         </div>
       )
