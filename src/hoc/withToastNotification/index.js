@@ -4,6 +4,7 @@ import { withRouter } from 'react-router'
 import withNotifications from '../withNotifications'
 import validateNotifications from '../../shared/validateNotifications'
 import nativeNotification from '../../shared/nativeNotification'
+import { Icon } from 'office-ui-fabric-react/lib/Icon'
 
 const withToastNotification = WrappedComponent => {
 	class ToastNotification extends Component {
@@ -47,13 +48,7 @@ const withToastNotification = WrappedComponent => {
 			if (this.props.toast.show) {
 				toast = (
 					<div className={`toast --${this.props.toast.notification.type}`}>
-						<span
-							className="cancelIcon"
-							style={{ float: 'right', cursor: 'pointer', color: '#ffffff' }}
-							onClick={() => {
-								this.hideNotification()
-							}}
-						/>
+						<Icon iconName="cancel" style={{ float: 'right', cursor: 'pointer', color: '#ffffff' }} />
 						<div className="toast-title">
 							{this.props.toast.notification.title}
 						</div>
