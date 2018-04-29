@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { I18n } from 'react-i18nify'
 import Loading from '../../../components/Loading'
 import publicURL from '../../../shared/publicURL'
+import { PrimaryButton, DefaultButton } from 'office-ui-fabric-react/lib/Button'
 
 class PasswordFieldset extends Component {
     
@@ -56,15 +57,14 @@ class PasswordFieldset extends Component {
                             required={true}
                         />
 
-                        <button className="btn --secondary" type="button" onClick={
-                            () => this.props.changePhase(1)
-                        }>
-                            { I18n.t('commons.back') }
-                        </button>
+                        <DefaultButton className="btn" onClick={() => this.props.changePhase(1)}>
+                            {I18n.t('commons.back')}
+                        </DefaultButton>&nbsp;
+                        <PrimaryButton type="submit" className="btn">
+                            {I18n.t('commons.sign_in')}
+                        </PrimaryButton>
 
-                        <button type="submit" className="btn --primary">
-                            { I18n.t('commons.sign_in') }
-                        </button>
+                        
                     </form>
                     
                     <p>

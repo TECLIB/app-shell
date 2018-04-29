@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { I18n } from 'react-i18nify'
 import { selfRegistration } from '../../../config/config.json'
 import publicURL from '../../../shared/publicURL'
+import { PrimaryButton } from 'office-ui-fabric-react/lib/Button'
 
 class UsernameFieldset extends Component {
 
@@ -63,9 +64,9 @@ class UsernameFieldset extends Component {
                         onChange={this.props.changeInput} 
                         required={true}
                     />
-                    <button className="btn --primary">
+                    <PrimaryButton type="submit" className="btn">
                         {I18n.t('commons.next')}
-                    </button>
+                    </PrimaryButton>
                 </form>
                 {
                     !selfRegistration ? '' : (
