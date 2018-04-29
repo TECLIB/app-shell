@@ -165,8 +165,6 @@ $color-fonts-hover: $splitview-color-fonts-hover;
             
             > a {
               cursor: pointer;            
-              font-size: $splitview-icon-size;
-              color: $color-fonts;
   
               @extend %normalize-anchor;
               
