@@ -17,7 +17,7 @@ class HeaderBreadcrumb extends React.Component {
     breadcrumbs() {
         let breadcrumbs = []
         breadcrumbs.push({ text: I18n.t('commons.dashboard'), key: `${publicURL}/app`, href: `${publicURL}/app` })
-        const customDivider = () => <span className="header-breadcrumb-separator">&nbsp;/&nbsp;</span>
+        const customDivider = () => <span className="header-breadcrumb">&nbsp;/&nbsp;</span>
         const addresses = this.props.history.location.pathname.split("/")
 
         for (let index = (publicURL === '') ? 2 : 3; index < addresses.length; index++) {
@@ -29,15 +29,13 @@ class HeaderBreadcrumb extends React.Component {
         }
 
         let componentBreadcrumbs = (
-            <div style={{ display: 'inline-block' }}>
                 <Breadcrumb 
-                    className="header-breadcrumb-separator"
+                    className="header-breadcrumb"
                     items={breadcrumbs}
                     onRenderItem={this.renderItem}
                     dividerAs={customDivider}
                     maxDisplayedItems={3}
-                />
-            </div>)
+                />)
 
         return componentBreadcrumbs
     }
@@ -48,9 +46,8 @@ class HeaderBreadcrumb extends React.Component {
                 <div className="header-icon">
                     <Icon iconName="CollapseMenu" onClick={this.props.handleToggleExpand} />
                 </div>
-
                 <nav className="header-breadcrumb">
-                    {this.breadcrumbs()}
+                    {this.breadcrumbs()} 
                 </nav>
             </header>
         )

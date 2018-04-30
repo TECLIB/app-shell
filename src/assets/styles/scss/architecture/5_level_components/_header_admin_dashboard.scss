@@ -1,27 +1,30 @@
 .header-block {
-  background: transparent;
+  display: flex;
+  background: $color-1-primary;
   height: $header-height;
 
   nav {
     display: inline-block;
     font-size: 16px;
-    vertical-align: middle;
+    line-height: 48px;
+
+    div div a {
+      color: #ffffff;
+    }
   }
 
   .header-icon {
     display: inline-block;
-    font-size: 16px;
-    width: 54px;
+    font-size: 22px;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
     text-align: center;
-    vertical-align: middle;
+    color: #ffffff;
   }
 
   .header-breadcrumb {
-    line-height: 2.5;
-  }
-
-  .header-breadcrumb-separator {
     margin: 0 5px;
+    color: #ffffff;
   }
-
 }
