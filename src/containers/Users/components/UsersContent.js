@@ -96,7 +96,7 @@ export default class UsersContent extends Component {
             renderComponent = (
                 <div>
                     <div className="contentHeader">
-                        <div className="itemInfo" style={{ padding: '0 10px'}}>
+                        <div className="itemInfo" style={{ padding: '10px 10px'}}>
                             <Persona
                                 {...this.state.data}
                                 size={PersonaSize.size100}
