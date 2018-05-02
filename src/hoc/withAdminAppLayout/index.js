@@ -35,7 +35,11 @@ const withAdminAppLayout = WrappedComponent => {
             let nextMode = getMode()
 
             if (prevMode !== nextMode) {
-                this.setState({ mode: nextMode })
+                this.setState({ mode: nextMode }, () => {
+                    if (this.state.mode === 'small') {
+                        this.handleContract()
+                    }
+                })
             }
         }
 
