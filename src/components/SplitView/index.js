@@ -55,7 +55,7 @@ class SplitView extends React.Component {
                   </ScrollSyncPane>
                 </nav>
                 { this.props.expanded && (
-                <nav className="splitview-wrapped__navbar" onClick={this.props.handleContract}>
+                <nav className="splitview-wrapped__navbar" onClick={this.props.mode === 'small' ? this.props.handleContract : null}>
                   <ScrollSyncPane>
                     <div className={`splitview-wrapper-wrapper__div --large --end --opening ${
                         this.props.contract && '--closing'
