@@ -5,6 +5,7 @@ import { I18n } from "react-i18nify"
 import publicURL from '../../shared/publicURL'
 import { Icon } from 'office-ui-fabric-react/lib/Icon'
 import { Breadcrumb } from 'office-ui-fabric-react/lib/Breadcrumb'
+import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 
 class HeaderBreadcrumb extends React.Component {
 
@@ -43,9 +44,12 @@ class HeaderBreadcrumb extends React.Component {
     render() {
         return (
             <header className="header-block">
-                <div className="header-icon">
+                <DefaultButton
+                    className="header-icon"
+                    primary={true}
+                    onClick={this.props.handleToggleExpand}>
                     <Icon iconName="CollapseMenu" onClick={this.props.handleToggleExpand} />
-                </div>
+                </DefaultButton>
                 <nav className="header-breadcrumb">
                     {this.breadcrumbs()} 
                 </nav>
