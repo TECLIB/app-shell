@@ -35,7 +35,7 @@ class HeaderBreadcrumb extends React.Component {
                     items={breadcrumbs}
                     onRenderItem={this.renderItem}
                     dividerAs={customDivider}
-                    maxDisplayedItems={3}
+                    onReduceData={() => {}}
                 />)
 
         return componentBreadcrumbs
