@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
 const I18nContext = React.createContext()
 
 export const I18nConsumer = I18nContext.Consumer
 
-export class I18nProvider extends Component {
+export class I18nProvider extends PureComponent {
     state = {
         languageDefault: 'en_GB',
         languageCurrent: 'en_GB',        

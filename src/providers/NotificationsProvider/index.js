@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
 const NotificationsContext = React.createContext()
 
 export const NotificationsConsumer = NotificationsContext.Consumer
 
-export class NotificationsProvider extends Component {
+export class NotificationsProvider extends PureComponent {
     state = {
         notification: {
             title: '',
