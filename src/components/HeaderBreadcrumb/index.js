@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { I18n } from "react-i18nify"
@@ -7,7 +7,7 @@ import { Icon } from 'office-ui-fabric-react/lib/Icon'
 import { Breadcrumb } from 'office-ui-fabric-react/lib/Breadcrumb'
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 
-class HeaderBreadcrumb extends React.Component {
+class HeaderBreadcrumb extends PureComponent {
 
     renderItem = (eventObject) => {
         return (<Link to={eventObject.href}>

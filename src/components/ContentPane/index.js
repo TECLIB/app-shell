@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
-class ContentPane extends Component {
+class ContentPane extends PureComponent {
 
   constructor(props) {
     super(props)
