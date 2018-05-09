@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { I18n } from 'react-i18nify'
 import withHandleMessages from '../../hoc/withHandleMessages'
@@ -7,7 +7,7 @@ import EmptyMessage from '../../components/EmptyMessage'
 import ContentPane from '../../components/ContentPane'
 import delay from '../../shared/delay'
 
-class Dashboard extends Component {
+class Dashboard extends PureComponent {
   constructor (props) {
     super(props)
     this.state = {

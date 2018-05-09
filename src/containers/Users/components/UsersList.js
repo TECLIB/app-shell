@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { PureComponent } from "react"
 import PropTypes from 'prop-types'
 import ReactWinJS from 'react-winjs'
 import WinJS from 'winjs'
@@ -12,7 +12,7 @@ import publicURL from '../../../shared/publicURL'
 import delay from '../../../shared/delay'
 import users from '../../../data/users.json'
 
-export default class UsersList extends Component {
+export default class UsersList extends PureComponent {
     
     constructor(props) {
         super(props)

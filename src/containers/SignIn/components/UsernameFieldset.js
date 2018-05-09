@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { I18n } from 'react-i18nify'
@@ -6,7 +6,7 @@ import { selfRegistration } from '../../../config/config.json'
 import publicURL from '../../../shared/publicURL'
 import { PrimaryButton } from 'office-ui-fabric-react/lib/Button'
 
-class UsernameFieldset extends Component {
+class UsernameFieldset extends PureComponent {
 
     constructor (props) {
         super(props)

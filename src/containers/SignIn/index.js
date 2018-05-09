@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import UsernameFieldset from './components/UsernameFieldset'
 import withAuthenticationLayout from '../../hoc/withAuthenticationLayout'
@@ -12,7 +12,7 @@ import { Redirect } from 'react-router'
 import Loading from '../../components/Loading'
 import { changeInput, changePhase, handleFormSubmit } from './actions'
 
-class SignIn extends Component {
+class SignIn extends PureComponent {
 
     constructor (props) {
         super(props)
