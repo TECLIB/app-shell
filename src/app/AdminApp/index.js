@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import withAdminAppLayout from '../../hoc/withAdminAppLayout'
 import withToastNotification from '../../hoc/withToastNotification'
 
 import routes from './routes'
 import GenerateRoutes from '../../components/GenerateRoutes'
 
-class AdminApp extends Component {
+class AdminApp extends PureComponent {
     render() {
         return <GenerateRoutes routes={routes} rootPath={this.props.match.url} toast={this.props.toast}/>
     }

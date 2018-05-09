@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Switch } from 'react-router-dom'
 import withI18NTranslation from '../../hoc/withI18NTranslation'
 import withToastNotification from '../../hoc/withToastNotification'
@@ -10,7 +10,7 @@ import routes from './routes'
  * This Render each route of the containers or / and components like 404
  * TODO: Use PrivateRoute if the `private attribute of route is true
  */
-class RootApp extends Component {
+class RootApp extends PureComponent {
     render() {
         return (
             <Switch>
