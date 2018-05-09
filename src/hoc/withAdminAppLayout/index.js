@@ -21,6 +21,9 @@ const withAdminAppLayout = WrappedComponent => {
                 mode: getMode(),
                 iframe: ''
             }
+
+            window.addEventListener('resize', this.handleResize)
+            animations()
         }
 
         logout = async () => {
@@ -41,11 +44,6 @@ const withAdminAppLayout = WrappedComponent => {
                     }
                 })
             }
-        }
-
-        componentWillMount() {
-            window.addEventListener('resize', this.handleResize)
-            animations()
         }
 
         componentWillUnmount() {
