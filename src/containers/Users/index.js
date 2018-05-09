@@ -20,6 +20,8 @@ class Users extends PureComponent {
             action: null,
             selectedItems: []
         }
+
+        window.addEventListener('resize', this.handleResize)
     }
 
     handleResize = () => {
@@ -42,18 +44,21 @@ class Users extends PureComponent {
         }
     }
 
-    componentWillMount() {
-        window.addEventListener('resize', this.handleResize)
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.history.location.pathname === `${publicURL}/app/users` && prevState.selectedItems.length > 0) {
+            return {
+                ...prevState,
+                selectedItems: []
+            }
+        } else {
+            return {
+                ...prevState
+            }
+        }
     }
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.handleResize)
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (this.props.history.location.pathname === `${publicURL}/app/users` && this.state.selectedItems.length > 0) {
-            this.changeSelectedItems([])
-        }
     }
 
     propsData = () => {
