@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import SplitView from "../../components/SplitView"
 import HeaderBreadcrumb from '../../components/HeaderBreadcrumb'
 import getMode from '../../shared/getMode'
@@ -12,7 +12,7 @@ import withAuthentication from '../../hoc/withAuthentication'
 const TIMEOUT_CONTRACT = 250
 
 const withAdminAppLayout = WrappedComponent => {
-    class AdminAppLayout extends Component {
+    class AdminAppLayout extends PureComponent {
         constructor(props) {
             super(props)
             this.state = {

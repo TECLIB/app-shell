@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { I18n } from 'react-i18nify'
 import { withRouter } from 'react-router'
 import withI18n from '../withI18n'
@@ -10,7 +10,7 @@ import source_file_translation from './i18n/source_file.json'
  * @param {*} WrappedComponent -> React Component
  */
 const withI18NTranslation = WrappedComponent => {
-  class I18NTranslation extends Component {
+  class I18NTranslation extends PureComponent {
     /**
      * @param {*} i18nConvention -> String, e.g: 'pt_BR'
      */
