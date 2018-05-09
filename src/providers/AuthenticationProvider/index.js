@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import publicURL from '../../shared/publicURL'
 
 const AuthenticationContext = React.createContext()
 
 export const AuthenticationConsumer = AuthenticationContext.Consumer
 
-export class AuthenticationProvider extends Component {
+export class AuthenticationProvider extends PureComponent {
     state = {
         configurationPassword: {},
         captcha: {},
