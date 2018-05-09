@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import { Icon } from 'office-ui-fabric-react/lib/Icon'
 
 
-class iconWithPopper extends Component {
+class iconWithPopper extends PureComponent {
   render () {
     if (this.props.to) {
       return (
