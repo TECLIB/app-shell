@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import routes from './routes'
 import withHandleMessages from '../../hoc/withHandleMessages'
 import withToasNotification from '../../hoc/withHandleMessages'
@@ -8,7 +8,7 @@ import getMode from '../../shared/getMode'
 import calc100PercentMinus from '../../shared/calc100PercentMinus'
 import publicURL from '../../shared/publicURL'
 
-class Users extends Component {
+class Users extends PureComponent {
 
     constructor(props) {
         super(props)

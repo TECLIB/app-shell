@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import ContentPane from '../../../components/ContentPane'
 import Confirmation from '../../../components/Confirmation'
@@ -14,7 +14,7 @@ import {
     PersonaPresence
 } from 'office-ui-fabric-react/lib/Persona'
 
-export default class UsersContent extends Component {
+export default class UsersContent extends PureComponent {
 
     constructor (props) {
         super(props)
