@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "node-sass": "^4.8.3",
+    "node-sass": "^4.9.0",
     "react-scripts": "1.1.4"
   },
   "dependencies": {
-    "office-ui-fabric-react": "^5.92.0",
+    "office-ui-fabric-react": "^5.98.0",
     "react": "^16.3.2",
     "react-content-loader": "^3.1.1",
     "react-dom": "^16.3.2",
-    "react-i18nify": "^1.11.12",
+    "react-i18nify": "^1.11.14",
     "react-router-dom": "^4.2.2",
     "react-winjs": "git+https://github.com/TECLIB/react-winjs.git#develop",
     "winjs": "^4.4.3"
