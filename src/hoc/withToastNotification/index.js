@@ -12,24 +12,44 @@ const withToastNotification = WrappedComponent => {
 			super(props)
 			this.state = {
 				timer: {},
+				title: this.props.toast.notification.title,
+				body: this.props.toast.notification.body,
+				type: this.props.toast.notification.type
 			}
 		}
 
-		componentWillReceiveProps(nextProps) {
-			if (nextProps.toast.notification.title !== this.props.toast.notification.title || nextProps.toast.notification.body !== this.props.toast.notification.body) {
+		static getDerivedStateFromProps(nextProps, prevState) {
+			if (nextProps.title !== prevState.title || nextProps.body !== prevState.body) {
 				const notification = validateNotifications()
-				if (notification.show || nextProps.toast.notification.type === "alert") {
+				if (notification.show || nextProps.type === "alert") {
 					if (notification.type === "Toast") {
-						this.setState({
-							type: nextProps.toast.notification.type,
-							timer: setTimeout(() => {
-								this.hideNotification()
-							}, 4000)
-						})
+						return {
+							type: nextProps.type,
+							title: nextProps.title,
+							body: nextProps.body,
+						}
 					} else {
-						nativeNotification(nextProps.toast.notification.title, nextProps.toast.notification.body, nextProps.icon)
+						nativeNotification(nextProps.title, nextProps.body, nextProps.icon)
+						return {
+							...prevState,
+						}
 					}
 				}
+
+			} else {
+				return {
+					...prevState
+				}
+			}
+		}
+
+		componentDidUpdate(prevProps, prevState, prevContext) {
+			if (prevProps.toast.notification.title !== this.props.toast.notification.title || prevProps.toast.notification.body !== this.props.toast.notification.body) {
+				this.setState({
+					timer: setTimeout(() => {
+						this.hideNotification()
+					}, 4000)
+				})
 			}
 		}
 
