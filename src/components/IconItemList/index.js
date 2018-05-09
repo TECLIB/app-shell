@@ -5,7 +5,7 @@ export default class IconItemList extends PureComponent {
     constructor (props) {
         super(props)
         this.state = {
-            image: ''
+            image: this.props.type !== 'file' || this.props.image === '' ? this.props.image : ''
         }
     }
 
@@ -53,14 +53,6 @@ export default class IconItemList extends PureComponent {
                 break
             }
         } catch (error) {}
-    }
-
-    componentWillMount() {
-        if (this.props.type !== 'file' || this.props.image === '') {
-            this.setState({
-                image: this.props.image
-            })
-        }
     }
 
     componentDidMount () {
