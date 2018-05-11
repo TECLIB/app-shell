@@ -1,7 +1,7 @@
 import React from 'react'
-import renderMergedProps from '../renderMergerProps/renderMergedProps'
 import { Route } from 'react-router-dom'
 import { Redirect } from 'react-router'
+import renderMergedProps from '../renderMergerProps/renderMergedProps'
 
 const isAuthenticated = () => {
   if (localStorage.getItem('sessionToken') && localStorage.getItem('sessionToken') !== undefined) {

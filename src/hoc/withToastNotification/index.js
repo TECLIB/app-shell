@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
-import WinJS from 'winjs'
 import { withRouter } from 'react-router'
+import WinJS from 'winjs'
+import { Icon } from 'office-ui-fabric-react/lib/Icon'
 import withNotifications from '../withNotifications'
 import validateNotifications from '../../shared/validateNotifications'
 import nativeNotification from '../../shared/nativeNotification'
-import { Icon } from 'office-ui-fabric-react/lib/Icon'
 
 const withToastNotification = WrappedComponent => {
   class ToastNotification extends PureComponent {

@@ -1,18 +1,18 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import ContentPane from '../../../components/ContentPane'
-import Confirmation from '../../../components/Confirmation'
-import Loading from '../../../components/Loading'
-import { I18n } from 'react-i18nify'
-import getID from '../../../shared/getID'
-import publicURL from '../../../shared/publicURL'
 import { Icon } from 'office-ui-fabric-react/lib/Icon'
-import { CommandBarButton } from 'office-ui-fabric-react/lib/Button';
+import { CommandBarButton } from 'office-ui-fabric-react/lib/Button'
 import {
   Persona,
   PersonaSize,
   PersonaPresence,
 } from 'office-ui-fabric-react/lib/Persona'
+import { I18n } from 'react-i18nify'
+import ContentPane from '../../../components/ContentPane'
+import Confirmation from '../../../components/Confirmation'
+import Loading from '../../../components/Loading'
+import getID from '../../../shared/getID'
+import publicURL from '../../../shared/publicURL'
 
 export default class UsersContent extends PureComponent {
 
