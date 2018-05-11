@@ -14,7 +14,7 @@ const withToastNotification = WrappedComponent => {
         timer: {},
         title: this.props.toast.notification.title,
         body: this.props.toast.notification.body,
-        type: this.props.toast.notification.type
+        type: this.props.toast.notification.type,
       }
     }
 
@@ -38,7 +38,7 @@ const withToastNotification = WrappedComponent => {
 
       } else {
         return {
-          ...prevState
+          ...prevState,
         }
       }
     }
@@ -48,15 +48,13 @@ const withToastNotification = WrappedComponent => {
         this.setState({
           timer: setTimeout(() => {
             this.hideNotification()
-          }, 4000)
+          }, 4000),
         })
       }
     }
 
     hideNotification = () => {
-      WinJS.UI.Animation.exitContent(
-        document.getElementsByClassName('toast'), { top: '0px', left: '20px' }
-      ).then(() => {
+      WinJS.UI.Animation.exitContent(document.getElementsByClassName('toast'), { top: '0px', left: '20px' }).then(() => {
         clearTimeout(this.state.timer)
         this.props.toast.hidenNotification()
       })

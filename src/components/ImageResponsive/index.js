@@ -4,7 +4,7 @@ import { updateObject } from '../../shared/updateObject'
 let style = {
   width: '100%',
   maxWidth: '100%',
-  height: 'auto'
+  height: 'auto',
 }
 
 const ImageResponsive = ({ src, alt, styleNew = {}, title }) => (

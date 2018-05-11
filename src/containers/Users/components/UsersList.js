@@ -26,8 +26,8 @@ export default class UsersList extends PureComponent {
       pagination: {
         start: 0,
         page: 1,
-        count: 15
-      }
+        count: 15,
+      },
     }
   }
 
@@ -105,8 +105,8 @@ export default class UsersList extends PureComponent {
         pagination: {
           start: 0,
           page: 1,
-          count: 15
-        }
+          count: 15,
+        },
       })
       await delay(2000)
       const response = users
@@ -114,7 +114,7 @@ export default class UsersList extends PureComponent {
       this.setState({
         isLoading: false,
         order: response.order,
-        itemList: BuildItemList(response)
+        itemList: BuildItemList(response),
       })
     } catch (e) {
       this.setState({
@@ -133,14 +133,14 @@ export default class UsersList extends PureComponent {
     if (isOK) {
 
       this.setState({
-        isLoading: true
+        isLoading: true,
       }, async () => {
         try {
 
           this.props.toast.setNotification({
             title: I18n.t('commons.success'),
             body: I18n.t('notifications.user_successfully_removed'),
-            type: 'success'
+            type: 'success',
           })
           this.props.changeSelectionMode(false)
           this.props.changeSelectedItems([])
@@ -153,7 +153,7 @@ export default class UsersList extends PureComponent {
             this.listView.winControl.selection.clear()
           }
           this.setState((prevState, props) => ({
-            isLoading: false
+            isLoading: false,
           }))
         }
       })
@@ -171,8 +171,8 @@ export default class UsersList extends PureComponent {
         pagination: {
           start: 0,
           page: 1,
-          count: 15
-        }
+          count: 15,
+        },
       })
 
       const response = users
@@ -180,7 +180,7 @@ export default class UsersList extends PureComponent {
       this.setState({
         isLoading: false,
         order: response.order,
-        itemList: BuildItemList(response)
+        itemList: BuildItemList(response),
       })
       this.props.history.push(`${publicURL}/app/users`)
 

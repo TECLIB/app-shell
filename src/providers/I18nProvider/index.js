@@ -10,12 +10,12 @@ export class I18nProvider extends PureComponent {
     languageCurrent: 'en_GB',
     changeLanguage: (language) => {
       this.setState({
-        languageCurrent: language
+        languageCurrent: language,
       })
     },
     changeLanguageFallBack: () => {
       this.setState({
-        languageCurrent: this.state.languageDefault
+        languageCurrent: this.state.languageDefault,
       })
     },
   }

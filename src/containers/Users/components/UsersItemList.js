@@ -17,5 +17,5 @@ export default class UsersItemList extends PureComponent {
   }
 }
 UsersItemList.propTypes = {
-  itemList: PropTypes.object.isRequired
+  itemList: PropTypes.object.isRequired,
 }

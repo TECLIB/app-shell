@@ -5,7 +5,7 @@ export default class IconItemList extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      image: this.props.type !== 'file' || this.props.image === '' ? this.props.image : ''
+      image: this.props.type !== 'file' || this.props.image === '' ? this.props.image : '',
     }
   }
 
@@ -17,7 +17,7 @@ export default class IconItemList extends PureComponent {
         case 'apple.png':
         case 'Phone.png':
           this.setState({
-            image: require(`../../assets/images/${this.props.image}`)
+            image: require(`../../assets/images/${this.props.image}`),
           })
           break
 
@@ -33,11 +33,11 @@ export default class IconItemList extends PureComponent {
 
           fetch(url, {
             method: 'GET',
-            credentials: 'same-origin'
+            credentials: 'same-origin',
           }).then((response) => {
             response.arrayBuffer().then((buffer) => {
               this.setState({
-                image: 'data:image/jpeg;base64,' + arrayBufferToBase64(buffer)
+                image: 'data:image/jpeg;base64,' + arrayBufferToBase64(buffer),
               })
             })
           })
@@ -68,7 +68,7 @@ export default class IconItemList extends PureComponent {
       width: this.props.size,
       height: this.props.size,
       backgroundSize: 'cover',
-      display: 'inline-block'
+      display: 'inline-block',
     }
     let className = ''
     if (this.props.type !== 'base64') {
@@ -77,7 +77,7 @@ export default class IconItemList extends PureComponent {
         ...style,
         WebkitBorderRadius: this.props.size,
         MozBorderRadius: this.props.size,
-        borderRadius: this.props.size
+        borderRadius: this.props.size,
       }
     }
 
@@ -95,7 +95,7 @@ IconItemList.defaultProps = {
   size: 100,
   backgroundColor: '#e6e6e6',
   image: '',
-  type: 'file'
+  type: 'file',
 }
 
 IconItemList.propTypes = {
@@ -105,5 +105,5 @@ IconItemList.propTypes = {
   type: PropTypes.oneOf(['file', 'base64', 'localFile']).isRequired,
   isMin: PropTypes.bool,
   imgClick: PropTypes.func,
-  imgClass: PropTypes.string
+  imgClass: PropTypes.string,
 }

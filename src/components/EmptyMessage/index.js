@@ -14,12 +14,12 @@ const EmptyMessage = props => (
 EmptyMessage.propTypes = {
   icon: PropTypes.string,
   showIcon: PropTypes.bool,
-  message: PropTypes.string.isRequired
+  message: PropTypes.string.isRequired,
 }
 
 EmptyMessage.defaultProps = {
   showIcon: false,
-  message: I18n.t('commons.no_selection')
+  message: I18n.t('commons.no_selection'),
 }
 
 export default EmptyMessage

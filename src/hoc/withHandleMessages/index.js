@@ -16,11 +16,11 @@ const withHandleMessages = WrappedComponent => {
   }
 
   HandleMessages.defaultProps = {
-    handleMessage: handleMessage
+    handleMessage: handleMessage,
   };
 
   HandleMessages.propTypes = {
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
   };
 
   return HandleMessages;

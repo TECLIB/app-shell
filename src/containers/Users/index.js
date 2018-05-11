@@ -18,7 +18,7 @@ class Users extends PureComponent {
       itemListPaneWidth: getMode() === 'small' ? '100%' : 320,
       selectionMode: false,
       action: null,
-      selectedItems: []
+      selectedItems: [],
     }
 
     window.addEventListener('resize', this.handleResize)
@@ -29,17 +29,17 @@ class Users extends PureComponent {
 
     if (nextMode === 'small') {
       this.setState({
-        itemListPaneWidth: '100%'
+        itemListPaneWidth: '100%',
       })
     } else {
       this.setState({
-        itemListPaneWidth: 320
+        itemListPaneWidth: 320,
       })
     }
 
     if (this.state.mode !== nextMode) {
       this.setState({
-        mode: nextMode
+        mode: nextMode,
       })
     }
   }
@@ -48,11 +48,11 @@ class Users extends PureComponent {
     if (nextProps.history.location.pathname === `${publicURL}/app/users` && prevState.selectedItems.length > 0) {
       return {
         ...prevState,
-        selectedItems: []
+        selectedItems: [],
       }
     } else {
       return {
-        ...prevState
+        ...prevState,
       }
     }
   }
@@ -83,7 +83,7 @@ class Users extends PureComponent {
   stylesList = () => {
 
     let styles = {
-      width: this.state.itemListPaneWidth
+      width: this.state.itemListPaneWidth,
     }
 
     if (this.state.mode === 'small') {
@@ -108,7 +108,7 @@ class Users extends PureComponent {
     const validWidth = this.state.itemListPaneWidth === '100%' ? 0 : this.state.itemListPaneWidth
     let styles = {
       width: calc100PercentMinus(validWidth),
-      height: '100%'
+      height: '100%',
     }
 
     if (this.state.mode === 'small') {

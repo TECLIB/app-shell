@@ -7,16 +7,16 @@ class ScrollSyncPane extends PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
     attachTo: PropTypes.object,
-    group: PropTypes.string
+    group: PropTypes.string,
   }
 
   static defaultProps = {
-    group: 'default'
+    group: 'default',
   }
 
   static contextTypes = {
     registerPane: PropTypes.func.isRequired,
-    unregisterPane: PropTypes.func.isRequired
+    unregisterPane: PropTypes.func.isRequired,
   };
 
   componentDidMount() {

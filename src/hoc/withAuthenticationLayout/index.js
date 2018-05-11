@@ -13,7 +13,7 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
   const authenticationLayout = props => {
     const style = {
       textAlign: configStyles.centerContent ? 'center' : null,
-      width: props.width
+      width: props.width,
     }
 
     return (
@@ -52,15 +52,15 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
 
   authenticationLayout.defaultProps = {
     centerContent: true,
-    width: 340
+    width: 340,
   }
 
   authenticationLayout.propTypes = {
     centerContent: PropTypes.bool.isRequired,
     width: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.number
-    ]).isRequired
+      PropTypes.number,
+    ]).isRequired,
   }
 
   return withI18n(authenticationLayout)

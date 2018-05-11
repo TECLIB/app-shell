@@ -8,15 +8,15 @@ const routes = [
     name: I18n.t('commons.home'),
     component: Home,
     exact: true,
-    authenticate: true
+    authenticate: true,
   },
   {
     path: '/users',
     name: I18n.t('commons.users'),
     component: Users,
     exact: false,
-    authenticate: true
-  }
+    authenticate: true,
+  },
 ]
 
 export default routes

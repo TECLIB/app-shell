@@ -12,7 +12,7 @@ class Dashboard extends PureComponent {
     super(props)
     this.state = {
       isLoading: true,
-      display: localStorage.getItem('display') ? JSON.parse(localStorage.getItem('display')) : {}
+      display: localStorage.getItem('display') ? JSON.parse(localStorage.getItem('display')) : {},
     }
   }
 
@@ -20,7 +20,7 @@ class Dashboard extends PureComponent {
     delay(2000)
       .then(() => {
         this.setState({
-          isLoading: false
+          isLoading: false,
         })
       })
   }
@@ -40,7 +40,7 @@ class Dashboard extends PureComponent {
 }
 
 Dashboard.propTypes = {
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
 }
 
 export default withHandleMessages(Dashboard)

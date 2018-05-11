@@ -18,7 +18,7 @@ loadTheme(theme)
 initializeIcons(/* optional base url */)
 // Suppress icon warnings.
 setIconOptions({
-  disableWarnings: true
+  disableWarnings: true,
 })
 
 ReactDOM.render(
@@ -35,7 +35,7 @@ ReactDOM.render(
       </I18nProvider>
     </Fabric>
   ),
-  document.getElementById('root')
+  document.getElementById('root'),
 )
 
 registerServiceWorker();

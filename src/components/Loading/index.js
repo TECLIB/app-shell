@@ -5,7 +5,6 @@ const Loading = props => {
   const headerSize = props.headerSize ? props.headerSize : 0
 
   const loadComponent = props.small ? 
-<<<<<<< HEAD
     (
       <div 
         className="loading" 
@@ -45,43 +44,6 @@ const Loading = props => {
             <div className="circle"></div>
           </div>
           <p>{props.message}</p>
-=======
-  (
-    <div className="loading" style={{
-      display: 'inline-block',
-      verticalAlign: 'middle',
-      margin: '10px',
-    }}>
-      <div>
-        <div className="small-loader">
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-        </div>
-      </div>
-    </div>
-  ) : 
-  (
-    <div className="loading" style={{
-      marginTop: - headerSize,
-      display: 'flex',
-      height: '100%',
-      width: '100%',
-      justifyContent: 'center',
-      textAlign: 'center',
-      alignItems: 'center',
-      flexDirection: 'column',
-    }}>
-      <div>
-        <div className="loader">
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
->>>>>>> 31f1923... style(lint): use single quotes for js code
         </div>
       </div>
     )
@@ -92,7 +54,7 @@ const Loading = props => {
 Loading.propTypes = {
   message: PropTypes.string,
   headerSize: PropTypes.number,
-  small: PropTypes.bool
+  small: PropTypes.bool,
 }
 
 export default Loading

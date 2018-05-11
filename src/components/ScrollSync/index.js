@@ -3,5 +3,5 @@ import ScrollSyncPane from './ScrollSyncPane'
 
 export {
   ScrollSync,
-  ScrollSyncPane
+  ScrollSyncPane,
 }

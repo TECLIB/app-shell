@@ -14,7 +14,7 @@ const withI18NTranslation = WrappedComponent => {
     constructor(props) {
       super(props)
       I18n.setTranslations({
-        [this.props.language.languageDefault]: source_file_translation
+        [this.props.language.languageDefault]: source_file_translation,
       })
     }
 
@@ -29,7 +29,7 @@ const withI18NTranslation = WrappedComponent => {
       import(`${path}.json`)
         .then(jsonModule => {
           I18n.setTranslations({
-            [i18nConvention]: jsonModule
+            [i18nConvention]: jsonModule,
           })
           I18n.setLocale(i18nConvention)
           this.forceUpdate()

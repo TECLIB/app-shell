@@ -89,7 +89,7 @@ SplitView.propTypes = {
   handleContract: PropTypes.func.isRequired,
   handleSetTimeOut: PropTypes.func.isRequired,
   handleToggleExpand: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
 }
 
 export default SplitView

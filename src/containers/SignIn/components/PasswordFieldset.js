@@ -13,7 +13,7 @@ class PasswordFieldset extends PureComponent {
     this.state = {
       classInput: 'win-textbox',
       errorMessage: '',
-      isLoading: false
+      isLoading: false,
     }
   }
 
@@ -83,7 +83,7 @@ PasswordFieldset.propTypes = {
   changeInput: PropTypes.func.isRequired,
   changePhase: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
-  handleOnSubmit: PropTypes.func.isRequired
+  handleOnSubmit: PropTypes.func.isRequired,
 }
 
 export default PasswordFieldset
