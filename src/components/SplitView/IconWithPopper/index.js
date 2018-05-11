@@ -5,7 +5,7 @@ import { Icon } from 'office-ui-fabric-react/lib/Icon'
 
 
 class iconWithPopper extends PureComponent {
-  render () {
+  render() {
     if (this.props.to) {
       return (
         <div>

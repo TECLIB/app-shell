@@ -8,7 +8,7 @@ import handleMessage from '../../shared/handleMessage'
  *
  */
 
-const withHandleMessages = WrappedComponent => {
+const withHandleMessages = (WrappedComponent) => {
   class HandleMessages extends PureComponent {
     render() {
       return <WrappedComponent {...this.props} />
@@ -16,7 +16,7 @@ const withHandleMessages = WrappedComponent => {
   }
 
   HandleMessages.defaultProps = {
-    handleMessage: handleMessage,
+    handleMessage,
   }
 
   HandleMessages.propTypes = {

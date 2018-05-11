@@ -37,16 +37,16 @@ export default class IconItemList extends PureComponent {
           }).then((response) => {
             response.arrayBuffer().then((buffer) => {
               this.setState({
-                image: 'data:image/jpeg;base64,' + arrayBufferToBase64(buffer),
+                image: `data:image/jpeg;base64,${arrayBufferToBase64(buffer)}`,
               })
             })
           })
 
           function arrayBufferToBase64(buffer) {
             let binary = ''
-            let bytes = [].slice.call(new Uint8Array(buffer))
+            const bytes = [].slice.call(new Uint8Array(buffer))
 
-            bytes.forEach((b) => binary += String.fromCharCode(b))
+            bytes.forEach(b => binary += String.fromCharCode(b))
 
             return window.btoa(binary)
           }
@@ -62,7 +62,6 @@ export default class IconItemList extends PureComponent {
   }
 
   render() {
-
     let style = {
       backgroundColor: this.props.backgroundColor,
       width: this.props.size,

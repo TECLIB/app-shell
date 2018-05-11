@@ -13,7 +13,6 @@ import Loading from '../../components/Loading'
 import { changeInput, changePhase, handleFormSubmit } from './actions'
 
 class SignIn extends PureComponent {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -35,20 +34,20 @@ class SignIn extends PureComponent {
     let form
     if (this.state.phase === 1) {
       form =
-        <UsernameFieldset
+        (<UsernameFieldset
           username={this.state.username}
           changeInput={this.changeInput}
           changePhase={this.changePhase}
-        />
+        />)
     } else {
-      form = <AsyncPasswordFieldset
+      form = (<AsyncPasswordFieldset
         username={this.state.username}
         password={this.state.password}
         changeInput={this.changeInput}
         changePhase={this.changePhase}
         history={this.props.history}
         handleOnSubmit={this.handleFormSubmit}
-      />
+      />)
     }
     return this.state.isLoading ? <div style={{ height: '140px' }}><Loading message={`${I18n.t('commons.loading')}...`} /></div> : form
   }

@@ -4,7 +4,6 @@ import ReactWinJS from 'react-winjs'
 import { I18n } from 'react-i18nify'
 
 class Confirmation extends PureComponent {
-
   static isOK = async (contentDialog) => {
     contentDialog.winControl.show().then(({ result }) => result === 'primary')
   }

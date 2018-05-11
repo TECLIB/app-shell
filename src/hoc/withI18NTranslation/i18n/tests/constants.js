@@ -1,9 +1,9 @@
 const TRANSLATIONS_AVAILABLES = {
-  //'Portuguese':'pt_BR',
+  // 'Portuguese':'pt_BR',
 
-  //'Spain': 'es',
+  // 'Spain': 'es',
 
-  //'French': 'fr',
+  // 'French': 'fr',
 }
 const LANGUAGE_DEFAULT = 'en_GB';
 const TRANSLATION_FOLDER = 'translations';

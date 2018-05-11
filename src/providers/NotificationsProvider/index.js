@@ -18,7 +18,7 @@ export class NotificationsProvider extends PureComponent {
           show: true,
           notification,
         },
-        () => {}
+        () => {},
       )
     },
     hidenNotification: () => {
@@ -26,7 +26,7 @@ export class NotificationsProvider extends PureComponent {
         {
           show: false,
         },
-        () => {}
+        () => {},
       )
     },
   }

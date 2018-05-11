@@ -9,13 +9,12 @@ import {
 
 describe('Check if translations are available', () => {
   beforeAll(() => {
-    let json = {}
+    const json = {}
 
     json[LANGUAGE_DEFAULT] = source_file
 
     I18n.setTranslations(json)
     I18n.setLocale(LANGUAGE_DEFAULT)
-
   })
 
   it('login page should have english translations', () => {

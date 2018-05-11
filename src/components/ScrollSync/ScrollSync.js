@@ -52,7 +52,7 @@ class ScrollSync extends PureComponent {
     node.onscroll = this.handlePaneScroll.bind(this, node, group); // eslint-disable-line
   };
 
-  removeEvents = node => {
+  removeEvents = (node) => {
     /* For some reason element.removeEventListener doesnt work with document.body */
     node.onscroll = null; // eslint-disable-line
   };
@@ -86,7 +86,7 @@ class ScrollSync extends PureComponent {
 
     const { proportional, vertical, horizontal } = this.props;
 
-    this.panes[group].forEach(pane => {
+    this.panes[group].forEach((pane) => {
       /* For all panes beside the currently scrolling one */
       if (scrolledPane !== pane) {
         /* Remove event listeners from the node that we'll manipulate */

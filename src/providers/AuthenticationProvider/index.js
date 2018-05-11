@@ -28,7 +28,7 @@ export class AuthenticationProvider extends PureComponent {
           localStorage.removeItem('currentUser')
           localStorage.removeItem('sessionToken')
           this.props.children.props.history.push(`${publicURL}/`)
-        }
+        },
       )
     },
   }

@@ -9,7 +9,6 @@ import calc100PercentMinus from '../../shared/calc100PercentMinus'
 import publicURL from '../../shared/publicURL'
 
 class Users extends PureComponent {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -25,7 +24,7 @@ class Users extends PureComponent {
   }
 
   handleResize = () => {
-    let nextMode = getMode()
+    const nextMode = getMode()
 
     if (nextMode === 'small') {
       this.setState({
@@ -79,8 +78,7 @@ class Users extends PureComponent {
   changeSelectionMode = selectionMode => this.setState({ selectionMode })
 
   stylesList = () => {
-
-    let styles = {
+    const styles = {
       width: this.state.itemListPaneWidth,
     }
 
@@ -93,7 +91,6 @@ class Users extends PureComponent {
       } else {
         styles.display = 'none'
       }
-
     } else {
       styles.display = 'inline-block'
     }
@@ -102,9 +99,8 @@ class Users extends PureComponent {
   }
 
   stylesContent = () => {
-
     const validWidth = this.state.itemListPaneWidth === '100%' ? 0 : this.state.itemListPaneWidth
-    let styles = {
+    const styles = {
       width: calc100PercentMinus(validWidth),
       height: '100%',
     }
@@ -118,7 +114,6 @@ class Users extends PureComponent {
       } else {
         styles.display = 'inline-flex'
       }
-
     } else {
       styles.display = 'inline-flex'
     }
@@ -127,7 +122,7 @@ class Users extends PureComponent {
   }
 
   render() {
-    let renderComponents = (
+    const renderComponents = (
 
       <React.Fragment>
         <div className="listPane flex-block-list" style={{ ...this.stylesList() }}>

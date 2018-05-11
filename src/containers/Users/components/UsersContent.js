@@ -15,7 +15,6 @@ import getID from '../../../shared/getID'
 import publicURL from '../../../shared/publicURL'
 
 export default class UsersContent extends PureComponent {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -47,7 +46,6 @@ export default class UsersContent extends PureComponent {
   handleDelete = async () => {
     const isOK = await Confirmation.isOK(this.contentDialog)
     if (isOK) {
-
       this.setState({
         isLoading: true,
       })
@@ -64,7 +62,6 @@ export default class UsersContent extends PureComponent {
       } catch (error) {
         this.props.toast.setNotification(this.props.handleMessage({ type: 'alert', message: error }))
       }
-
     }
   }
 
@@ -136,7 +133,7 @@ export default class UsersContent extends PureComponent {
               <li>
                 <Icon iconName="phone" />
                 <div className="callContent">
-                  <a href={this.state.data.mobile ? 'tel:' + this.state.data.mobile : '#call'}>
+                  <a href={this.state.data.mobile ? `tel:${this.state.data.mobile}` : '#call'}>
                     {I18n.t('commons.call_mobile')}
                   </a>
                   <div>
@@ -147,7 +144,7 @@ export default class UsersContent extends PureComponent {
               <li>
                 <Icon iconName="phone" />
                 <div className="callContent">
-                  <a href={this.state.data.phone2 ? 'tel:' + this.state.data.phone2 : '#call'}>
+                  <a href={this.state.data.phone2 ? `tel:${this.state.data.phone2}` : '#call'}>
                     {I18n.t('commons.call_work')}
                   </a>
                   <div>
@@ -158,11 +155,11 @@ export default class UsersContent extends PureComponent {
               <li>
                 <Icon iconName="mail" />
                 <div className="callContent">
-                  <a href={this.state.emails.length > 0 ? 'mailto:' + this.state.emails[0]['email'] : '#email'}>
+                  <a href={this.state.emails.length > 0 ? `mailto:${this.state.emails[0].email}` : '#email'}>
                     {I18n.t('commons.email')}
                   </a>
                   <div>
-                    {this.state.emails.length > 0 ? this.state.emails[0]['email'] : I18n.t('commons.not_available')}
+                    {this.state.emails.length > 0 ? this.state.emails[0].email : I18n.t('commons.not_available')}
                   </div>
                 </div>
               </li>

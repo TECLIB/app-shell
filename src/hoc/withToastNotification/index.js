@@ -6,7 +6,7 @@ import withNotifications from '../withNotifications'
 import validateNotifications from '../../shared/validateNotifications'
 import nativeNotification from '../../shared/nativeNotification'
 
-const withToastNotification = WrappedComponent => {
+const withToastNotification = (WrappedComponent) => {
   class ToastNotification extends PureComponent {
     constructor(props) {
       super(props)
@@ -34,7 +34,6 @@ const withToastNotification = WrappedComponent => {
             ...prevState,
           }
         }
-
       } else {
         return {
           ...prevState,
