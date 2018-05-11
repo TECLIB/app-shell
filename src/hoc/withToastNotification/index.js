@@ -41,7 +41,7 @@ const withToastNotification = (WrappedComponent) => {
       }
     }
 
-    componentDidUpdate(prevProps, prevState, prevContext) {
+    componentDidUpdate(prevProps) {
       if (prevProps.toast.notification.title !== this.props.toast.notification.title || prevProps.toast.notification.body !== this.props.toast.notification.body) {
         this.setState({
           timer: setTimeout(() => {

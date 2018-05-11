@@ -1,17 +1,12 @@
 import { I18n } from 'react-i18nify'
-import source_file from '../source_file.json'
-import {
-  TRANSLATIONS_AVAILABLES,
-  LANGUAGE_DEFAULT,
-  TRANSLATION_FOLDER,
-  LANGUAGE_NAMES,
-} from './constants'
+import sourceFile from '../source_file.json'
+import { LANGUAGE_DEFAULT } from './constants'
 
 describe('Check if translations are available', () => {
   beforeAll(() => {
     const json = {}
 
-    json[LANGUAGE_DEFAULT] = source_file
+    json[LANGUAGE_DEFAULT] = sourceFile
 
     I18n.setTranslations(json)
     I18n.setLocale(LANGUAGE_DEFAULT)
