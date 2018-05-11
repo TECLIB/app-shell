@@ -14,9 +14,9 @@ class HeaderBreadcrumb extends PureComponent {
     const customDivider = () => <span className="header-breadcrumb">&nbsp;/&nbsp;</span>
     const addresses = this.props.history.location.pathname.split('/')
 
-    for (let index = (publicURL === '') ? 2 : 3; index < addresses.length; index++) {
+    for (let index = (publicURL === '') ? 2 : 3; index < addresses.length; index += 1) {
       let path = `${publicURL}/app`
-      for (let i = (publicURL === '') ? 2 : 3; i < index + 1; i++) {
+      for (let i = (publicURL === '') ? 2 : 3; i < index + 1; i += 1) {
         path += `/${addresses[i]}`
       }
       breadcrumbs.push({ text: addresses[index].replace(/\b\w/g, l => l.toUpperCase()), key: path, href: path })

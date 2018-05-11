@@ -5,7 +5,7 @@ import listRender from './listRender'
 const Loader = (props) => {
   let content = []
 
-  for (let index = 0; index < props.count; index++) {
+  for (let index = 0; index < props.count; index += 1) {
     content = [
       ...content,
       listRender({
