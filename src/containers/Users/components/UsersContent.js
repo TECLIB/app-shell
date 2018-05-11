@@ -32,10 +32,9 @@ export default class UsersContent extends PureComponent {
         data: undefined,
         emails: [],
       }
-    } else {
-      return {
-        ...prevState,
-      }
+    }
+    return {
+      ...prevState,
     }
   }
 

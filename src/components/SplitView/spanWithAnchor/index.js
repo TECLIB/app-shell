@@ -12,16 +12,15 @@ class spanWithPopper extends PureComponent {
           </NavLink>
         </div>
       )
-    } else {
-      return (
-        <div onClick={this.props.click}>
-          { this.props.description }
-        </div>
-      )
     }
+    return (
+      <div onClick={this.props.click}>
+        {this.props.description}
+      </div>
+    )
   }
 }
- 
+
 spanWithPopper.propTypes = {
   description: PropTypes.string.isRequired,
   to: PropTypes.string,

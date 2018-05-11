@@ -6,9 +6,8 @@ import { Redirect } from 'react-router'
 const isAuthenticated = () => {
   if (localStorage.getItem('sessionToken') && localStorage.getItem('sessionToken') !== undefined) {
     return true
-  } else {
-    return false
   }
+  return false
 }
 
 const PrivateRoute = ({ component, redirectTo, ...rest }) => {

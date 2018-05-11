@@ -14,15 +14,14 @@ class iconWithPopper extends PureComponent {
           </NavLink>
         </div>
       )
-    } else {
-      return (
-        <div onClick={this.props.click}>
-          <a>
-            <Icon iconName={this.props.iconName} ariaLabel={this.props.title} />
-          </a>
-        </div>
-      )
     }
+    return (
+      <div onClick={this.props.click}>
+        <a>
+          <Icon iconName={this.props.iconName} ariaLabel={this.props.title} />
+        </a>
+      </div>
+    )
   }
 }
 

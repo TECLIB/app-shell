@@ -28,11 +28,10 @@ const withToastNotification = WrappedComponent => {
               title: nextProps.title,
               body: nextProps.body,
             }
-          } else {
-            nativeNotification(nextProps.title, nextProps.body, nextProps.icon)
-            return {
-              ...prevState,
-            }
+          }
+          nativeNotification(nextProps.title, nextProps.body, nextProps.icon)
+          return {
+            ...prevState,
           }
         }
 
