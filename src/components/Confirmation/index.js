@@ -6,9 +6,7 @@ import { I18n } from 'react-i18nify'
 class Confirmation extends PureComponent {
 
   static isOK = async (contentDialog) => {
-    return await contentDialog.winControl.show().then(({ result }) => {
-      return result === 'primary'
-    })
+    contentDialog.winControl.show().then(({ result }) => result === 'primary')
   }
 
   render() {

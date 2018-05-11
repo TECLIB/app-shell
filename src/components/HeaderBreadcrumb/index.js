@@ -9,10 +9,6 @@ import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 
 class HeaderBreadcrumb extends PureComponent {
 
-  renderItem = (eventObject) => {
-    return (<Link to={eventObject.href}>{eventObject.text}</Link>)
-  }
-
   breadcrumbs() {
     let breadcrumbs = []
     breadcrumbs.push({ text: I18n.t('commons.dashboard'), key: `${publicURL}/app`, href: `${publicURL}/app` })
@@ -38,6 +34,8 @@ class HeaderBreadcrumb extends PureComponent {
 
     return componentBreadcrumbs
   }
+
+  renderItem = eventObject => <Link to={eventObject.href}>{eventObject.text}</Link>
 
   render() {
     return (

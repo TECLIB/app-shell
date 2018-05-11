@@ -1,7 +1,7 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import PropsRoute from './PropsRoute';
-import NotFound from '../../components/NotFound';
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
+import PropsRoute from './PropsRoute'
+import NotFound from '../../components/NotFound'
 
 const GenerateRoutes = ({
   routes,
@@ -11,8 +11,8 @@ const GenerateRoutes = ({
   toast,
   language,
 }) => {
-  let r = routes.map(({ exact, path, component, authenticate }, i) => {
-    return (
+  let r = routes.map(({ exact, path, component, authenticate }, i) =>
+    (
       <PropsRoute
         exact={exact}
         component={component}
@@ -29,8 +29,7 @@ const GenerateRoutes = ({
             : path
         }
       />
-    );
-  });
+    ))
 
   withNotFound &&
     r.push(<Route key={routes.length + 1} render={() => <NotFound />} />);

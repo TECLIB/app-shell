@@ -1,7 +1,4 @@
-import withAsyncComponent from '../hoc/withAsyncComponent';
+import withAsyncComponent from '../hoc/withAsyncComponent'
 
-const asyncAdminApp = withAsyncComponent(() => {
-  return import('../app/AdminApp');
-});
-
-export default asyncAdminApp;
+const asyncAdminApp = withAsyncComponent(() => import('../app/AdminApp'))
+export default asyncAdminApp

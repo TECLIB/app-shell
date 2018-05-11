@@ -1,7 +1,4 @@
 import withAsyncComponent from '../hoc/withAsyncComponent'
 
-const asyncPasswordFieldset = withAsyncComponent(() => {
-  return import('../containers/SignIn/components/PasswordFieldset.js')
-})
-
+const asyncPasswordFieldset = withAsyncComponent(() => import('../containers/SignIn/components/PasswordFieldset.js'))
 export default asyncPasswordFieldset
