@@ -9,7 +9,7 @@ const GenerateRoutes = ({
   withNotFound,
   data,
   toast,
-  language
+  language,
 }) => {
   let r = routes.map(({ exact, path, component, authenticate }, i) => {
     return (
