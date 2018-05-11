@@ -40,4 +40,5 @@ export default function (dataSource) {
       .createSorted(sorter)
       .createGrouped(groupKey, groupData, groupSorted)
   }
+  return new WinJS.Binding.List([])
 }

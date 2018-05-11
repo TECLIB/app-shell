@@ -21,6 +21,7 @@
     "no-nested-ternary": "off",
     "max-len": "off",
     "import/no-named-as-default": 0,
+    "func-names":"off",
     "react/jsx-filename-extension": [
       1,
       {
