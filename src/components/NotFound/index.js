@@ -1,9 +1,8 @@
 import React from 'react'
 import { I18n } from 'react-i18nify'
 
-const NotFound = props => {
-
-  return (
+const NotFound = () =>
+  (
     <div className="authentication-block " style={{ textAlign: 'center' }} >
       <section className="authentication__section">
         <figure className="authentication__figure">
@@ -22,6 +21,5 @@ const NotFound = props => {
       </footer>
     </div>
   )
-}
 
 export default NotFound

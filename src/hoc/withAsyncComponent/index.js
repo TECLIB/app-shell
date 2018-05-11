@@ -1,16 +1,13 @@
 import React, { PureComponent } from 'react'
 
-const withAsyncComponent = importComponent => {
-  return class AsyncComponent extends PureComponent {
+const withAsyncComponent = importComponent =>
+  class AsyncComponent extends PureComponent {
     state = {
       component: null,
     }
 
     componentDidMount() {
-      importComponent()
-        .then(cmp => {
-          this.setState({component: cmp.default})
-        })
+      importComponent().then(cmp => this.setState({ component: cmp.default }))
     }
 
     render() {
@@ -19,6 +16,5 @@ const withAsyncComponent = importComponent => {
       return C ? <C {...this.props} /> : null
     }
   }
-}
 
 export default withAsyncComponent

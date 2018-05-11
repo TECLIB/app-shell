@@ -57,17 +57,9 @@ export default class UsersList extends PureComponent {
     this.props.changeSelectionMode(false)
   }
 
-  ItemListRenderer = ReactWinJS.reactRenderer((ItemList) => {
-    return (
-      <UsersItemList itemList={ItemList.data} />
-    )
-  })
+  ItemListRenderer = ReactWinJS.reactRenderer(ItemList => <UsersItemList itemList={ItemList.data} />)
 
-  groupHeaderRenderer = ReactWinJS.reactRenderer((item) => {
-    return (
-      <div>{item.data.title}</div>
-    )
-  })
+  groupHeaderRenderer = ReactWinJS.reactRenderer(item => <div>{item.data.title}</div>)
 
   handleToggleSelectionMode = () => {
     this.props.history.push(`${publicURL}/app/users`)

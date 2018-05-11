@@ -60,8 +60,8 @@ class Users extends PureComponent {
     window.removeEventListener('resize', this.handleResize)
   }
 
-  propsData = () => {
-    return {
+  propsData = () =>
+    ({
       icon: this.state.icon,
       changeSelectionMode: this.changeSelectionMode,
       selectionMode: this.state.selectionMode,
@@ -72,8 +72,7 @@ class Users extends PureComponent {
       history: this.props.history,
       handleMessage: this.props.handleMessage,
       toast: this.props.toast,
-    }
-  }
+    })
 
   changeSelectedItems = selectedItems => this.setState({ selectedItems })
   changeAction = action => this.setState({ action })
