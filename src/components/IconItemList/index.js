@@ -25,10 +25,10 @@ export default class IconItemList extends PureComponent {
           const url_base = localStorage.getItem('baseURL')
           let url
           if (this.props.isMin) {
-            const image = this.props.image.split(".")
-            url = `//${url_base.split("//")[1]}/front/document.send.php?file=_pictures/${image[0]}_min.${image[1]}`
+            const image = this.props.image.split('.')
+            url = `//${url_base.split('//')[1]}/front/document.send.php?file=_pictures/${image[0]}_min.${image[1]}`
           } else {
-            url = `//${url_base.split("//")[1]}/front/document.send.php?file=_pictures/${this.props.image}`
+            url = `//${url_base.split('//')[1]}/front/document.send.php?file=_pictures/${this.props.image}`
           }
 
           fetch(url, {
@@ -102,7 +102,7 @@ IconItemList.propTypes = {
   size: PropTypes.number.isRequired,
   backgroundColor: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(["file", "base64", "localFile"]).isRequired,
+  type: PropTypes.oneOf(['file', 'base64', 'localFile']).isRequired,
   isMin: PropTypes.bool,
   imgClick: PropTypes.func,
   imgClass: PropTypes.string

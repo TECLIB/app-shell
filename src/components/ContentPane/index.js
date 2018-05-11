@@ -7,7 +7,7 @@ class ContentPane extends PureComponent {
     const display = localStorage.getItem('display') ? JSON.parse(localStorage.getItem('display')) : {}
     this.state = {
       updateAnimation: display.animations,
-      animate: display.animations ? "content-pane--animate": ""
+      animate: display.animations ? 'content-pane--animate': '',
     }
   }
 
@@ -18,11 +18,11 @@ class ContentPane extends PureComponent {
   handleAnimation = () => {
     if (this.state.updateAnimation) {
       this.setState({
-        animate: "content-pane--animate"
+        animate: 'content-pane--animate',
       }, () => {
         setTimeout(() => {
           this.setState({
-            animate: ""
+            animate: '',
           })
         }, 2000)
       })

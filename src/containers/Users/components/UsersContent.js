@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ContentPane from '../../../components/ContentPane'
 import Confirmation from '../../../components/Confirmation'
 import Loading from '../../../components/Loading'
-import { I18n } from "react-i18nify"
+import { I18n } from 'react-i18nify'
 import getID from '../../../shared/getID'
 import publicURL from '../../../shared/publicURL'
 import { Icon } from 'office-ui-fabric-react/lib/Icon'
@@ -117,15 +117,15 @@ export default class UsersContent extends PureComponent {
               <br />
               <div style={{ display: 'flex', alignItems: 'stretch', height: '40px' }}>
                 <CommandBarButton
-                  data-automation-id='edit'
+                  data-automation-id="edit"
                   iconProps={{ iconName: 'edit' }}
-                  text='Edit'
+                  text="Edit"
                   onClick={() => this.props.history.push(`${publicURL}/app/users`)}
                 />
                 <CommandBarButton
-                  data-automation-id='remove'
+                  data-automation-id="remove"
                   iconProps={{ iconName: 'delete' }}
-                  text='Delete'
+                  text="Delete"
                   onClick={this.handleDelete}
                 />
               </div>
@@ -137,7 +137,7 @@ export default class UsersContent extends PureComponent {
               <li>
                 <Icon iconName="phone" />
                 <div className="callContent">
-                  <a href={this.state.data.mobile ? "tel:" + this.state.data.mobile : "#call"}>
+                  <a href={this.state.data.mobile ? 'tel:' + this.state.data.mobile : '#call'}>
                     {I18n.t('commons.call_mobile')}
                   </a>
                   <div>
@@ -148,7 +148,7 @@ export default class UsersContent extends PureComponent {
               <li>
                 <Icon iconName="phone" />
                 <div className="callContent">
-                  <a href={this.state.data.phone2 ? "tel:" + this.state.data.phone2 : "#call"}>
+                  <a href={this.state.data.phone2 ? 'tel:' + this.state.data.phone2 : '#call'}>
                     {I18n.t('commons.call_work')}
                   </a>
                   <div>
@@ -159,11 +159,11 @@ export default class UsersContent extends PureComponent {
               <li>
                 <Icon iconName="mail" />
                 <div className="callContent">
-                  <a href={this.state.emails.length > 0 ? "mailto:" + this.state.emails[0]["email"] : "#email"}>
+                  <a href={this.state.emails.length > 0 ? 'mailto:' + this.state.emails[0]['email'] : '#email'}>
                     {I18n.t('commons.email')}
                   </a>
                   <div>
-                    {this.state.emails.length > 0 ? this.state.emails[0]["email"] : I18n.t('commons.not_available')}
+                    {this.state.emails.length > 0 ? this.state.emails[0]['email'] : I18n.t('commons.not_available')}
                   </div>
                 </div>
               </li>

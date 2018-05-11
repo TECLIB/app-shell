@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
-import handleMessage from "../../shared/handleMessage";
-import PropTypes from "prop-types";
+import React, { PureComponent } from 'react';
+import handleMessage from '../../shared/handleMessage';
+import PropTypes from 'prop-types';
 
 /**
  *

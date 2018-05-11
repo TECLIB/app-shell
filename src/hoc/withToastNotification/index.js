@@ -21,8 +21,8 @@ const withToastNotification = WrappedComponent => {
     static getDerivedStateFromProps(nextProps, prevState) {
       if (nextProps.title !== prevState.title || nextProps.body !== prevState.body) {
         const notification = validateNotifications()
-        if (notification.show || nextProps.type === "alert") {
-          if (notification.type === "Toast") {
+        if (notification.show || nextProps.type === 'alert') {
+          if (notification.type === 'Toast') {
             return {
               type: nextProps.type,
               title: nextProps.title,

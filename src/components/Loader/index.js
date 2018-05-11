@@ -22,12 +22,12 @@ const Loader = props => {
 
 Loader.propTypes = {
   count: PropTypes.number,
-  type: PropTypes.oneOf(["list", "content"])
+  type: PropTypes.oneOf(['list', 'content'])
 }
 
 Loader.defaultProps = {
   count: 1,
-  type: "list"
+  type: 'list'
 }
 
 export default Loader

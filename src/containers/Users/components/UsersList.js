@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react"
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import ReactWinJS from 'react-winjs'
 import WinJS from 'winjs'
@@ -22,7 +22,7 @@ export default class UsersList extends PureComponent {
       scrolling: false,
       isLoading: false,
       itemList: new WinJS.Binding.List([]),
-      order: "ASC",
+      order: 'ASC',
       pagination: {
         start: 0,
         page: 1,
@@ -88,7 +88,7 @@ export default class UsersList extends PureComponent {
     }
     this.props.changeSelectedItems(itemSelected)
     if (index.length === 1 && !this.props.selectionMode) {
-      this.props.history.push(`${publicURL}/app/users/${itemSelected[0]["User.id"]}`)
+      this.props.history.push(`${publicURL}/app/users/${itemSelected[0]['User.id']}`)
     }
     if (index.length > 1 && !this.props.selectionMode) {
       this.props.history.push(`${publicURL}/app/users/edit/`)
@@ -119,7 +119,7 @@ export default class UsersList extends PureComponent {
     } catch (e) {
       this.setState({
         isLoading: false,
-        order: "ASC"
+        order: 'ASC',
       })
     }
   }
@@ -187,7 +187,7 @@ export default class UsersList extends PureComponent {
     } catch (error) {
       this.setState({
         isLoading: false,
-        order: "ASC"
+        order: 'ASC',
       })
     }
   }

@@ -7,7 +7,7 @@ class Confirmation extends PureComponent {
 
   static isOK = async (contentDialog) => {
     return await contentDialog.winControl.show().then(({ result }) => {
-      return result === "primary"
+      return result === 'primary'
     })
   }
 

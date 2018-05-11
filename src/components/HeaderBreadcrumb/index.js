@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import { I18n } from "react-i18nify"
+import { I18n } from 'react-i18nify'
 import publicURL from '../../shared/publicURL'
 import { Icon } from 'office-ui-fabric-react/lib/Icon'
 import { Breadcrumb } from 'office-ui-fabric-react/lib/Breadcrumb'
@@ -17,7 +17,7 @@ class HeaderBreadcrumb extends PureComponent {
     let breadcrumbs = []
     breadcrumbs.push({ text: I18n.t('commons.dashboard'), key: `${publicURL}/app`, href: `${publicURL}/app` })
     const customDivider = () => <span className="header-breadcrumb">&nbsp;/&nbsp;</span>
-    const addresses = this.props.history.location.pathname.split("/")
+    const addresses = this.props.history.location.pathname.split('/')
 
     for (let index = (publicURL === '') ? 2 : 3; index < addresses.length; index++) {
       let path = `${publicURL}/app`

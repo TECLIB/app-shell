@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
-import SplitView from "../../components/SplitView"
+import SplitView from '../../components/SplitView'
 import HeaderBreadcrumb from '../../components/HeaderBreadcrumb'
 import getMode from '../../shared/getMode'
 import animations from '../../shared/animations'
-import { I18n } from "react-i18nify"
+import { I18n } from 'react-i18nify'
 import Confirmation from '../../components/Confirmation'
 import withAuthentication from '../../hoc/withAuthentication'
 

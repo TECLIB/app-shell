@@ -4,7 +4,7 @@ import IconItemList from '../../../components/IconItemList'
 
 export default class UsersItemList extends PureComponent {
   render() {
-    const imageProfile = this.props.itemList['User.picture'] ? this.props.itemList['User.picture'] : "profile.png"
+    const imageProfile = this.props.itemList['User.picture'] ? this.props.itemList['User.picture'] : 'profile.png'
     return (
       <div>
         <IconItemList image={imageProfile} size={42} />
