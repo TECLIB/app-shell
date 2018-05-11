@@ -7,7 +7,6 @@ import Loading from '../../../components/Loading'
 import publicURL from '../../../shared/publicURL'
 
 class PasswordFieldset extends PureComponent {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -31,7 +30,6 @@ class PasswordFieldset extends PureComponent {
           <Loading message={`${I18n.t('commons.loading')}...`} />
         </div>
       )
-
     } else {
       renderComponent = (
         <div className="authentication-password__div">
@@ -54,7 +52,7 @@ class PasswordFieldset extends PureComponent {
               placeholder={I18n.t('commons.password')}
               value={this.props.password}
               onChange={this.props.changeInput}
-              required={true}
+              required
             />
 
             <DefaultButton className="btn" onClick={() => this.props.changePhase(1)}>

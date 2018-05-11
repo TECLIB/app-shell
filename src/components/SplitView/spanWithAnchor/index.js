@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 
 class spanWithPopper extends PureComponent {
-  render () {
+  render() {
     if (this.props.to) {
       return (
         <div>

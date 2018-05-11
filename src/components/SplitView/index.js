@@ -8,12 +8,11 @@ import SpanWithPopper from './spanWithAnchor'
 import publicURL from '../../shared/publicURL'
 
 class SplitView extends PureComponent {
-
   logout = () => {
     this.props.logout()
   }
 
-  render () {
+  render() {
     this.props.handleSetTimeOut()
 
     let toRender = ''
@@ -25,7 +24,7 @@ class SplitView extends PureComponent {
             <div className="splitview-block">
               <div className="splitview-wrapper__div">
                 <nav className="splitview-wrapped__navbar">
-      
+
                   <ScrollSyncPane>
                     <div className="splitview-wrapper-wrapper__div">
                       <section className="splitview-wrapped-navbar-wrapped-top__section">
@@ -59,7 +58,8 @@ class SplitView extends PureComponent {
                   <ScrollSyncPane>
                     <div className={`splitview-wrapper-wrapper__div --large --end --opening ${
                         this.props.contract && '--closing'
-                      }`}>
+                      }`}
+                    >
                       <section className="splitview-wrapped-navbar-wrapped-top__section --description">
                         <SpanWithPopper description={I18n.t('commons.dashboard')} to={`${publicURL}/app`} />
                         <SpanWithPopper description={I18n.t('commons.user')} to={`${publicURL}/app/users`} />
@@ -77,13 +77,13 @@ class SplitView extends PureComponent {
         </React.Fragment>
       )
     }
-    
+
     return toRender
   }
 }
 
 SplitView.propTypes = {
-  expanded: PropTypes.bool.isRequired,  
+  expanded: PropTypes.bool.isRequired,
   contract: PropTypes.bool.isRequired,
   handleExpand: PropTypes.func.isRequired,
   handleContract: PropTypes.func.isRequired,

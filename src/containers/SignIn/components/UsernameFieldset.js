@@ -8,7 +8,6 @@ import publicURL from '../../../shared/publicURL'
 
 
 class UsernameFieldset extends PureComponent {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -63,7 +62,7 @@ class UsernameFieldset extends PureComponent {
             placeholder={I18n.t('commons.username')}
             value={this.props.username}
             onChange={this.props.changeInput}
-            required={true}
+            required
           />
           <PrimaryButton type="submit" className="btn">
             {I18n.t('commons.next')}

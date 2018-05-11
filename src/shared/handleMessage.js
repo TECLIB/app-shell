@@ -2,8 +2,8 @@ import { I18n } from 'react-i18nify'
 import logout from './logout'
 
 export default ({ type = 'info', message }) => {
-  let response = {
-    type: type,
+  const response = {
+    type,
     title: I18n.t('commons.info'),
     body: message ? (typeof message === 'string' || message instanceof String) ? message : message.statusText : '',
   }

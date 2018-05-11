@@ -1,7 +1,7 @@
 import config from '../../config/config.json'
 /**
  * Actions Pattern for Form SignIn Data Flow
- * 
+ *
  */
 
 export const changeInput = (ctx, input) => {
@@ -26,7 +26,7 @@ export const handleFormSubmit = (ctx, event) => {
     picture: null,
   }
 
-  ctx.props.authentication.setCurrentUser(user,'token')
+  ctx.props.authentication.setCurrentUser(user, 'token')
   ctx.props.toast.setNotification({
     title: config.appName,
     body: 'Welcome!',

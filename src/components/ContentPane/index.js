@@ -1,13 +1,12 @@
 import React, { PureComponent } from 'react'
 
 class ContentPane extends PureComponent {
-
   constructor(props) {
     super(props)
     const display = localStorage.getItem('display') ? JSON.parse(localStorage.getItem('display')) : {}
     this.state = {
       updateAnimation: display.animations,
-      animate: display.animations ? 'content-pane--animate': '',
+      animate: display.animations ? 'content-pane--animate' : '',
     }
   }
 

@@ -4,13 +4,13 @@ import { NavLink } from 'react-router-dom'
 import ImageResponsive from '../../ImageResponsive'
 
 class imgWithPopper extends PureComponent {
-  render () {
+  render() {
     return (
       <div>
         <NavLink to={this.props.to} activeClassName="selected">
-          <ImageResponsive 
-            alt={this.props.alt} 
-            src={this.props.img} 
+          <ImageResponsive
+            alt={this.props.alt}
+            src={this.props.img}
             styleNew={{ width: '20px' }}
             title={this.props.title}
           />
@@ -19,7 +19,7 @@ class imgWithPopper extends PureComponent {
     )
   }
 }
- 
+
 imgWithPopper.defaultProps = {
   alt: '',
 }

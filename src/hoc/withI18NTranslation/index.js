@@ -9,7 +9,7 @@ import source_file_translation from './i18n/source_file.json'
  * Translations HOC
  * @param {*} WrappedComponent -> React Component
  */
-const withI18NTranslation = WrappedComponent => {
+const withI18NTranslation = (WrappedComponent) => {
   class I18NTranslation extends PureComponent {
     constructor(props) {
       super(props)
@@ -21,13 +21,13 @@ const withI18NTranslation = WrappedComponent => {
     /**
      * @param {*} i18nConvention -> String, e.g: 'pt_BR'
      */
-    findI18NString = i18nConvention => {
-      let path = i18nConvention === this.props.language.languageDefault
+    findI18NString = (i18nConvention) => {
+      const path = i18nConvention === this.props.language.languageDefault
         ? './i18n/source_file'
         : `./i18n/translations/${i18nConvention}`
 
       import(`${path}.json`)
-        .then(jsonModule => {
+        .then((jsonModule) => {
           I18n.setTranslations({
             [i18nConvention]: jsonModule,
           })

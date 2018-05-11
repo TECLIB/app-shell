@@ -2,15 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import listRender from './listRender'
 
-const Loader = props => {
+const Loader = (props) => {
   let content = []
 
   for (let index = 0; index < props.count; index++) {
     content = [
       ...content,
       listRender({
-        props: props,
-        index: index,
+        props,
+        index,
       }),
     ]
   }

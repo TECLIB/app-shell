@@ -1,4 +1,5 @@
 import publicURL from './publicURL'
+
 export default (path, position = 3) => {
   let id
   if (publicURL !== '') {

@@ -13,7 +13,6 @@ import delay from '../../../shared/delay'
 import users from '../../../data/users.json'
 
 export default class UsersList extends PureComponent {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -71,9 +70,9 @@ export default class UsersList extends PureComponent {
   }
 
   handleSelectionChanged = (eventObject) => {
-    let listView = eventObject.currentTarget.winControl
-    let index = listView.selection.getIndices()
-    let itemSelected = []
+    const listView = eventObject.currentTarget.winControl
+    const index = listView.selection.getIndices()
+    const itemSelected = []
 
     for (const item of index) {
       itemSelected.push(this.state.itemList.getItem(item).data)
@@ -123,12 +122,10 @@ export default class UsersList extends PureComponent {
   handleDelete = async (eventObject) => {
     const isOK = await Confirmation.isOK(this.contentDialog)
     if (isOK) {
-
       this.setState({
         isLoading: true,
       }, async () => {
         try {
-
           this.props.toast.setNotification({
             title: I18n.t('commons.success'),
             body: I18n.t('notifications.user_successfully_removed'),
@@ -175,7 +172,6 @@ export default class UsersList extends PureComponent {
         itemList: BuildItemList(response),
       })
       this.props.history.push(`${publicURL}/app/users`)
-
     } catch (error) {
       this.setState({
         isLoading: false,
@@ -185,8 +181,7 @@ export default class UsersList extends PureComponent {
   }
 
   render() {
-
-    let deleteCommand = (
+    const deleteCommand = (
       <ReactWinJS.ToolBar.Button
         key="delete"
         icon="delete"
@@ -197,7 +192,7 @@ export default class UsersList extends PureComponent {
       />
     )
 
-    let editCommand = (
+    const editCommand = (
       <ReactWinJS.ToolBar.Button
         key="edit"
         icon="edit"
@@ -212,30 +207,28 @@ export default class UsersList extends PureComponent {
 
     if (this.state.isLoading) {
       listComponent = <Loader count={3} />
-    } else {
-      if (this.state.itemList) {
-        if (this.state.itemList.length > 0) {
-          listComponent = (
-            <ReactWinJS.ListView
-              ref={(listView) => { this.listView = listView }}
-              className="contentListView win-selectionstylefilled"
-              style={{ height: 'calc(100% - 48px)' }}
-              itemDataSource={this.state.itemList.dataSource}
-              groupDataSource={this.state.itemList.groups.dataSource}
-              layout={this.state.layout}
-              itemTemplate={this.ItemListRenderer}
-              groupHeaderTemplate={this.groupHeaderRenderer}
-              selectionMode={this.props.selectionMode ? 'multi' : 'single'}
-              tapBehavior={this.props.selectionMode ? 'toggleSelect' : 'directSelect'}
-              onSelectionChanged={this.handleSelectionChanged}
-            />
-          )
-        } else {
-          listComponent = <EmptyMessage message={I18n.t('users.not_found')} icon={this.props.icon} showIcon={true} />
-        }
+    } else if (this.state.itemList) {
+      if (this.state.itemList.length > 0) {
+        listComponent = (
+          <ReactWinJS.ListView
+            ref={(listView) => { this.listView = listView }}
+            className="contentListView win-selectionstylefilled"
+            style={{ height: 'calc(100% - 48px)' }}
+            itemDataSource={this.state.itemList.dataSource}
+            groupDataSource={this.state.itemList.groups.dataSource}
+            layout={this.state.layout}
+            itemTemplate={this.ItemListRenderer}
+            groupHeaderTemplate={this.groupHeaderRenderer}
+            selectionMode={this.props.selectionMode ? 'multi' : 'single'}
+            tapBehavior={this.props.selectionMode ? 'toggleSelect' : 'directSelect'}
+            onSelectionChanged={this.handleSelectionChanged}
+          />
+        )
       } else {
-        listComponent = <EmptyMessage message={I18n.t('users.not_found')} icon={this.props.icon} showIcon={true} />
+        listComponent = <EmptyMessage message={I18n.t('users.not_found')} icon={this.props.icon} showIcon />
       }
+    } else {
+      listComponent = <EmptyMessage message={I18n.t('users.not_found')} icon={this.props.icon} showIcon />
     }
 
     return (

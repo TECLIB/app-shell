@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
 class ScrollSyncPane extends PureComponent {
-
   static propTypes = {
     children: PropTypes.node.isRequired,
     attachTo: PropTypes.object,

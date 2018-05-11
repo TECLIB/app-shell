@@ -11,7 +11,9 @@ const GenerateRoutes = ({
   toast,
   language,
 }) => {
-  let r = routes.map(({ exact, path, component, authenticate }, i) =>
+  const r = routes.map(({
+    exact, path, component, authenticate,
+  }, i) =>
     (
       <PropsRoute
         exact={exact}

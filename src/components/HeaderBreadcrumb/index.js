@@ -8,9 +8,8 @@ import { I18n } from 'react-i18nify'
 import publicURL from '../../shared/publicURL'
 
 class HeaderBreadcrumb extends PureComponent {
-
   breadcrumbs() {
-    let breadcrumbs = []
+    const breadcrumbs = []
     breadcrumbs.push({ text: I18n.t('commons.dashboard'), key: `${publicURL}/app`, href: `${publicURL}/app` })
     const customDivider = () => <span className="header-breadcrumb">&nbsp;/&nbsp;</span>
     const addresses = this.props.history.location.pathname.split('/')
@@ -23,7 +22,7 @@ class HeaderBreadcrumb extends PureComponent {
       breadcrumbs.push({ text: addresses[index].replace(/\b\w/g, l => l.toUpperCase()), key: path, href: path })
     }
 
-    let componentBreadcrumbs = (
+    const componentBreadcrumbs = (
       <Breadcrumb
         className="header-breadcrumb"
         items={breadcrumbs}
@@ -42,8 +41,9 @@ class HeaderBreadcrumb extends PureComponent {
       <header className="header-block">
         <DefaultButton
           className="header-icon"
-          primary={true}
-          onClick={this.props.handleToggleExpand}>
+          primary
+          onClick={this.props.handleToggleExpand}
+        >
           <Icon iconName="CollapseMenu" onClick={this.props.handleToggleExpand} />
         </DefaultButton>
         <nav className="header-breadcrumb">

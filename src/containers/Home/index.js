@@ -8,7 +8,7 @@ import ContentPane from '../../components/ContentPane'
 import delay from '../../shared/delay'
 
 class Dashboard extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       isLoading: true,
@@ -26,11 +26,11 @@ class Dashboard extends PureComponent {
   }
 
   render() {
-    const renderComponent = this.state.isLoading ? <div style={{width: '100%', height: 'calc(100vh - 80px)'}}><Loading message={`${I18n.t('commons.loading')}...`} /></div> :
+    const renderComponent = this.state.isLoading ? <div style={{ width: '100%', height: 'calc(100vh - 80px)' }}><Loading message={`${I18n.t('commons.loading')}...`} /></div> :
       (
         <ContentPane>
           <div className="dashboard-block">
-            <EmptyMessage message="Teclib Dashboard" showIcon/>
+            <EmptyMessage message="Teclib Dashboard" showIcon />
           </div>
         </ContentPane>
       )

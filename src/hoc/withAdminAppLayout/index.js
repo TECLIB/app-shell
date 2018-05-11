@@ -11,7 +11,7 @@ import withAuthentication from '../../hoc/withAuthentication'
 
 const TIMEOUT_CONTRACT = 250
 
-const withAdminAppLayout = WrappedComponent => {
+const withAdminAppLayout = (WrappedComponent) => {
   class AdminAppLayout extends PureComponent {
     constructor(props) {
       super(props)
@@ -34,8 +34,8 @@ const withAdminAppLayout = WrappedComponent => {
     }
 
     handleResize = () => {
-      let prevMode = this.state.mode
-      let nextMode = getMode()
+      const prevMode = this.state.mode
+      const nextMode = getMode()
 
       if (prevMode !== nextMode) {
         this.setState({ mode: nextMode }, () => {

@@ -10,7 +10,7 @@ import withI18n from '../withI18n'
  * @param {* object } stylesConfiguration  - Config styles of wrapper div
  */
 const withAuthenticationLayout = (WrappedComponent, configStyles) => {
-  const authenticationLayout = props => {
+  const authenticationLayout = (props) => {
     const style = {
       textAlign: configStyles.centerContent ? 'center' : null,
       width: props.width,
@@ -65,7 +65,6 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
 
   return withI18n(authenticationLayout)
 }
-
 
 
 export default withAuthenticationLayout
