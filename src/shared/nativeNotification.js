@@ -6,4 +6,4 @@ export default function (title, body, icon = `${publicURL}/images/dashboard.png`
       new Notification(title, { body, icon })
     })
   }
-} 
+}
