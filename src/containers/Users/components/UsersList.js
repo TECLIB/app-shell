@@ -119,7 +119,7 @@ export default class UsersList extends PureComponent {
 
   }
 
-  handleDelete = async (eventObject) => {
+  handleDelete = async () => {
     const isOK = await Confirmation.isOK(this.contentDialog)
     if (isOK) {
       this.setState({
@@ -141,7 +141,7 @@ export default class UsersList extends PureComponent {
           if (this.listView) {
             this.listView.winControl.selection.clear()
           }
-          this.setState((prevState, props) => ({
+          this.setState(({
             isLoading: false,
           }))
         }

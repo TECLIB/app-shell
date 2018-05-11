@@ -23,7 +23,7 @@ class ScrollSyncPane extends PureComponent {
     this.context.registerPane(this.node, this.props.group)
   }
 
-  componentDidUpdate(prevProps, prevState, prevContext) {
+  componentDidUpdate(prevProps) {
     if (this.props.group !== prevProps.group) {
       this.context.unregisterPane(this.node, prevProps.group)
       this.context.registerPane(this.node, this.props.group)

@@ -33,7 +33,7 @@ const withI18NTranslation = (WrappedComponent) => {
           })
           I18n.setLocale(i18nConvention)
           this.forceUpdate()
-        }).catch((error) => {
+        }).catch(() => {
           I18n.setTranslations(this.props.language.languageDefault)
           this.forceUpdate()
         })
@@ -43,7 +43,7 @@ const withI18NTranslation = (WrappedComponent) => {
       this.findI18NString(this.props.language.languageCurrent)
     }
 
-    componentDidUpdate(prevProps, prevState, prevContext) {
+    componentDidUpdate(prevProps) {
       if (this.props.language.languageCurrent !== prevProps.language.languageCurrent) {
         this.findI18NString(this.props.language.languageCurrent)
       }

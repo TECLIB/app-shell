@@ -37,7 +37,7 @@ export default class UsersContent extends PureComponent {
     }
   }
 
-  componentDidUpdate(prevProps, prevState, prevContext) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevState.id !== this.state.id) {
       this.handleRefresh()
     }
