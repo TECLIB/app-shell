@@ -39,6 +39,9 @@ const withToastNotification = (WrappedComponent) => {
           ...prevState,
         }
       }
+      return {
+        ...prevState,
+      }
     }
 
     componentDidUpdate(prevProps) {
