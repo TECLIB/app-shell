@@ -50,10 +50,9 @@ class Users extends PureComponent {
         ...prevState,
         selectedItems: [],
       }
-    } else {
-      return {
-        ...prevState,
-      }
+    }
+    return {
+      ...prevState,
     }
   }
 

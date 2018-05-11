@@ -31,27 +31,26 @@ class SignIn extends PureComponent {
   render() {
     if (this.props.authentication.currentUser && this.props.authentication.sessionToken) {
       return <Redirect to={`${publicURL}/app`} />
-    } else {
-      let form
-      if (this.state.phase === 1) {
-        form =
-          <UsernameFieldset
-            username={this.state.username}
-            changeInput={this.changeInput}
-            changePhase={this.changePhase}
-          />
-      } else {
-        form = <AsyncPasswordFieldset
+    }
+    let form
+    if (this.state.phase === 1) {
+      form =
+        <UsernameFieldset
           username={this.state.username}
-          password={this.state.password}
           changeInput={this.changeInput}
           changePhase={this.changePhase}
-          history={this.props.history}
-          handleOnSubmit={this.handleFormSubmit}
         />
-      }
-      return this.state.isLoading ? <div style={{ height: '140px' }}><Loading message={`${I18n.t('commons.loading')}...`} /></div> : form
+    } else {
+      form = <AsyncPasswordFieldset
+        username={this.state.username}
+        password={this.state.password}
+        changeInput={this.changeInput}
+        changePhase={this.changePhase}
+        history={this.props.history}
+        handleOnSubmit={this.handleFormSubmit}
+      />
     }
+    return this.state.isLoading ? <div style={{ height: '140px' }}><Loading message={`${I18n.t('commons.loading')}...`} /></div> : form
   }
 }
 
