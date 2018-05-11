@@ -3,7 +3,7 @@ import { I18n } from 'react-i18nify'
 import { withRouter } from 'react-router'
 import withI18n from '../withI18n'
 
-import source_file_translation from './i18n/source_file.json'
+import sourceFileTranslation from './i18n/source_file.json'
 
 /**
  * Translations HOC
@@ -14,7 +14,7 @@ const withI18NTranslation = (WrappedComponent) => {
     constructor(props) {
       super(props)
       I18n.setTranslations({
-        [this.props.language.languageDefault]: source_file_translation,
+        [this.props.language.languageDefault]: sourceFileTranslation,
       })
     }
 
