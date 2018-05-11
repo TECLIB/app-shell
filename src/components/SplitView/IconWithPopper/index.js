@@ -29,7 +29,7 @@ class iconWithPopper extends PureComponent {
 iconWithPopper.propTypes = {
   to: PropTypes.string,
   iconName: PropTypes.string.isRequired,
-  click: PropTypes.func
+  click: PropTypes.func,
 }
 
 export default iconWithPopper

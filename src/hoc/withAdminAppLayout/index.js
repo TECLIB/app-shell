@@ -19,7 +19,7 @@ const withAdminAppLayout = WrappedComponent => {
         expanded: false,
         contract: false,
         mode: getMode(),
-        iframe: ''
+        iframe: '',
       }
 
       window.addEventListener('resize', this.handleResize)
@@ -57,13 +57,13 @@ const withAdminAppLayout = WrappedComponent => {
     handleExpand = () => {
       this.setState({
         expanded: true,
-        contract: false
+        contract: false,
       })
     }
 
     handleContract = () => {
       this.setState({
-        contract: true
+        contract: true,
       })
     }
 
@@ -71,7 +71,7 @@ const withAdminAppLayout = WrappedComponent => {
       this.state.contract && setTimeout(() => {
         this.setState({
           contract: false,
-          expanded: false
+          expanded: false,
         })
       }, TIMEOUT_CONTRACT)
     }

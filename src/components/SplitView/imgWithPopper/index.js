@@ -21,13 +21,13 @@ class imgWithPopper extends PureComponent {
 }
  
 imgWithPopper.defaultProps = {
-  alt: ''
+  alt: '',
 }
 
 imgWithPopper.propTypes = {
   to: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
-  alt: PropTypes.string
+  alt: PropTypes.string,
 }
 
 export default imgWithPopper

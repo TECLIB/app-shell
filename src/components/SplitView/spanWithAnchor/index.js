@@ -25,7 +25,7 @@ class spanWithPopper extends PureComponent {
 spanWithPopper.propTypes = {
   description: PropTypes.string.isRequired,
   to: PropTypes.string,
-  click: PropTypes.func
+  click: PropTypes.func,
 }
 
 export default spanWithPopper

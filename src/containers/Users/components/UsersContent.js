@@ -11,7 +11,7 @@ import { CommandBarButton } from 'office-ui-fabric-react/lib/Button';
 import {
   Persona,
   PersonaSize,
-  PersonaPresence
+  PersonaPresence,
 } from 'office-ui-fabric-react/lib/Persona'
 
 export default class UsersContent extends PureComponent {
@@ -21,7 +21,7 @@ export default class UsersContent extends PureComponent {
     this.state = {
       id: getID(this.props.history.location.pathname),
       data: undefined,
-      emails: []
+      emails: [],
     }
   }
 
@@ -30,11 +30,11 @@ export default class UsersContent extends PureComponent {
       return {
         id: getID(nextProps.history.location.pathname),
         data: undefined,
-        emails: []
+        emails: [],
       }
     } else {
       return {
-        ...prevState
+        ...prevState,
       }
     }
   }
@@ -50,14 +50,14 @@ export default class UsersContent extends PureComponent {
     if (isOK) {
 
       this.setState({
-        isLoading: true
+        isLoading: true,
       })
 
       try {
         this.props.toast.setNotification({
           title: I18n.t('commons.success'),
           body: I18n.t('notifications.elements_successfully_removed'),
-          type: 'success'
+          type: 'success',
         })
         this.props.changeAction('reload')
         this.props.changeSelectionMode(false)
@@ -83,14 +83,14 @@ export default class UsersContent extends PureComponent {
           primaryText: this.props.selectedItems[0]['User.name'],
           secondaryText: 'Software Engineer',
           tertiaryText: 'In a meeting',
-          optionalText: 'Available at 4:00pm'
+          optionalText: 'Available at 4:00pm',
         }
       }
 
       const emails = []
       this.setState({
         data: user,
-        emails
+        emails,
       })
     } catch (error) {
       this.props.toast.setNotification(this.props.handleMessage({ type: 'alert', message: error }))

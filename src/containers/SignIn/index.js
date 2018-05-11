@@ -20,7 +20,7 @@ class SignIn extends PureComponent {
       isLoading: false,
       username: '',
       password: '',
-      phase: 1
+      phase: 1,
     }
 
     this.changeInput = event => changeInput(this, event.target)
@@ -56,7 +56,7 @@ class SignIn extends PureComponent {
 }
 
 SignIn.propTypes = {
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
 }
 
 export default withAuthentication(withAuthenticationLayout(withHandleMessages(SignIn), { centerContent: true }))

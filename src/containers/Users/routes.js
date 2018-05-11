@@ -8,15 +8,15 @@ const routes = [
     name: I18n.t('commons.no_selection'),
     component: EmptyMessage,
     exact: true,
-    authenticate: true
+    authenticate: true,
   },
   {
     path: '/:id',
     name: I18n.t('commons.selected'),
     component: UsersContent,
     exact: true,
-    authenticate: true
-  }
+    authenticate: true,
+  },
 ]
 
 export default routes

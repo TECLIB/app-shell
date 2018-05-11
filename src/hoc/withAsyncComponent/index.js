@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react'
 const withAsyncComponent = importComponent => {
   return class AsyncComponent extends PureComponent {
     state = {
-      component: null
+      component: null,
     }
 
     componentDidMount() {

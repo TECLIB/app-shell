@@ -7,14 +7,14 @@ const routes = [
     path: `${publicURL}/`,
     component: SignIn,
     exact: true,
-    authenticate: false
+    authenticate: false,
   },
   {
     path: `${publicURL}/app`,
     component: asyncAdminApp,
     exact: false,
-    authenticate: true
-  }
+    authenticate: true,
+  },
 ]
 
 export default routes

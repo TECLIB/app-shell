@@ -4,7 +4,7 @@ import {
   TRANSLATIONS_AVAILABLES,
   LANGUAGE_DEFAULT,
   TRANSLATION_FOLDER,
-  LANGUAGE_NAMES
+  LANGUAGE_NAMES,
 } from './constants'
 
 describe('Check if translations are available', () => {

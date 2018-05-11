@@ -28,7 +28,7 @@ class Confirmation extends PureComponent {
 Confirmation.propTypes = {
   reference: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired
+  message: PropTypes.string.isRequired,
 }
 
 export default Confirmation

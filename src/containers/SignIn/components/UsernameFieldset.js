@@ -12,7 +12,7 @@ class UsernameFieldset extends PureComponent {
     super(props)
     this.state = {
       classInput: 'win-textbox',
-      errorMessage: ''
+      errorMessage: '',
     }
   }
 
@@ -32,7 +32,7 @@ class UsernameFieldset extends PureComponent {
             <span> {I18n.t('login.username_not_registered')} </span>
             <a>{I18n.t('login.create_an_new')}</a>
           </p>
-        )
+        ),
       })
     }
   }
@@ -89,7 +89,7 @@ class UsernameFieldset extends PureComponent {
 UsernameFieldset.propTypes = {
   username: PropTypes.string.isRequired,
   changeInput: PropTypes.func.isRequired,
-  changePhase: PropTypes.func.isRequired
+  changePhase: PropTypes.func.isRequired,
 }
 
 export default UsernameFieldset

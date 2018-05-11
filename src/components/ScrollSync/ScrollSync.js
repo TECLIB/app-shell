@@ -6,24 +6,24 @@ class ScrollSync extends PureComponent {
     children: PropTypes.element.isRequired,
     proportional: PropTypes.bool,
     vertical: PropTypes.bool,
-    horizontal: PropTypes.bool
+    horizontal: PropTypes.bool,
   };
 
   static defaultProps = {
     proportional: true,
     vertical: true,
-    horizontal: true
+    horizontal: true,
   };
 
   static childContextTypes = {
     registerPane: PropTypes.func,
-    unregisterPane: PropTypes.func
+    unregisterPane: PropTypes.func,
   };
 
   getChildContext() {
     return {
       registerPane: this.registerPane,
-      unregisterPane: this.unregisterPane
+      unregisterPane: this.unregisterPane,
     };
   }
 
@@ -78,7 +78,7 @@ class ScrollSync extends PureComponent {
       clientHeight,
       scrollLeft,
       scrollWidth,
-      clientWidth
+      clientWidth,
     } = scrolledPane;
 
     const scrollTopOffset = scrollHeight - clientHeight;

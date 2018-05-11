@@ -9,7 +9,7 @@ export class NotificationsProvider extends PureComponent {
     notification: {
       title: '',
       body: '',
-      type: 'info'
+      type: 'info',
     },
     show: false,
     setNotification: (notification) => {
