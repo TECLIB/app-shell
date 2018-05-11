@@ -6,13 +6,13 @@ import config from '../../config/config.json'
 
 export const changeInput = (ctx, input) => {
   ctx.setState({
-      [input.name]: input.value
+    [input.name]: input.value
   })
 }
 
 export const changePhase = (ctx, newPhase) => {
   ctx.setState({
-      phase: newPhase
+    phase: newPhase
   })
 }
 

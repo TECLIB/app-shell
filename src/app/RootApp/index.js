@@ -11,15 +11,13 @@ import routes from './routes'
  * TODO: Use PrivateRoute if the `private attribute of route is true
  */
 class RootApp extends PureComponent {
-    render() {
-        return (
-            <Switch>
-                <GenerateRoutes routes={routes} withNotFound toast={this.props.toast} language={this.props.language} />
-            </Switch>
-        )
-    }
+  render() {
+    return (
+      <Switch>
+        <GenerateRoutes routes={routes} withNotFound toast={this.props.toast} language={this.props.language} />
+      </Switch>
+    )
+  }
 }
 
-export default withToastNotification(
-    withI18NTranslation(RootApp)
-)
+export default withToastNotification(withI18NTranslation(RootApp))

@@ -1,5 +1,5 @@
-import { createBrowserHistory as createHistory } from 'history'
+import { createBrowserHistory as createHistory } from "history";
 
-let history = createHistory()
+let history = createHistory();
 
-export default history
+export default history;

@@ -4,10 +4,10 @@ import { Route } from 'react-router-dom'
 import { Redirect } from 'react-router'
 
 const isAuthenticated = () => {
-  if (localStorage.getItem('sessionToken') && localStorage.getItem('sessionToken') !== undefined ) {
-      return true
+  if (localStorage.getItem('sessionToken') && localStorage.getItem('sessionToken') !== undefined) {
+    return true
   } else {
-      return false
+    return false
   }
 }
 
@@ -16,13 +16,16 @@ const PrivateRoute = ({ component, redirectTo, ...rest }) => {
     <Route {...rest} render={routeProps => {
       return isAuthenticated() ? (
         renderMergedProps(component, routeProps, rest)
-      ) : (
-        <Redirect to={{
-          pathname: redirectTo,
-          state: { from: routeProps.location }
-        }}/>
+      ) : 
+      (
+        <Redirect 
+          to={{
+            pathname: redirectTo,
+            state: { from: routeProps.location },}}
+        />
       )
-    }}/>
+    }}
+    />
   )
 }
 
