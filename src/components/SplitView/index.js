@@ -4,7 +4,7 @@ import IconWithPopper from './IconWithPopper'
 import ImgWithPopper from './imgWithPopper'
 import SpanWithPopper from './spanWithAnchor'
 import { ScrollSync, ScrollSyncPane } from '../ScrollSync'
-import { I18n } from "react-i18nify"
+import { I18n } from 'react-i18nify'
 import publicURL from '../../shared/publicURL'
 
 class SplitView extends PureComponent {
@@ -16,7 +16,7 @@ class SplitView extends PureComponent {
   render () {
     this.props.handleSetTimeOut()
 
-    let toRender = ""
+    let toRender = ''
 
     if (this.props.mode !== 'small' || this.props.expanded) {
       toRender = (
@@ -31,14 +31,14 @@ class SplitView extends PureComponent {
                       <section className="splitview-wrapped-navbar-wrapped-top__section">
                         <ImgWithPopper
                           to={`${publicURL}/app`}
-                          alt='Teclib Dashboard'
+                          alt="Teclib Dashboard"
                           img={require('../../assets/images/logo.png')}
                           title={I18n.t('commons.dashboard')}
                           disabled={this.props.expanded}
                         />
                         <IconWithPopper
                           to={`${publicURL}/app/users`}
-                          iconName='Contact'
+                          iconName="Contact"
                           title={I18n.t('commons.user')}
                           disabled={this.props.expanded}
                         />
@@ -46,7 +46,7 @@ class SplitView extends PureComponent {
                       <section className="splitview-wrapped-navbar-wrapped-bottom__section">
                         <IconWithPopper
                           click={this.logout}
-                          iconName='SignOut'
+                          iconName="SignOut"
                           title={I18n.t('commons.logout')}
                           disabled={this.props.expanded}
                         />

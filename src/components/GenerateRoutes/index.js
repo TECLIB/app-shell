@@ -1,7 +1,7 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
-import PropsRoute from "./PropsRoute";
-import NotFound from "../../components/NotFound";
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import PropsRoute from './PropsRoute';
+import NotFound from '../../components/NotFound';
 
 const GenerateRoutes = ({
   routes,
@@ -22,8 +22,8 @@ const GenerateRoutes = ({
         key={i}
         {...data}
         path={
-          typeof rootPath === "string"
-            ? path === "/"
+          typeof rootPath === 'string'
+            ? path === '/'
               ? rootPath
               : rootPath + path
             : path

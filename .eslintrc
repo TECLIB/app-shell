@@ -1,7 +1,13 @@
 {
-    "extends": "airbnb",
-    "env": {
-        "browser": true,
-        "jest": true
-    }
+  "extends": ["airbnb"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "semi": "off",
+    "no-nested-ternary": "off",
+    "max-len": "off",
+    "import/no-named-as-default": 0
+  }
 }

@@ -23,7 +23,7 @@ const withI18NTranslation = WrappedComponent => {
      */
     findI18NString = i18nConvention => {
       let path = i18nConvention === this.props.language.languageDefault
-        ? `./i18n/source_file`
+        ? './i18n/source_file'
         : `./i18n/translations/${i18nConvention}`
 
       import(`${path}.json`)

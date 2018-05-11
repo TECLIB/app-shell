@@ -31,24 +31,17 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
           <br />
           <span>© 2018 Teclib'.</span>
           <br />
-<<<<<<< HEAD
-          <select onChange={
-            event => props.language.changeLanguage(event.target.value)
-          }>
-            <option value='en_GB'>
-=======
           <select onChange={event => props.language.changeLanguage(event.target.value)}>
             <option value="en_GB">
->>>>>>> a737f17... style(lint): set default indentation 2 spaces
               {I18n.t('commons.english')}
             </option>
-            <option value='pt_BR'>
+            <option value="pt_BR">
               {I18n.t('commons.portuguese')}
             </option>
-            <option value='fr_FR'>
+            <option value="fr_FR">
               {I18n.t('commons.french')}
             </option>
-            <option value='es_ES'>
+            <option value="es_ES">
               {I18n.t('commons.spanish')}
             </option>
           </select>

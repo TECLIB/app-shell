@@ -1,4 +1,4 @@
-import { I18n } from "react-i18nify"
+import { I18n } from 'react-i18nify'
 import logout from './logout'
 
 export default ({ type = 'info', message }) => {

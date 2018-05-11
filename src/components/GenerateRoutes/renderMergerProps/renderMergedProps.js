@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const renderMergedProps = (component, ...rest) => {
   const finalProps = Object.assign({}, ...rest);
