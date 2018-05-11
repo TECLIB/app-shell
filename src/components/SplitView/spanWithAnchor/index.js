@@ -8,14 +8,14 @@ class spanWithPopper extends PureComponent {
       return (
         <div>
           <NavLink to={this.props.to} activeClassName="selected">
-              { this.props.description }
+            { this.props.description }
           </NavLink>
         </div>
       )
     } else {
       return (
         <div onClick={this.props.click}>
-            { this.props.description }
+          { this.props.description }
         </div>
       )
     }

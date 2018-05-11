@@ -1,8 +1,8 @@
 const TRANSLATIONS_AVAILABLES = {
   //'Portuguese':'pt_BR',
-  
+
   //'Spain': 'es',
-  
+
   //'French': 'fr',
 }
 const LANGUAGE_DEFAULT = 'en_GB';

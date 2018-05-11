@@ -18,24 +18,24 @@ loadTheme(theme)
 initializeIcons(/* optional base url */)
 // Suppress icon warnings.
 setIconOptions({
-    disableWarnings: true
+  disableWarnings: true
 })
 
 ReactDOM.render(
-    (
+  (
     <Fabric>
-        <I18nProvider>
-            <NotificationsProvider>
-                <AuthenticationProvider>
-                    <Router history={history}>
-                        <RootApp />
-                    </Router>
-                </AuthenticationProvider>
-            </NotificationsProvider>
-        </I18nProvider>
+      <I18nProvider>
+        <NotificationsProvider>
+          <AuthenticationProvider>
+            <Router history={history}>
+              <RootApp />
+            </Router>
+          </AuthenticationProvider>
+        </NotificationsProvider>
+      </I18nProvider>
     </Fabric>
-    ),
-    document.getElementById('root')
+  ),
+  document.getElementById('root')
 )
 
 registerServiceWorker();

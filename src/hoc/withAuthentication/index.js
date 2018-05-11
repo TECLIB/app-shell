@@ -2,16 +2,16 @@ import React from 'react'
 import { AuthenticationConsumer } from '../../providers/AuthenticationProvider'
 
 const withAuthentication = WrappedComponent => {
-    const authentication = props => {
+  const authentication = props => {
 
-        return (
-            <AuthenticationConsumer>
-            { (value) => <WrappedComponent {...props} authentication={value.state} /> }
-            </AuthenticationConsumer>
-        )
-    }
+    return (
+      <AuthenticationConsumer>
+        {(value) => <WrappedComponent {...props} authentication={value.state} />}
+      </AuthenticationConsumer>
+    )
+  }
 
-    return authentication
+  return authentication
 }
 
 export default withAuthentication

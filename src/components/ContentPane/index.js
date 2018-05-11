@@ -33,7 +33,7 @@ class ContentPane extends PureComponent {
     return (
       <div className={`content-pane ${this.state.animate}`}>
         <div id="content-pane-block" className="content-pane-block">
-        { this.props.children }
+          { this.props.children }
         </div>
       </div>
     )
