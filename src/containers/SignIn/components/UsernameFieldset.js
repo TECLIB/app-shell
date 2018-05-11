@@ -2,9 +2,10 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { I18n } from 'react-i18nify'
+import { PrimaryButton } from 'office-ui-fabric-react/lib/Button'
 import { selfRegistration } from '../../../config/config.json'
 import publicURL from '../../../shared/publicURL'
-import { PrimaryButton } from 'office-ui-fabric-react/lib/Button'
+
 
 class UsernameFieldset extends PureComponent {
 

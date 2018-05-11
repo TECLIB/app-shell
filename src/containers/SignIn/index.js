@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { Redirect } from 'react-router'
+import { I18n } from 'react-i18nify'
 import UsernameFieldset from './components/UsernameFieldset'
 import withAuthenticationLayout from '../../hoc/withAuthenticationLayout'
 import withAuthentication from '../../hoc/withAuthentication'
 import withHandleMessages from '../../hoc/withHandleMessages'
-import { I18n } from 'react-i18nify'
 import publicURL from '../../shared/publicURL'
 // Async Component
 import AsyncPasswordFieldset from '../../async/asyncPasswordFielset'
-import { Redirect } from 'react-router'
 import Loading from '../../components/Loading'
 import { changeInput, changePhase, handleFormSubmit } from './actions'
 

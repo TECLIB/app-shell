@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { PrimaryButton, DefaultButton } from 'office-ui-fabric-react/lib/Button'
 import { Link } from 'react-router-dom'
 import { I18n } from 'react-i18nify'
 import Loading from '../../../components/Loading'
 import publicURL from '../../../shared/publicURL'
-import { PrimaryButton, DefaultButton } from 'office-ui-fabric-react/lib/Button'
 
 class PasswordFieldset extends PureComponent {
 

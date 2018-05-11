@@ -1,7 +1,7 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
 import renderMergedProps from '../renderMergerProps/renderMergedProps'
 import PrivateRoute from '../PrivateRoute'
-import { Route } from 'react-router-dom'
 
 const PropsRoute = ({ component, ...rest }) => {
   if (rest.authenticate) {

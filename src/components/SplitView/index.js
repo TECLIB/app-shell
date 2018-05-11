@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { I18n } from 'react-i18nify'
+import { ScrollSync, ScrollSyncPane } from '../ScrollSync'
 import IconWithPopper from './IconWithPopper'
 import ImgWithPopper from './imgWithPopper'
 import SpanWithPopper from './spanWithAnchor'
-import { ScrollSync, ScrollSyncPane } from '../ScrollSync'
-import { I18n } from 'react-i18nify'
 import publicURL from '../../shared/publicURL'
 
 class SplitView extends PureComponent {

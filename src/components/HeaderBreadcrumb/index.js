@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { Icon } from 'office-ui-fabric-react/lib/Icon'
+import { Breadcrumb } from 'office-ui-fabric-react/lib/Breadcrumb'
+import { DefaultButton } from 'office-ui-fabric-react/lib/Button'
 import { Link } from 'react-router-dom'
 import { I18n } from 'react-i18nify'
 import publicURL from '../../shared/publicURL'
-import { Icon } from 'office-ui-fabric-react/lib/Icon'
-import { Breadcrumb } from 'office-ui-fabric-react/lib/Breadcrumb'
-import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 
 class HeaderBreadcrumb extends PureComponent {
 

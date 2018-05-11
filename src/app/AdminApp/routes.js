@@ -1,6 +1,6 @@
+import { I18n } from 'react-i18nify'
 import Home from '../../containers/Home'
 import Users from '../../containers/Users'
-import { I18n } from 'react-i18nify'
 
 const routes = [
   {

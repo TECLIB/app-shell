@@ -1,6 +1,6 @@
+import { I18n } from 'react-i18nify'
 import EmptyMessage from '../../components/EmptyMessage'
 import UsersContent from './components/UsersContent'
-import { I18n } from 'react-i18nify'
 
 const routes = [
   {
