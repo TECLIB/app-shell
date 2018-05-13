@@ -26,6 +26,10 @@ const withAdminAppLayout = (WrappedComponent) => {
       animations()
     }
 
+    componentWillUnmount() {
+      window.removeEventListener('resize', this.handleResize)
+    }
+
     logout = async () => {
       const isOK = await Confirmation.isOK(this.contentDialog)
       if (isOK) {
@@ -44,10 +48,6 @@ const withAdminAppLayout = (WrappedComponent) => {
           }
         })
       }
-    }
-
-    componentWillUnmount() {
-      window.removeEventListener('resize', this.handleResize)
     }
 
     handleToggleExpand = () => {

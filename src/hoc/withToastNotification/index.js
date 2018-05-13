@@ -8,16 +8,6 @@ import nativeNotification from '../../shared/nativeNotification'
 
 const withToastNotification = (WrappedComponent) => {
   class ToastNotification extends PureComponent {
-    constructor(props) {
-      super(props)
-      this.state = {
-        timer: {},
-        title: this.props.toast.notification.title,
-        body: this.props.toast.notification.body,
-        type: this.props.toast.notification.type,
-      }
-    }
-
     static getDerivedStateFromProps(nextProps, prevState) {
       if (nextProps.title !== prevState.title || nextProps.body !== prevState.body) {
         const notification = validateNotifications()
@@ -41,6 +31,16 @@ const withToastNotification = (WrappedComponent) => {
       }
       return {
         ...prevState,
+      }
+    }
+
+    constructor(props) {
+      super(props)
+      this.state = {
+        timer: {},
+        title: this.props.toast.notification.title,
+        body: this.props.toast.notification.body,
+        type: this.props.toast.notification.type,
       }
     }
 
