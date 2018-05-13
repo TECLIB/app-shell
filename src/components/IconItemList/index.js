@@ -9,6 +9,12 @@ export default class IconItemList extends PureComponent {
     }
   }
 
+  componentDidMount() {
+    if (this.props.type === 'file' && this.props.image !== '') {
+      this.getImage()
+    }
+  }
+
   getImage = async () => {
     try {
       switch (this.props.image) {
@@ -53,12 +59,6 @@ export default class IconItemList extends PureComponent {
           break
       }
     } catch (error) { }
-  }
-
-  componentDidMount() {
-    if (this.props.type === 'file' && this.props.image !== '') {
-      this.getImage()
-    }
   }
 
   render() {

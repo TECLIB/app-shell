@@ -9,6 +9,18 @@ import calc100PercentMinus from '../../shared/calc100PercentMinus'
 import publicURL from '../../shared/publicURL'
 
 class Users extends PureComponent {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.history.location.pathname === `${publicURL}/app/users` && prevState.selectedItems.length > 0) {
+      return {
+        ...prevState,
+        selectedItems: [],
+      }
+    }
+    return {
+      ...prevState,
+    }
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -21,6 +33,10 @@ class Users extends PureComponent {
     }
 
     window.addEventListener('resize', this.handleResize)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize)
   }
 
   handleResize = () => {
@@ -41,22 +57,6 @@ class Users extends PureComponent {
         mode: nextMode,
       })
     }
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.history.location.pathname === `${publicURL}/app/users` && prevState.selectedItems.length > 0) {
-      return {
-        ...prevState,
-        selectedItems: [],
-      }
-    }
-    return {
-      ...prevState,
-    }
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize)
   }
 
   propsData = () =>

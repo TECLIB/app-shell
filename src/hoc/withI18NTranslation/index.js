@@ -18,9 +18,19 @@ const withI18NTranslation = (WrappedComponent) => {
       })
     }
 
+    componentDidMount() {
+      this.findI18NString(this.props.language.languageCurrent)
+    }
+
+    componentDidUpdate(prevProps) {
+      if (this.props.language.languageCurrent !== prevProps.language.languageCurrent) {
+        this.findI18NString(this.props.language.languageCurrent)
+      }
+    }
+
     /**
-     * @param {*} i18nConvention -> String, e.g: 'pt_BR'
-     */
+    * @param {*} i18nConvention -> String, e.g: 'pt_BR'
+    */
     findI18NString = (i18nConvention) => {
       const path = i18nConvention === this.props.language.languageDefault
         ? './i18n/source_file'
@@ -37,16 +47,6 @@ const withI18NTranslation = (WrappedComponent) => {
           I18n.setTranslations(this.props.language.languageDefault)
           this.forceUpdate()
         })
-    }
-
-    componentDidMount() {
-      this.findI18NString(this.props.language.languageCurrent)
-    }
-
-    componentDidUpdate(prevProps) {
-      if (this.props.language.languageCurrent !== prevProps.language.languageCurrent) {
-        this.findI18NString(this.props.language.languageCurrent)
-      }
     }
 
     render() {
