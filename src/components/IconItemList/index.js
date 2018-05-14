@@ -26,39 +26,44 @@ export default class IconItemList extends PureComponent {
             image: require(`../../assets/images/${this.props.image}`),
           })
           break
-
         default:
-          const urlBase = localStorage.getItem('baseURL')
-          let url
-          if (this.props.isMin) {
-            const image = this.props.image.split('.')
-            url = `//${urlBase.split('//')[1]}/front/document.send.php?file=_pictures/${image[0]}_min.${image[1]}`
-          } else {
-            url = `//${urlBase.split('//')[1]}/front/document.send.php?file=_pictures/${this.props.image}`
-          }
-
-          fetch(url, {
-            method: 'GET',
-            credentials: 'same-origin',
-          }).then((response) => {
-            response.arrayBuffer().then((buffer) => {
-              this.setState({
-                image: `data:image/jpeg;base64,${arrayBufferToBase64(buffer)}`,
-              })
-            })
-          })
-
-          function arrayBufferToBase64(buffer) {
-            let binary = ''
-            const bytes = [].slice.call(new Uint8Array(buffer))
-
-            bytes.forEach(b => binary += String.fromCharCode(b))
-
-            return window.btoa(binary)
-          }
+          this.getImageProfile()
           break
       }
-    } catch (error) { }
+    } catch (error) {
+      this.setState({
+        image: require('../../assets/images/profile.png'),
+      })
+    }
+  }
+
+  getImageProfile = () => {
+    const urlBase = localStorage.getItem('baseURL')
+    let url
+    if (this.props.isMin) {
+      const image = this.props.image.split('.')
+      url = `//${urlBase.split('//')[1]}/front/document.send.php?file=_pictures/${image[0]}_min.${image[1]}`
+    } else {
+      url = `//${urlBase.split('//')[1]}/front/document.send.php?file=_pictures/${this.props.image}`
+    }
+
+    fetch(url, {
+      method: 'GET',
+      credentials: 'same-origin',
+    }).then((response) => {
+      response.arrayBuffer().then((buffer) => {
+        this.setState({
+          image: `data:image/jpeg;base64,${this.arrayBufferToBase64(buffer)}`,
+        })
+      })
+    })
+  }
+
+  arrayBufferToBase64 = (buffer) => {
+    let binary = ''
+    const bytes = [].slice.call(new Uint8Array(buffer))
+    bytes.forEach(b => binary += String.fromCharCode(b))
+    return window.btoa(binary)
   }
 
   render() {
