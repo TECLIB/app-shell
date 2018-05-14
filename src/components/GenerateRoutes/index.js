@@ -40,6 +40,14 @@ const GenerateRoutes = ({
   return <Switch>{r}</Switch>
 }
 
+GenerateRoutes.defaultProps = {
+  rootPath: undefined,
+  withNotFound: false,
+  data: {},
+  toast: {},
+  language: {},
+}
+
 GenerateRoutes.propTypes = {
   routes: PropTypes.array.isRequired,
   rootPath: PropTypes.string,

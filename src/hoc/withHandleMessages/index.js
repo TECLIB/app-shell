@@ -21,6 +21,7 @@ const withHandleMessages = (WrappedComponent) => {
 
   HandleMessages.propTypes = {
     history: PropTypes.object.isRequired,
+    handleMessage: PropTypes.func,
   }
 
   return HandleMessages

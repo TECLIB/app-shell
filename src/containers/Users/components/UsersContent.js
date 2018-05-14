@@ -96,7 +96,7 @@ export default class UsersContent extends PureComponent {
 
   render() {
     let renderComponent
-    if (this.state.data === undefined) {
+    if (this.state.data === undefined || this.state.isLoading) {
       renderComponent = <Loading message={`${I18n.t('commons.loading')}...`} />
     } else {
       renderComponent = (
@@ -176,6 +176,11 @@ export default class UsersContent extends PureComponent {
     )
   }
 }
+
+UsersContent.defaultProps = {
+  selectedItems: [],
+}
+
 UsersContent.propTypes = {
   selectedItems: PropTypes.array,
   changeAction: PropTypes.func.isRequired,

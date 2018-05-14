@@ -31,6 +31,10 @@ const PrivateRoute = ({ component, redirectTo, ...rest }) =>
     />
   )
 
+PrivateRoute.defaultProps = {
+  redirectTo: '/',
+}
+
 PrivateRoute.propTypes = {
   component: PropTypes.oneOfType([
     PropTypes.func,

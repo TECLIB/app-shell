@@ -270,6 +270,10 @@ export default class UsersList extends PureComponent {
   }
 }
 
+UsersList.defaultProps = {
+  action: '',
+}
+
 UsersList.propTypes = {
   selectedItems: PropTypes.array.isRequired,
   changeSelectedItems: PropTypes.func.isRequired,

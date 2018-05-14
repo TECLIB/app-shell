@@ -12,7 +12,6 @@ class Dashboard extends PureComponent {
     super(props)
     this.state = {
       isLoading: true,
-      display: localStorage.getItem('display') ? JSON.parse(localStorage.getItem('display')) : {},
     }
   }
 

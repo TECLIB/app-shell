@@ -57,11 +57,11 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
 
   authenticationLayout.propTypes = {
     language: PropTypes.object.isRequired,
-    centerContent: PropTypes.bool.isRequired,
+    centerContent: PropTypes.bool,
     width: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number,
-    ]).isRequired,
+    ]),
   }
 
   return withI18n(authenticationLayout)
