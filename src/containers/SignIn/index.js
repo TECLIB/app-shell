@@ -54,6 +54,7 @@ class SignIn extends PureComponent {
 }
 
 SignIn.propTypes = {
+  authentication: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
 }
 

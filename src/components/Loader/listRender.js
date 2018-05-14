@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ContentLoader, { BulletList } from 'react-content-loader'
 
-const listRender = ({ props, index }) => {
-  if (props.type === 'list') {
+const listRender = ({ type, index }) => {
+  if (type === 'list') {
     return (
       <ContentLoader key={index} speed={1.5} style={{ width: '320px' }}>
         <circle cx="40" cy="45" r="27" />
@@ -12,6 +13,11 @@ const listRender = ({ props, index }) => {
       </ContentLoader>)
   }
   return <BulletList key={index} speed={1.5} style={{ width: '320px' }} />
+}
+
+listRender.propTypes = {
+  type: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 }
 
 export default listRender

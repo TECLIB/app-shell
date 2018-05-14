@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import { withRouter } from 'react-router'
 import WinJS from 'winjs'
 import { Icon } from 'office-ui-fabric-react/lib/Icon'
@@ -84,6 +85,10 @@ const withToastNotification = (WrappedComponent) => {
         </React.Fragment>
       )
     }
+  }
+
+  ToastNotification.propTypes = {
+    toast: PropTypes.object,
   }
 
   return withNotifications(withRouter(ToastNotification))

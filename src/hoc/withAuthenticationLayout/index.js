@@ -56,6 +56,7 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
   }
 
   authenticationLayout.propTypes = {
+    language: PropTypes.object.isRequired,
     centerContent: PropTypes.bool.isRequired,
     width: PropTypes.oneOfType([
       PropTypes.string,

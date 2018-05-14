@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Route } from 'react-router-dom'
 import { Redirect } from 'react-router'
 import renderMergedProps from '../renderMergerProps/renderMergedProps'
@@ -29,5 +30,13 @@ const PrivateRoute = ({ component, redirectTo, ...rest }) =>
       }
     />
   )
+
+PrivateRoute.propTypes = {
+  component: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object,
+  ]).isRequired,
+  redirectTo: PropTypes.string,
+}
 
 export default PrivateRoute

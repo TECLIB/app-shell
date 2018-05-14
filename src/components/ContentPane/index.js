@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 
 class ContentPane extends PureComponent {
   constructor(props) {
@@ -37,6 +38,10 @@ class ContentPane extends PureComponent {
       </div>
     )
   }
+}
+
+ContentPane.propTypes = {
+  children: PropTypes.element.isRequired,
 }
 
 export default ContentPane

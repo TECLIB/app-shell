@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import publicURL from '../../shared/publicURL'
 
 const AuthenticationContext = React.createContext()
@@ -40,4 +41,11 @@ export class AuthenticationProvider extends PureComponent {
       </AuthenticationContext.Provider>
     );
   }
+}
+
+AuthenticationProvider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object,
+  ]).isRequired,
 }

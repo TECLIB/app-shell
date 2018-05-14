@@ -29,6 +29,7 @@ iconWithPopper.propTypes = {
   to: PropTypes.string,
   iconName: PropTypes.string.isRequired,
   click: PropTypes.func,
+  title: PropTypes.string,
 }
 
 export default iconWithPopper

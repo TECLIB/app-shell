@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import { I18n } from 'react-i18nify'
 import { withRouter } from 'react-router'
 import withI18n from '../withI18n'
@@ -52,6 +53,10 @@ const withI18NTranslation = (WrappedComponent) => {
     render() {
       return <WrappedComponent {...this.props} />
     }
+  }
+
+  I18NTranslation.propTypes = {
+    language: PropTypes.object,
   }
 
   return withI18n(withRouter(I18NTranslation))

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Route, Switch } from 'react-router-dom'
 import PropsRoute from './PropsRoute'
 import NotFound from '../../components/NotFound'
@@ -34,9 +35,18 @@ const GenerateRoutes = ({
     ))
 
   withNotFound &&
-    r.push(<Route key={routes.length + 1} render={() => <NotFound />} />);
+    r.push(<Route key={routes.length + 1} render={() => <NotFound />} />)
 
-  return <Switch>{r}</Switch>;
-};
+  return <Switch>{r}</Switch>
+}
 
-export default GenerateRoutes;
+GenerateRoutes.propTypes = {
+  routes: PropTypes.array.isRequired,
+  rootPath: PropTypes.string,
+  withNotFound: PropTypes.bool,
+  data: PropTypes.object,
+  toast: PropTypes.object,
+  language: PropTypes.object,
+}
+
+export default GenerateRoutes

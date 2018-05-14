@@ -9,7 +9,7 @@ const Loader = (props) => {
     content = [
       ...content,
       listRender({
-        props,
+        type: props.type,
         index,
       }),
     ]

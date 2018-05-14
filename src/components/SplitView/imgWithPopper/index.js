@@ -28,6 +28,7 @@ imgWithPopper.propTypes = {
   to: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   alt: PropTypes.string,
+  title: PropTypes.string,
 }
 
 export default imgWithPopper

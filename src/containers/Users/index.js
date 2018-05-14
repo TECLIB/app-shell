@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import routes from './routes'
 import withHandleMessages from '../../hoc/withHandleMessages'
-import withToasNotification from '../../hoc/withHandleMessages'
+import withToastNotification from '../../hoc/withToastNotification'
 import GenerateRoutes from '../../components/GenerateRoutes'
 import UsersList from './components/UsersList'
 import getMode from '../../shared/getMode'
@@ -151,4 +152,11 @@ class Users extends PureComponent {
   }
 }
 
-export default withToasNotification(withHandleMessages(Users))
+Users.propTypes = {
+  history: PropTypes.object.isRequired,
+  toast: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  handleMessage: PropTypes.func.isRequired,
+}
+
+export default withToastNotification(withHandleMessages(Users))

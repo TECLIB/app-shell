@@ -269,6 +269,7 @@ export default class UsersList extends PureComponent {
     )
   }
 }
+
 UsersList.propTypes = {
   selectedItems: PropTypes.array.isRequired,
   changeSelectedItems: PropTypes.func.isRequired,
@@ -278,4 +279,5 @@ UsersList.propTypes = {
   action: PropTypes.string,
   changeAction: PropTypes.func.isRequired,
   toast: PropTypes.object.isRequired,
+  icon: PropTypes.string.isRequired,
 }
