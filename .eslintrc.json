@@ -23,6 +23,15 @@
     "import/no-named-as-default": 0,
     "func-names":"off",
     "no-unused-expressions":"off",
+    "react/forbid-prop-types":"off",
+    "import/no-extraneous-dependencies": [
+      "off",
+      {
+        "devDependencies": false,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
     "react/jsx-filename-extension": [
       1,
       {
