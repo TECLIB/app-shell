@@ -77,6 +77,7 @@ class PasswordFieldset extends PureComponent {
 }
 
 PasswordFieldset.propTypes = {
+  username: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   changeInput: PropTypes.func.isRequired,
   changePhase: PropTypes.func.isRequired,

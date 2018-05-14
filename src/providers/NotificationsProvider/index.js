@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 
 const NotificationsContext = React.createContext()
 
@@ -38,4 +39,11 @@ export class NotificationsProvider extends PureComponent {
       </NotificationsContext.Provider>
     );
   }
+}
+
+NotificationsProvider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object,
+  ]).isRequired,
 }

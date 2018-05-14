@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import { Switch } from 'react-router-dom'
 import withI18NTranslation from '../../hoc/withI18NTranslation'
 import withToastNotification from '../../hoc/withToastNotification'
@@ -18,6 +19,11 @@ class RootApp extends PureComponent {
       </Switch>
     )
   }
+}
+
+RootApp.propTypes = {
+  toast: PropTypes.object.isRequired,
+  language: PropTypes.object.isRequired,
 }
 
 export default withToastNotification(withI18NTranslation(RootApp))

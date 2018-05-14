@@ -90,6 +90,8 @@ SplitView.propTypes = {
   handleSetTimeOut: PropTypes.func.isRequired,
   handleToggleExpand: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired,
+  mode: PropTypes.string.isRequired,
 }
 
 export default SplitView

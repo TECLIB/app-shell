@@ -1,4 +1,5 @@
 import { I18n } from 'react-i18nify'
+import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 import SplitView from '../../components/SplitView'
 import HeaderBreadcrumb from '../../components/HeaderBreadcrumb'
@@ -112,7 +113,13 @@ const withAdminAppLayout = (WrappedComponent) => {
     }
   }
 
+  AdminAppLayout.propTypes = {
+    history: PropTypes.object.isRequired,
+    authentication: PropTypes.object.isRequired,
+  }
+
   return withAuthentication(AdminAppLayout)
 }
+
 
 export default withAdminAppLayout

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 
 const I18nContext = React.createContext()
 
@@ -26,4 +27,11 @@ export class I18nProvider extends PureComponent {
       </I18nContext.Provider>
     );
   }
+}
+
+I18nProvider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object,
+  ]).isRequired,
 }

@@ -182,4 +182,5 @@ UsersContent.propTypes = {
   changeSelectionMode: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
   toast: PropTypes.object.isRequired,
+  handleMessage: PropTypes.func.isRequired,
 }
