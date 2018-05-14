@@ -25,6 +25,12 @@ class iconWithPopper extends PureComponent {
   }
 }
 
+iconWithPopper.defaultProps = {
+  to: null,
+  click: () => {},
+  title: '',
+}
+
 iconWithPopper.propTypes = {
   to: PropTypes.string,
   iconName: PropTypes.string.isRequired,

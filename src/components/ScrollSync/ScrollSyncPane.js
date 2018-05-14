@@ -1,6 +1,6 @@
 import { PureComponent } from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import ReactDOM from 'react-dom'
 
 class ScrollSyncPane extends PureComponent {
   static propTypes = {
@@ -11,6 +11,7 @@ class ScrollSyncPane extends PureComponent {
 
   static defaultProps = {
     group: 'default',
+    attachTo: null,
   }
 
   static contextTypes = {

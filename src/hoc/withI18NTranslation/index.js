@@ -55,6 +55,10 @@ const withI18NTranslation = (WrappedComponent) => {
     }
   }
 
+  I18NTranslation.defaultProps = {
+    language: {},
+  }
+
   I18NTranslation.propTypes = {
     language: PropTypes.object,
   }

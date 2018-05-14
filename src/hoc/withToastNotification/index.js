@@ -87,6 +87,10 @@ const withToastNotification = (WrappedComponent) => {
     }
   }
 
+  ToastNotification.defaultProps = {
+    toast: {},
+  }
+
   ToastNotification.propTypes = {
     toast: PropTypes.object,
   }

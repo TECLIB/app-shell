@@ -14,6 +14,12 @@ const ImageResponsive = ({
   <img style={updateObject(style, styleNew)} src={src} alt={alt} title={title} />
 )
 
+ImageResponsive.defaultProps = {
+  alt: '',
+  styleNew: {},
+  title: '',
+}
+
 ImageResponsive.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string,

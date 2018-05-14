@@ -100,13 +100,16 @@ IconItemList.defaultProps = {
   backgroundColor: '#e6e6e6',
   image: '',
   type: 'file',
+  isMin: false,
+  imgClick: () => {},
+  imgClass: '',
 }
 
 IconItemList.propTypes = {
-  size: PropTypes.number.isRequired,
-  backgroundColor: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['file', 'base64', 'localFile']).isRequired,
+  size: PropTypes.number,
+  backgroundColor: PropTypes.string,
+  image: PropTypes.string,
+  type: PropTypes.oneOf(['file', 'base64', 'localFile']),
   isMin: PropTypes.bool,
   imgClick: PropTypes.func,
   imgClass: PropTypes.string,
