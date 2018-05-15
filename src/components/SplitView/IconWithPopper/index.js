@@ -16,7 +16,7 @@ class iconWithPopper extends PureComponent {
       )
     }
     return (
-      <div onClick={this.props.click}>
+      <div role="button" tabIndex="0" onClick={this.props.click}>
         <a>
           <Icon iconName={this.props.iconName} ariaLabel={this.props.title} />
         </a>

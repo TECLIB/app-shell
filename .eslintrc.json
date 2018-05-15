@@ -20,12 +20,10 @@
     "semi": "off",
     "no-nested-ternary": "off",
     "max-len": "off",
-    "import/no-named-as-default": 0,
     "func-names":"off",
     "no-restricted-syntax": "off",
     "no-unused-expressions":"off",
-    "react/forbid-prop-types":"off",
-    "jsx-a11y/anchor-is-valid": "off",
+    "import/no-named-as-default": 0,
     "import/no-extraneous-dependencies": [
       "off",
       {
@@ -34,6 +32,8 @@
         "peerDependencies": false
       }
     ],
+    "react/forbid-prop-types":"off",
+    
     "react/jsx-filename-extension": [
       1,
       {
@@ -42,6 +42,8 @@
           ".jsx"
         ]
       }
-    ]
+    ],
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/click-events-have-key-events": "off"
   }
 }

@@ -14,7 +14,7 @@ class spanWithPopper extends PureComponent {
       )
     }
     return (
-      <div onClick={this.props.click}>
+      <div role="button" tabIndex="0" onClick={this.props.click}>
         {this.props.description}
       </div>
     )
