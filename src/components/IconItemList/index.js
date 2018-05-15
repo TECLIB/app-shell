@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import image from './images/image1.jpg;
+import profile from '../../assets/images/profile.png'
 
 export default class IconItemList extends PureComponent {
   constructor(props) {
@@ -17,15 +17,16 @@ export default class IconItemList extends PureComponent {
   }
 
   getImage = async () => {
+    let image
     try {
       switch (this.props.image) {
         case 'profile.png':
         case 'android.png':
         case 'apple.png':
         case 'Phone.png':
-          const image = require(`../../assets/images/${this.props.image}`)
+          image = require(`../../assets/images/${this.props.image}`)
           this.setState({
-            image
+            image,
           })
           break
         default:
@@ -33,9 +34,8 @@ export default class IconItemList extends PureComponent {
           break
       }
     } catch (error) {
-      const image = require(`../../assets/images/${this.props.image}`)
       this.setState({
-        image
+        image: profile,
       })
     }
   }
