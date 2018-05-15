@@ -1,12 +1,13 @@
 import React from 'react'
 import { I18n } from 'react-i18nify'
+import logo from '../../assets/images/logo.png'
 
 const NotFound = () =>
   (
     <div className="authentication-block " style={{ textAlign: 'center' }} >
       <section className="authentication__section">
         <figure className="authentication__figure">
-          <img alt="App Shell" src={require('../../assets/images/logo.png')} />
+          <img alt="App Shell" src={logo} />
         </figure>
         <h1>{I18n.t('commons.not_found')}</h1>
         <h1>404</h1>

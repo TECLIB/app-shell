@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { I18n } from 'react-i18nify'
 import withI18n from '../withI18n'
+import logo from '../../assets/images/logo.png'
 
 /**
  * Wrapper a component with divs's stylizeds
@@ -20,7 +21,7 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
       <div className="authentication-block " style={style} >
         <section className="authentication__section">
           <figure className="authentication__figure">
-            <img alt="Flyve MDM Dashboard" src={require('../../assets/images/logo.png')} />
+            <img alt="Flyve MDM Dashboard" src={logo} />
           </figure>
           <WrappedComponent {...props} />
         </section>

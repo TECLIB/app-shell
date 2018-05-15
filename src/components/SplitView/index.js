@@ -6,6 +6,7 @@ import IconWithPopper from './IconWithPopper'
 import ImgWithPopper from './imgWithPopper'
 import SpanWithPopper from './spanWithAnchor'
 import publicURL from '../../shared/publicURL'
+import logo from '../../assets/images/logo.png'
 
 class SplitView extends PureComponent {
   logout = () => {
@@ -31,7 +32,7 @@ class SplitView extends PureComponent {
                         <ImgWithPopper
                           to={`${publicURL}/app`}
                           alt="Teclib Dashboard"
-                          img={require('../../assets/images/logo.png')}
+                          img={logo}
                           title={I18n.t('commons.dashboard')}
                           disabled={this.props.expanded}
                         />
