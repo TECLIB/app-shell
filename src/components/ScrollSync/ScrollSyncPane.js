@@ -1,6 +1,5 @@
-import { PureComponent } from 'react'
+import React, { Children, PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import ReactDOM from 'react-dom'
 
 class ScrollSyncPane extends PureComponent {
   static propTypes = {
@@ -20,7 +19,7 @@ class ScrollSyncPane extends PureComponent {
   };
 
   componentDidMount() {
-    this.node = this.props.attachTo || ReactDOM.findDOMNode(this)
+    this.node = this.props.attachTo || this.child
     this.context.registerPane(this.node, this.props.group)
   }
 
@@ -36,7 +35,11 @@ class ScrollSyncPane extends PureComponent {
   }
 
   render() {
-    return this.props.children
+    return (
+      <React.Fragment>
+        {Children.map(this.props.children, element => React.cloneElement(element, { ref: (idx) => { this.child = idx } }))}
+      </React.Fragment>
+    )
   }
 }
 
