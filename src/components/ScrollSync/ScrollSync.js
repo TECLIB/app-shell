@@ -87,27 +87,28 @@ class ScrollSync extends PureComponent {
     const { proportional, vertical, horizontal } = this.props;
 
     this.panes[group].forEach((pane) => {
+      const paneGroup = pane
       /* For all panes beside the currently scrolling one */
-      if (scrolledPane !== pane) {
+      if (scrolledPane !== paneGroup) {
         /* Remove event listeners from the node that we'll manipulate */
-        this.removeEvents(pane, group);
+        this.removeEvents(paneGroup, group);
         /* Calculate the actual pane height */
-        const paneHeight = pane.scrollHeight - clientHeight;
-        const paneWidth = pane.scrollWidth - clientWidth;
+        const paneHeight = paneGroup.scrollHeight - clientHeight;
+        const paneWidth = paneGroup.scrollWidth - clientWidth;
         /* Adjust the scrollTop position of it accordingly */
         if (vertical && scrollTopOffset > 0) {
-          pane.scrollTop = proportional
-            ? paneHeight * scrollTop / scrollTopOffset
+          paneGroup.scrollTop = proportional
+            ? (paneHeight * scrollTop) / scrollTopOffset
             : scrollTop; // eslint-disable-line
         }
         if (horizontal && scrollLeftOffset > 0) {
-          pane.scrollLeft = proportional
-            ? paneWidth * scrollLeft / scrollLeftOffset
+          paneGroup.scrollLeft = proportional
+            ? (paneWidth * scrollLeft) / scrollLeftOffset
             : scrollLeft; // eslint-disable-line
         }
         /* Re-attach event listeners after we're done scrolling */
         window.requestAnimationFrame(() => {
-          this.addEvents(pane, group);
+          this.addEvents(paneGroup, group);
         });
       }
     });
