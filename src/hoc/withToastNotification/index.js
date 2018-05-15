@@ -10,19 +10,21 @@ import nativeNotification from '../../shared/nativeNotification'
 const withToastNotification = (WrappedComponent) => {
   class ToastNotification extends PureComponent {
     static getDerivedStateFromProps(nextProps, prevState) {
-      if (nextProps.title !== prevState.title || nextProps.body !== prevState.body) {
+      if (nextProps.toast.notification.title !== prevState.title || nextProps.toast.notification.body !== prevState.body) {
         const notification = validateNotifications()
-        if (notification.show || nextProps.type === 'alert') {
+        if (notification.show || nextProps.toast.notification.type === 'alert') {
           if (notification.type === 'Toast') {
             return {
-              type: nextProps.type,
-              title: nextProps.title,
-              body: nextProps.body,
+              type: nextProps.toast.notification.type,
+              title: nextProps.toast.notification.title,
+              body: nextProps.toast.notification.body,
             }
           }
-          nativeNotification(nextProps.title, nextProps.body, nextProps.icon)
+          nativeNotification(nextProps.toast.notification.title, nextProps.toast.notification.body, nextProps.toast.notification.icon)
           return {
-            ...prevState,
+            type: nextProps.toast.notification.type,
+            title: nextProps.toast.notification.title,
+            body: nextProps.toast.notification.body,
           }
         }
       } else {
@@ -71,13 +73,13 @@ const withToastNotification = (WrappedComponent) => {
 
       if (this.props.toast.show) {
         toast = (
-          <div className={`toast --${this.props.toast.notification.type}`}>
+          <div className={`toast --${this.state.type}`}>
             <Icon iconName="cancel" style={{ float: 'right', cursor: 'pointer', color: '#ffffff' }} />
             <div className="toast-title">
-              {this.props.toast.notification.title}
+              {this.state.title}
             </div>
             <div className="toast-body">
-              {this.props.toast.notification.body}
+              {this.state.body}
             </div>
           </div>
         )

@@ -13,20 +13,26 @@ import delay from '../../../shared/delay'
 import users from '../../../data/users.json'
 
 export default class UsersList extends PureComponent {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      ...prevState,
+      selectedItems: nextProps.selectedItems,
+    }
+  }
+
   constructor(props) {
     super(props)
     this.state = {
       layout: { type: WinJS.UI.ListLayout },
-      selectedItems: [],
-      scrolling: false,
+      selectedItems: this.props.selectedItems,
       isLoading: false,
       itemList: new WinJS.Binding.List([]),
-      order: 'ASC',
-      pagination: {
-        start: 0,
-        page: 1,
-        count: 15,
-      },
+    }
+    this.order = 'ASC'
+    this.pagination = {
+      start: 0,
+      page: 1,
+      count: 15,
     }
   }
 
@@ -34,7 +40,7 @@ export default class UsersList extends PureComponent {
     this.handleRefresh()
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (this.toolBar) {
       this.toolBar.winControl.forceLayout();
     }
@@ -44,7 +50,7 @@ export default class UsersList extends PureComponent {
       this.props.changeAction(null)
     }
 
-    if (prevProps.selectedItems.length > 0 && this.props.selectedItems.length === 0 && !this.props.selectionMode) {
+    if (prevState.selectedItems.length > 0 && this.state.selectedItems.length === 0 && !this.props.selectionMode) {
       if (this.listView) {
         this.listView.winControl.selection.clear()
       }
@@ -52,7 +58,7 @@ export default class UsersList extends PureComponent {
   }
 
   componentWillUnmount() {
-    this.setState({ selectedItems: [] })
+    this.props.changeSelectedItems([])
     this.props.changeSelectionMode(false)
   }
 
@@ -89,28 +95,27 @@ export default class UsersList extends PureComponent {
   handleRefresh = async () => {
     try {
       this.props.history.push(`${publicURL}/app/users`)
+      this.props.changeSelectedItems([])
+      this.pagination = {
+        start: 0,
+        page: 1,
+        count: 15,
+      }
       this.setState({
         isLoading: true,
-        scrolling: false,
-        selectedItems: [],
-        pagination: {
-          start: 0,
-          page: 1,
-          count: 15,
-        },
       })
       await delay(2000)
       const response = users
 
+      this.order = response.order
       this.setState({
         isLoading: false,
-        order: response.order,
         itemList: BuildItemList(response),
       })
     } catch (e) {
+      this.order = 'ASC'
       this.setState({
         isLoading: false,
-        order: 'ASC',
       })
     }
   }
@@ -155,27 +160,27 @@ export default class UsersList extends PureComponent {
 
   handleSort = async () => {
     try {
+      this.pagination = {
+        start: 0,
+        page: 1,
+        count: 15,
+      }
       this.setState({
         isLoading: true,
-        pagination: {
-          start: 0,
-          page: 1,
-          count: 15,
-        },
       })
 
       const response = users
 
+      this.order = response.order
       this.setState({
         isLoading: false,
-        order: response.order,
         itemList: BuildItemList(response),
       })
       this.props.history.push(`${publicURL}/app/users`)
     } catch (error) {
+      this.order = 'ASC'
       this.setState({
         isLoading: false,
-        order: 'ASC',
       })
     }
   }
@@ -187,7 +192,7 @@ export default class UsersList extends PureComponent {
         icon="delete"
         label={I18n.t('commons.delete')}
         priority={0}
-        disabled={this.props.selectedItems.length === 0}
+        disabled={this.state.selectedItems.length === 0}
         onClick={this.handleDelete}
       />
     )
@@ -198,7 +203,7 @@ export default class UsersList extends PureComponent {
         icon="edit"
         label={I18n.t('commons.edit')}
         priority={0}
-        disabled={this.props.selectedItems.length === 0}
+        disabled={this.state.selectedItems.length === 0}
         onClick={this.handleEdit}
       />
     )
@@ -264,7 +269,7 @@ export default class UsersList extends PureComponent {
 
         {listComponent}
 
-        <Confirmation title={I18n.t('users.delete')} message={`${this.props.selectedItems.length} ${I18n.t('commons.users')}`} reference={(el) => { this.contentDialog = el }} />
+        <Confirmation title={I18n.t('users.delete')} message={`${this.state.selectedItems.length} ${I18n.t('commons.users')}`} reference={(el) => { this.contentDialog = el }} />
       </React.Fragment>
     )
   }
