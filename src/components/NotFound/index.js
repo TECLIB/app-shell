@@ -17,7 +17,7 @@ const NotFound = () =>
           {I18n.t('commons.terms_and_conditions')}
         </a>
         <br />
-        <span>© 2017 - 2018 Teclib'.</span>
+        <span>© 2017 - 2018 Teclib&apos;.</span>
         <br />
       </footer>
     </div>
