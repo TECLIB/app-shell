@@ -14,7 +14,7 @@ const GenerateRoutes = ({
 }) => {
   const r = routes.map(({
     exact, path, component, authenticate,
-  }, i) =>
+  }) =>
     (
       <PropsRoute
         exact={exact}
@@ -22,7 +22,7 @@ const GenerateRoutes = ({
         toast={toast}
         language={language}
         authenticate={authenticate}
-        key={i}
+        key={path}
         {...data}
         path={
           typeof rootPath === 'string'
