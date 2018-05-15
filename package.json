@@ -24,10 +24,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "yarn build-styles && react-scripts build",
+    "build": "yarn build-styles && yarn lint && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "prestart": "yarn build-styles && node-sass --watch src/assets/styles/scss/index.scss src/assets/styles/css/index.css &",
-    "build-styles": "node-sass src/assets/styles/scss/index.scss src/assets/styles/css/index.css"
+    "build-styles": "node-sass src/assets/styles/scss/index.scss src/assets/styles/css/index.css",
+    "lint": "yarn eslint src"
   }
 }
