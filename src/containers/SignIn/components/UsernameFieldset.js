@@ -30,7 +30,7 @@ class UsernameFieldset extends PureComponent {
         errorMessage: (
           <p className="color-type-alert">
             <span> {I18n.t('login.username_not_registered')} </span>
-            <a>{I18n.t('login.create_an_new')}</a>
+            <a href="/">{I18n.t('login.create_an_new')}</a>
           </p>
         ),
       })
