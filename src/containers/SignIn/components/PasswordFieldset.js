@@ -81,7 +81,6 @@ PasswordFieldset.propTypes = {
   password: PropTypes.string.isRequired,
   changeInput: PropTypes.func.isRequired,
   changePhase: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
   handleOnSubmit: PropTypes.func.isRequired,
 }
 

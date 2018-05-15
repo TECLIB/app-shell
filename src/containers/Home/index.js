@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import { I18n } from 'react-i18nify'
 import withHandleMessages from '../../hoc/withHandleMessages'
 import Loading from '../../components/Loading'
@@ -36,10 +35,6 @@ class Dashboard extends PureComponent {
 
     return renderComponent
   }
-}
-
-Dashboard.propTypes = {
-  history: PropTypes.object.isRequired,
 }
 
 export default withHandleMessages(Dashboard)
