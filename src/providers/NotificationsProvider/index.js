@@ -19,7 +19,7 @@ export class NotificationsProvider extends PureComponent {
           show: true,
           notification,
         },
-        () => {},
+        () => { },
       )
     },
     hidenNotification: () => {
@@ -27,14 +27,15 @@ export class NotificationsProvider extends PureComponent {
         {
           show: false,
         },
-        () => {},
+        () => { },
       )
     },
   }
 
   render() {
+    const value = { ...this.state }
     return (
-      <NotificationsContext.Provider value={{ state: this.state }}>
+      <NotificationsContext.Provider value={{ state: value }}>
         {this.props.children}
       </NotificationsContext.Provider>
     );

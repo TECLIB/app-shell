@@ -35,8 +35,9 @@ export class AuthenticationProvider extends PureComponent {
   }
 
   render() {
+    const value = { ...this.state }
     return (
-      <AuthenticationContext.Provider value={{ state: this.state }}>
+      <AuthenticationContext.Provider value={{ state: value }}>
         {this.props.children}
       </AuthenticationContext.Provider>
     );

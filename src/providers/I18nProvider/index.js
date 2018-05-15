@@ -21,8 +21,9 @@ export class I18nProvider extends PureComponent {
     },
   }
   render() {
+    const value = { ...this.state }
     return (
-      <I18nContext.Provider value={{ state: this.state }}>
+      <I18nContext.Provider value={{ state: value }}>
         {this.props.children}
       </I18nContext.Provider>
     );
