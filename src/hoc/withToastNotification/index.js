@@ -47,12 +47,16 @@ const withToastNotification = (WrappedComponent) => {
 
     componentDidUpdate(prevProps) {
       if (prevProps.toast.notification.title !== this.props.toast.notification.title || prevProps.toast.notification.body !== this.props.toast.notification.body) {
-        this.setState({
-          timer: setTimeout(() => {
-            this.hideNotification()
-          }, 4000),
-        })
+        this.setDalay()
       }
+    }
+
+    setDalay = () => {
+      this.setState({
+        timer: setTimeout(() => {
+          this.hideNotification()
+        }, 4000),
+      })
     }
 
     hideNotification = () => {
