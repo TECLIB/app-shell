@@ -26,7 +26,7 @@ export default class IconItemList extends PureComponent {
         case 'Phone.png':
           image = await import(`../../assets/images/${this.props.image}`)
           this.setState({
-            image: image,
+            image,
           })
           break
         default:
@@ -65,7 +65,11 @@ export default class IconItemList extends PureComponent {
   arrayBufferToBase64 = (buffer) => {
     let binary = ''
     const bytes = [].slice.call(new Uint8Array(buffer))
-    bytes.forEach(b => binary += String.fromCharCode(b))
+    for (const item in bytes) {
+      if (Object.prototype.hasOwnProperty.call(bytes, item)) {
+        binary += String.fromCharCode(item)
+      }
+    }
     return window.btoa(binary)
   }
 

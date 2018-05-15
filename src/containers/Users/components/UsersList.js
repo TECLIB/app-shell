@@ -264,7 +264,7 @@ export default class UsersList extends PureComponent {
 
         {listComponent}
 
-        <Confirmation title={I18n.t('users.delete')} message={`${this.props.selectedItems.length} ${I18n.t('commons.users')}`} reference={el => this.contentDialog = el} />
+        <Confirmation title={I18n.t('users.delete')} message={`${this.props.selectedItems.length} ${I18n.t('commons.users')}`} reference={(el) => { this.contentDialog = el }} />
       </React.Fragment>
     )
   }

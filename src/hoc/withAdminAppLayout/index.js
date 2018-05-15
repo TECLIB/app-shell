@@ -104,7 +104,7 @@ const withAdminAppLayout = (WrappedComponent) => {
             <Confirmation
               title={I18n.t('logout.close_session')}
               message={I18n.t('settings.security.close_session_message')}
-              reference={el => this.contentDialog = el}
+              reference={(el) => { this.contentDialog = el }}
             />
           </div>
 

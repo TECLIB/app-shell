@@ -165,7 +165,7 @@ export default class UsersContent extends PureComponent {
               </li>
             </ul>
           </div>
-          <Confirmation title={I18n.t('users.delete_one')} message="Users" reference={el => this.contentDialog = el} />
+          <Confirmation title={I18n.t('users.delete_one')} message="Users" reference={(el) => { this.contentDialog = el }} />
         </div>
       )
     }
