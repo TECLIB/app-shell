@@ -18,13 +18,15 @@ export default class IconItemList extends PureComponent {
 
   getImage = async () => {
     try {
+      let image
       switch (this.props.image) {
         case 'profile.png':
         case 'android.png':
         case 'apple.png':
         case 'Phone.png':
+          image = await import(`../../assets/images/${this.props.image}`)
           this.setState({
-            image: import(`../../assets/images/${this.props.image}`),
+            image: image,
           })
           break
         default:

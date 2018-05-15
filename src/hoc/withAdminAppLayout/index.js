@@ -83,7 +83,7 @@ const withAdminAppLayout = (WrappedComponent) => {
 
           <HeaderBreadcrumb
             handleToggleExpand={this.handleToggleExpand}
-            history={this.props.history}
+            location={this.props.history.location}
           />
 
           {this.state.iframe}

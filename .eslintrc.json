@@ -24,6 +24,7 @@
     "func-names":"off",
     "no-unused-expressions":"off",
     "react/forbid-prop-types":"off",
+    "jsx-a11y/anchor-is-valid": "off",
     "import/no-extraneous-dependencies": [
       "off",
       {
