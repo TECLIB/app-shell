@@ -133,7 +133,7 @@ export default class UsersList extends PureComponent {
         try {
           this.props.toast.setNotification({
             title: I18n.t('commons.success'),
-            body: I18n.t('notifications.user_successfully_removed'),
+            body: I18n.t('notifications.elements_successfully_removed'),
             type: 'success',
           })
           this.props.changeSelectionMode(false)
