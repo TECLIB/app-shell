@@ -12,6 +12,7 @@ import { I18nProvider } from './providers/I18nProvider'
 import registerServiceWorker from './registerServiceWorker'
 import './assets/styles/css/index.css'
 import theme from './config/theme.json'
+import language from './shared/language'
 
 loadTheme(theme)
 
@@ -24,7 +25,7 @@ setIconOptions({
 ReactDOM.render(
   (
     <Fabric>
-      <I18nProvider>
+      <I18nProvider language={language}>
         <NotificationsProvider>
           <AuthenticationProvider>
             <Router history={history}>
