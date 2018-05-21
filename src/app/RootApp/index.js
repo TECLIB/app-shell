@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Switch } from 'react-router-dom'
-import withI18n from '../../hoc/withI18n'
 import withToastNotification from '../../hoc/withToastNotification'
 import GenerateRoutes from '../../components/GenerateRoutes'
 import routes from './routes'
@@ -23,7 +22,6 @@ class RootApp extends PureComponent {
 
 RootApp.propTypes = {
   toast: PropTypes.object.isRequired,
-  translate: PropTypes.func.isRequired,
 }
 
-export default withI18n(withToastNotification(RootApp))
+export default withToastNotification(RootApp)

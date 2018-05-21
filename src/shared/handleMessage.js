@@ -1,21 +1,21 @@
-import { I18n } from 'react-i18nify'
+import i18n from './i18n'
 import logout from './logout'
 
 export default ({ type = 'info', message }) => {
   const response = {
     type,
-    title: I18n.t('commons.info'),
+    title: i18n.t('commons.info'),
     body: message ? (typeof message === 'string' || message instanceof String) ? message : message.statusText : '',
   }
   switch (type) {
     case 'success':
-      response.title = I18n.t('commons.success')
+      response.title = i18n.t('commons.success')
       break
     case 'alert':
-      response.title = I18n.t('commons.error')
+      response.title = i18n.t('commons.error')
       break
     case 'warning':
-      response.title = I18n.t('commons.warning')
+      response.title = i18n.t('commons.warning')
       break
     default:
       break

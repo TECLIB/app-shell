@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { I18n } from 'react-i18nify'
+import i18n from '../../shared/i18n'
 import { ScrollSync, ScrollSyncPane } from '../ScrollSync'
 import IconWithPopper from './IconWithPopper'
 import ImgWithPopper from './imgWithPopper'
@@ -33,13 +33,13 @@ class SplitView extends PureComponent {
                           to={`${publicURL}/app`}
                           alt="Teclib Dashboard"
                           img={logo}
-                          title={I18n.t('commons.dashboard')}
+                          title={i18n.t('commons.dashboard')}
                           disabled={this.props.expanded}
                         />
                         <IconWithPopper
                           to={`${publicURL}/app/users`}
                           iconName="Contact"
-                          title={I18n.t('commons.user')}
+                          title={i18n.t('commons.user')}
                           disabled={this.props.expanded}
                         />
                       </section>
@@ -47,7 +47,7 @@ class SplitView extends PureComponent {
                         <IconWithPopper
                           click={this.logout}
                           iconName="SignOut"
-                          title={I18n.t('commons.logout')}
+                          title={i18n.t('commons.logout')}
                           disabled={this.props.expanded}
                         />
                       </section>
@@ -62,11 +62,11 @@ class SplitView extends PureComponent {
                       }`}
                     >
                       <section className="splitview-wrapped-navbar-wrapped-top__section --description">
-                        <SpanWithPopper description={I18n.t('commons.dashboard')} to={`${publicURL}/app`} />
-                        <SpanWithPopper description={I18n.t('commons.user')} to={`${publicURL}/app/users`} />
+                        <SpanWithPopper description={i18n.t('commons.dashboard')} to={`${publicURL}/app`} />
+                        <SpanWithPopper description={i18n.t('commons.user')} to={`${publicURL}/app/users`} />
                       </section>
                       <section className="splitview-wrapped-navbar-wrapped-bottom__section --description">
-                        <SpanWithPopper description={I18n.t('commons.logout')} click={this.logout} />
+                        <SpanWithPopper description={i18n.t('commons.logout')} click={this.logout} />
                       </section>
                     </div>
                   </ScrollSyncPane>

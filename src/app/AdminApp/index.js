@@ -8,12 +8,11 @@ import GenerateRoutes from '../../components/GenerateRoutes'
 
 class AdminApp extends PureComponent {
   render() {
-    return <GenerateRoutes routes={routes} rootPath={this.props.match.url} toast={this.props.toast} />
+    return <GenerateRoutes routes={routes} rootPath={this.props.match.url} />
   }
 }
 
 AdminApp.propTypes = {
-  toast: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
 }
 

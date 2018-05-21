@@ -16,7 +16,7 @@ const GenerateRoutes = (props) => {
         {...props}
         key={path}
         path={
-          typeof rootPath === 'string'
+          typeof props.rootPath === 'string'
             ? path === '/'
               ? props.rootPath
               : props.rootPath + path
