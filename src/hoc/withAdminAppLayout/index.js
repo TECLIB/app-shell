@@ -1,6 +1,6 @@
-import { I18n } from 'react-i18nify'
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
+import i18n from '../../shared/i18n'
 import SplitView from '../../components/SplitView'
 import HeaderBreadcrumb from '../../components/HeaderBreadcrumb'
 import getMode from '../../shared/getMode'
@@ -102,8 +102,8 @@ const withAdminAppLayout = (WrappedComponent) => {
             />
             <WrappedComponent {...this.props} mode={this.state.mode} />
             <Confirmation
-              title={I18n.t('logout.close_session')}
-              message={I18n.t('settings.security.close_session_message')}
+              title={i18n.t('logout.close_session')}
+              message={i18n.t('settings.security.close_session_message')}
               reference={(el) => { this.contentDialog = el }}
             />
           </div>

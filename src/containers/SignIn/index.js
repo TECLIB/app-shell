@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Redirect } from 'react-router'
-import { I18n } from 'react-i18nify'
+import i18n from '../../shared/i18n'
 import UsernameFieldset from './components/UsernameFieldset'
 import withAuthenticationLayout from '../../hoc/withAuthenticationLayout'
 import withAuthentication from '../../hoc/withAuthentication'
@@ -49,7 +49,7 @@ class SignIn extends PureComponent {
         handleOnSubmit={this.handleFormSubmit}
       />)
     }
-    return this.state.isLoading ? <div style={{ height: '140px' }}><Loading message={`${I18n.t('commons.loading')}...`} /></div> : form
+    return this.state.isLoading ? <div style={{ height: '140px' }}><Loading message={`${i18n.t('commons.loading')}...`} /></div> : form
   }
 }
 

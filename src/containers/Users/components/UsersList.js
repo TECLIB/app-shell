@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import WinJS from 'winjs'
 import ReactWinJS from 'react-winjs'
-import { I18n } from 'react-i18nify'
+import i18n from '../../../shared/i18n'
 import UsersItemList from './UsersItemList'
 import BuildItemList from '../../../components/BuildItemList'
 import Loader from '../../../components/Loader'
@@ -132,8 +132,8 @@ export default class UsersList extends PureComponent {
       }, async () => {
         try {
           this.props.toast.setNotification({
-            title: I18n.t('commons.success'),
-            body: I18n.t('notifications.elements_successfully_removed'),
+            title: i18n.t('commons.success'),
+            body: i18n.t('notifications.elements_successfully_removed'),
             type: 'success',
           })
           this.props.changeSelectionMode(false)
@@ -190,7 +190,7 @@ export default class UsersList extends PureComponent {
       <ReactWinJS.ToolBar.Button
         key="delete"
         icon="delete"
-        label={I18n.t('commons.delete')}
+        label={i18n.t('commons.delete')}
         priority={0}
         disabled={this.state.selectedItems.length === 0}
         onClick={this.handleDelete}
@@ -201,7 +201,7 @@ export default class UsersList extends PureComponent {
       <ReactWinJS.ToolBar.Button
         key="edit"
         icon="edit"
-        label={I18n.t('commons.edit')}
+        label={i18n.t('commons.edit')}
         priority={0}
         disabled={this.state.selectedItems.length === 0}
         onClick={this.handleEdit}
@@ -230,10 +230,10 @@ export default class UsersList extends PureComponent {
           />
         )
       } else {
-        listComponent = <EmptyMessage message={I18n.t('users.not_found')} icon={this.props.icon} showIcon />
+        listComponent = <EmptyMessage message={i18n.t('users.not_found')} icon={this.props.icon} showIcon />
       }
     } else {
-      listComponent = <EmptyMessage message={I18n.t('users.not_found')} icon={this.props.icon} showIcon />
+      listComponent = <EmptyMessage message={i18n.t('users.not_found')} icon={this.props.icon} showIcon />
     }
 
     return (
@@ -242,14 +242,14 @@ export default class UsersList extends PureComponent {
           <ReactWinJS.ToolBar.Button
             key="sort"
             icon="sort"
-            label={I18n.t('commons.sort')}
+            label={i18n.t('commons.sort')}
             priority={1}
             onClick={this.handleSort}
           />
           <ReactWinJS.ToolBar.Button
             key="refresh"
             icon="refresh"
-            label={I18n.t('commons.refresh')}
+            label={i18n.t('commons.refresh')}
             priority={1}
             onClick={this.handleRefresh}
           />
@@ -260,7 +260,7 @@ export default class UsersList extends PureComponent {
           <ReactWinJS.ToolBar.Toggle
             key="select"
             icon="bullets"
-            label={I18n.t('commons.select')}
+            label={i18n.t('commons.select')}
             priority={0}
             selected={this.props.selectionMode}
             onClick={this.handleToggleSelectionMode}
@@ -269,7 +269,7 @@ export default class UsersList extends PureComponent {
 
         {listComponent}
 
-        <Confirmation title={I18n.t('users.delete')} message={`${this.state.selectedItems.length} ${I18n.t('commons.users')}`} reference={(el) => { this.contentDialog = el }} />
+        <Confirmation title={i18n.t('users.delete')} message={`${this.state.selectedItems.length} ${i18n.t('commons.users')}`} reference={(el) => { this.contentDialog = el }} />
       </React.Fragment>
     )
   }

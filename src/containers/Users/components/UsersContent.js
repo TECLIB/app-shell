@@ -7,7 +7,7 @@ import {
   PersonaSize,
   PersonaPresence,
 } from 'office-ui-fabric-react/lib/Persona'
-import { I18n } from 'react-i18nify'
+import i18n from '../../../shared/i18n'
 import ContentPane from '../../../components/ContentPane'
 import Confirmation from '../../../components/Confirmation'
 import Loading from '../../../components/Loading'
@@ -56,8 +56,8 @@ export default class UsersContent extends PureComponent {
 
       try {
         this.props.toast.setNotification({
-          title: I18n.t('commons.success'),
-          body: I18n.t('notifications.elements_successfully_removed'),
+          title: i18n.t('commons.success'),
+          body: i18n.t('notifications.elements_successfully_removed'),
           type: 'success',
         })
         this.props.changeAction('reload')
@@ -97,7 +97,7 @@ export default class UsersContent extends PureComponent {
   render() {
     let renderComponent
     if (this.state.data === undefined || this.state.isLoading) {
-      renderComponent = <Loading message={`${I18n.t('commons.loading')}...`} />
+      renderComponent = <Loading message={`${i18n.t('commons.loading')}...`} />
     } else {
       renderComponent = (
         <div>
@@ -134,10 +134,10 @@ export default class UsersContent extends PureComponent {
                 <Icon iconName="phone" />
                 <div className="callContent">
                   <a href={this.state.data.mobile ? `tel:${this.state.data.mobile}` : '#call'}>
-                    {I18n.t('commons.call_mobile')}
+                    {i18n.t('commons.call_mobile')}
                   </a>
                   <div>
-                    {this.state.data.mobile ? this.state.data.mobile : I18n.t('commons.not_available')}
+                    {this.state.data.mobile ? this.state.data.mobile : i18n.t('commons.not_available')}
                   </div>
                 </div>
               </li>
@@ -145,10 +145,10 @@ export default class UsersContent extends PureComponent {
                 <Icon iconName="phone" />
                 <div className="callContent">
                   <a href={this.state.data.phone2 ? `tel:${this.state.data.phone2}` : '#call'}>
-                    {I18n.t('commons.call_work')}
+                    {i18n.t('commons.call_work')}
                   </a>
                   <div>
-                    {this.state.data.phone2 ? this.state.data.phone2 : I18n.t('commons.not_available')}
+                    {this.state.data.phone2 ? this.state.data.phone2 : i18n.t('commons.not_available')}
                   </div>
                 </div>
               </li>
@@ -156,16 +156,16 @@ export default class UsersContent extends PureComponent {
                 <Icon iconName="mail" />
                 <div className="callContent">
                   <a href={this.state.emails.length > 0 ? `mailto:${this.state.emails[0].email}` : '#email'}>
-                    {I18n.t('commons.email')}
+                    {i18n.t('commons.email')}
                   </a>
                   <div>
-                    {this.state.emails.length > 0 ? this.state.emails[0].email : I18n.t('commons.not_available')}
+                    {this.state.emails.length > 0 ? this.state.emails[0].email : i18n.t('commons.not_available')}
                   </div>
                 </div>
               </li>
             </ul>
           </div>
-          <Confirmation title={I18n.t('users.delete_one')} message="Users" reference={(el) => { this.contentDialog = el }} />
+          <Confirmation title={i18n.t('users.delete_one')} message="Users" reference={(el) => { this.contentDialog = el }} />
         </div>
       )
     }
