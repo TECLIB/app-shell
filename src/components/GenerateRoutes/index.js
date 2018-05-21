@@ -4,38 +4,29 @@ import { Route, Switch } from 'react-router-dom'
 import PropsRoute from './PropsRoute'
 import NotFound from '../../components/NotFound'
 
-const GenerateRoutes = ({
-  routes,
-  rootPath,
-  withNotFound,
-  data,
-  toast,
-  language,
-}) => {
-  const r = routes.map(({
+const GenerateRoutes = (props) => {
+  const r = props.routes.map(({
     exact, path, component, authenticate,
   }) =>
     (
       <PropsRoute
         exact={exact}
         component={component}
-        toast={toast}
-        language={language}
         authenticate={authenticate}
+        {...props}
         key={path}
-        {...data}
         path={
           typeof rootPath === 'string'
             ? path === '/'
-              ? rootPath
-              : rootPath + path
+              ? props.rootPath
+              : props.rootPath + path
             : path
         }
       />
     ))
 
-  withNotFound &&
-    r.push(<Route key={routes.length + 1} render={() => <NotFound />} />)
+  props.withNotFound &&
+    r.push(<Route key={props.routes.length + 1} render={() => <NotFound />} />)
 
   return <Switch>{r}</Switch>
 }
@@ -43,18 +34,12 @@ const GenerateRoutes = ({
 GenerateRoutes.defaultProps = {
   rootPath: undefined,
   withNotFound: false,
-  data: {},
-  toast: {},
-  language: {},
 }
 
 GenerateRoutes.propTypes = {
   routes: PropTypes.array.isRequired,
   rootPath: PropTypes.string,
   withNotFound: PropTypes.bool,
-  data: PropTypes.object,
-  toast: PropTypes.object,
-  language: PropTypes.object,
 }
 
 export default GenerateRoutes
