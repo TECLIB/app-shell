@@ -1,14 +1,16 @@
 import React from 'react'
 import { I18nConsumer } from '../../providers/I18nProvider'
 
-const withI18n = (WrappedComponent) => {
+export default (WrappedComponent) => {
   const i18n = props => (
     <I18nConsumer>
-      {value => <WrappedComponent {...props} language={value.state} />}
+      {value =>
+        (<WrappedComponent
+          {...props}
+          {...value}
+        />)}
     </I18nConsumer>
   )
 
   return i18n
 }
-
-export default withI18n
