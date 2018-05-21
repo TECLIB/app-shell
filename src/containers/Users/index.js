@@ -137,7 +137,7 @@ class Users extends PureComponent {
             key="content"
             routes={routes}
             rootPath={this.props.match.url}
-            data={{ ...this.propsData() }}
+            {...this.propsData()}
           />
         </div>
       </React.Fragment>
