@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Switch } from 'react-router-dom'
-import withI18NTranslation from '../../hoc/withI18NTranslation'
+import withI18n from '../../hoc/withI18n'
 import withToastNotification from '../../hoc/withToastNotification'
 import GenerateRoutes from '../../components/GenerateRoutes'
 import routes from './routes'
@@ -15,7 +15,7 @@ class RootApp extends PureComponent {
   render() {
     return (
       <Switch>
-        <GenerateRoutes routes={routes} withNotFound toast={this.props.toast} language={this.props.language} />
+        <GenerateRoutes routes={routes} withNotFound {...this.props} />
       </Switch>
     )
   }
@@ -23,7 +23,7 @@ class RootApp extends PureComponent {
 
 RootApp.propTypes = {
   toast: PropTypes.object.isRequired,
-  language: PropTypes.object.isRequired,
+  translate: PropTypes.func.isRequired,
 }
 
-export default withToastNotification(withI18NTranslation(RootApp))
+export default withI18n(withToastNotification(RootApp))
