@@ -76,7 +76,7 @@ export default class UsersContent extends PureComponent {
         user = {
           imageUrl: '',
           imageInitials: this.props.selectedItems[0]['User.name'] !== '' ? this.props.selectedItems[0]['User.name'].substring(0, 2).toUpperCase() : '',
-          primaryText: this.props.selectedItems[0]['User.name'],
+          text: this.props.selectedItems[0]['User.name'],
           secondaryText: 'Software Engineer',
           tertiaryText: 'In a meeting',
           optionalText: 'Available at 4:00pm',
