@@ -17,13 +17,22 @@
     "react"
   ],
   "rules": {
-    "semi": "off",
+    "semi": [
+      "error",
+      "never"
+    ],
     "no-nested-ternary": "off",
     "max-len": "off",
-    "func-names":"off",
+    "func-names": "off",
     "no-restricted-syntax": "off",
-    "no-unused-expressions":"off",
+    "no-unused-expressions": "off",
     "import/no-named-as-default": 0,
+    "no-empty": [
+      "error",
+      {
+        "allowEmptyCatch": true
+      }
+    ],
     "import/no-extraneous-dependencies": [
       "off",
       {
@@ -32,8 +41,16 @@
         "peerDependencies": false
       }
     ],
-    "react/forbid-prop-types":"off",
-    
+    "react/no-danger": "off",
+    "react/forbid-prop-types": "off",
+    "react/destructuring-assignment": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prefer-stateless-function": [
+      "error",
+      {
+        "ignorePureComponents": true
+      }
+    ],
     "react/jsx-filename-extension": [
       1,
       {
