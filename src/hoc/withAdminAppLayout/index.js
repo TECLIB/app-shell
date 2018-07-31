@@ -6,7 +6,7 @@ import HeaderBreadcrumb from '../../components/HeaderBreadcrumb'
 import getMode from '../../shared/getMode'
 import animations from '../../shared/animations'
 import Confirmation from '../../components/Confirmation'
-import withAuthentication from '../../hoc/withAuthentication'
+import withAuthentication from '../withAuthentication'
 
 // TODO: Passing Routes to props for generate NavLink in SplitView component
 

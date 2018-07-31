@@ -11,7 +11,11 @@ class HeaderBreadcrumb extends PureComponent {
   breadcrumbs() {
     const breadcrumbs = []
     breadcrumbs.push({ text: i18n.t('commons.dashboard'), key: `${publicURL}/app`, href: `${publicURL}/app` })
-    const customDivider = () => <span className="header-breadcrumb">&nbsp;/&nbsp;</span>
+    const customDivider = () => (
+      <span className="header-breadcrumb">
+        &nbsp;/&nbsp;
+      </span>
+    )
     const addresses = this.props.location.pathname.split('/')
 
     for (let index = (publicURL === '') ? 2 : 3; index < addresses.length; index += 1) {
@@ -34,7 +38,11 @@ class HeaderBreadcrumb extends PureComponent {
     return componentBreadcrumbs
   }
 
-  renderItem = eventObject => <Link to={eventObject.href}>{eventObject.text}</Link>
+  renderItem = eventObject => (
+    <Link to={eventObject.href}>
+      {eventObject.text}
+    </Link>
+  )
 
   render() {
     return (

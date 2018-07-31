@@ -24,8 +24,12 @@ class Dashboard extends PureComponent {
   }
 
   render() {
-    const renderComponent = this.state.isLoading ? <div style={{ width: '100%', height: 'calc(100vh - 80px)' }}><Loading message={`${i18n.t('commons.loading')}...`} /></div> :
-      (
+    const renderComponent = this.state.isLoading ? (
+      <div style={{ width: '100%', height: 'calc(100vh - 80px)' }}>
+        <Loading message={`${i18n.t('commons.loading')}...`} />
+      </div>
+    )
+      : (
         <ContentPane>
           <div className="dashboard-block">
             <EmptyMessage message="Teclib Dashboard" showIcon />

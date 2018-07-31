@@ -1,75 +1,75 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 
 class ScrollSync extends PureComponent {
+  panes = {}
+
   static propTypes = {
     children: PropTypes.element.isRequired,
     proportional: PropTypes.bool,
     vertical: PropTypes.bool,
     horizontal: PropTypes.bool,
-  };
+  }
+
+  static childContextTypes = {
+    registerPane: PropTypes.func,
+    unregisterPane: PropTypes.func,
+  }
 
   static defaultProps = {
     proportional: true,
     vertical: true,
     horizontal: true,
-  };
-
-  static childContextTypes = {
-    registerPane: PropTypes.func,
-    unregisterPane: PropTypes.func,
-  };
+  }
 
   getChildContext() {
     return {
       registerPane: this.registerPane,
       unregisterPane: this.unregisterPane,
-    };
+    }
   }
-
-  panes = {};
 
   registerPane = (node, group) => {
     if (!this.panes[group]) {
-      this.panes[group] = [];
+      this.panes[group] = []
     }
 
     if (!this.findPane(node, group)) {
-      this.addEvents(node, group);
-      this.panes[group].push(node);
+      this.addEvents(node, group)
+      this.panes[group].push(node)
     }
-  };
+  }
 
   unregisterPane = (node, group) => {
     if (this.findPane(node, group)) {
-      this.removeEvents(node);
-      this.panes[group].splice(this.panes[group].indexOf(node), 1);
+      this.removeEvents(node)
+      this.panes[group].splice(this.panes[group].indexOf(node), 1)
     }
-  };
+  }
 
   addEvents = (node, group) => {
     /* For some reason element.addEventListener doesnt work with document.body */
     node.onscroll = this.handlePaneScroll.bind(this, node, group); // eslint-disable-line
-  };
+  }
 
   removeEvents = (node) => {
     /* For some reason element.removeEventListener doesnt work with document.body */
     node.onscroll = null; // eslint-disable-line
-  };
+  }
 
   findPane = (node, group) => {
     if (!this.panes[group]) {
-      return false;
+      return false
     }
 
-    return this.panes[group].find(pane => pane === node);
-  };
+    return this.panes[group].find(pane => pane === node)
+  }
 
   handlePaneScroll = (node, group) => {
     window.requestAnimationFrame(() => {
-      this.syncScrollPositions(node, group);
-    });
-  };
+      this.syncScrollPositions(node, group)
+    })
+  }
 
   syncScrollPositions = (scrolledPane, group) => {
     const {
@@ -79,22 +79,22 @@ class ScrollSync extends PureComponent {
       scrollLeft,
       scrollWidth,
       clientWidth,
-    } = scrolledPane;
+    } = scrolledPane
 
-    const scrollTopOffset = scrollHeight - clientHeight;
-    const scrollLeftOffset = scrollWidth - clientWidth;
+    const scrollTopOffset = scrollHeight - clientHeight
+    const scrollLeftOffset = scrollWidth - clientWidth
 
-    const { proportional, vertical, horizontal } = this.props;
+    const { proportional, vertical, horizontal } = this.props
 
     this.panes[group].forEach((pane) => {
       const paneGroup = pane
       /* For all panes beside the currently scrolling one */
       if (scrolledPane !== paneGroup) {
         /* Remove event listeners from the node that we'll manipulate */
-        this.removeEvents(paneGroup, group);
+        this.removeEvents(paneGroup, group)
         /* Calculate the actual pane height */
-        const paneHeight = paneGroup.scrollHeight - clientHeight;
-        const paneWidth = paneGroup.scrollWidth - clientWidth;
+        const paneHeight = paneGroup.scrollHeight - clientHeight
+        const paneWidth = paneGroup.scrollWidth - clientWidth
         /* Adjust the scrollTop position of it accordingly */
         if (vertical && scrollTopOffset > 0) {
           paneGroup.scrollTop = proportional
@@ -108,15 +108,15 @@ class ScrollSync extends PureComponent {
         }
         /* Re-attach event listeners after we're done scrolling */
         window.requestAnimationFrame(() => {
-          this.addEvents(paneGroup, group);
-        });
+          this.addEvents(paneGroup, group)
+        })
       }
-    });
-  };
+    })
+  }
 
   render() {
-    return React.Children.only(this.props.children);
+    return React.Children.only(this.props.children)
   }
 }
 
-export default ScrollSync;
+export default ScrollSync

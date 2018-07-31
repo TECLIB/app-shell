@@ -11,25 +11,23 @@ const isAuthenticated = () => {
   return false
 }
 
-const PrivateRoute = ({ component, redirectTo, ...rest }) =>
-  (
-    <Route
-      {...rest}
-      render={routeProps =>
-        (isAuthenticated() ? (
-          renderMergedProps(component, routeProps, rest)
-        ) :
-          (
-            <Redirect
-              to={{
-                pathname: redirectTo,
-                state: { from: routeProps.location },
-              }}
-            />
-          ))
+const PrivateRoute = ({ component, redirectTo, ...rest }) => (
+  <Route
+    {...rest}
+    render={routeProps => (isAuthenticated() ? (
+      renderMergedProps(component, routeProps, rest)
+    )
+      : (
+        <Redirect
+          to={{
+            pathname: redirectTo,
+            state: { from: routeProps.location },
+          }}
+        />
+      ))
       }
-    />
-  )
+  />
+)
 
 PrivateRoute.defaultProps = {
   redirectTo: '/',

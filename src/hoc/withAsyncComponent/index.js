@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 
-const withAsyncComponent = importComponent =>
-  class AsyncComponent extends PureComponent {
+const withAsyncComponent = importComponent => class AsyncComponent extends PureComponent {
     state = {
       component: null,
     }
@@ -11,10 +10,10 @@ const withAsyncComponent = importComponent =>
     }
 
     render() {
-      const C = this.state.component;
+      const C = this.state.component
 
       return C ? <C {...this.props} /> : null
     }
-  }
+}
 
 export default withAsyncComponent

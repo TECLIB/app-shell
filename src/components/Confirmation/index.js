@@ -17,7 +17,9 @@ class Confirmation extends PureComponent {
         primaryCommandText={i18n.t('commons.ok')}
         secondaryCommandText={i18n.t('commons.cancel')}
       >
-        <p>{this.props.message}</p>
+        <p>
+          {this.props.message}
+        </p>
       </ReactWinJS.ContentDialog>
     )
   }

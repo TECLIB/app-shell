@@ -15,19 +15,6 @@ import getID from '../../../shared/getID'
 import publicURL from '../../../shared/publicURL'
 
 export default class UsersContent extends PureComponent {
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (prevState.id !== getID(nextProps.history.location.pathname)) {
-      return {
-        id: getID(nextProps.history.location.pathname),
-        data: undefined,
-        emails: [],
-      }
-    }
-    return {
-      ...prevState,
-    }
-  }
-
   constructor(props) {
     super(props)
     this.state = {
@@ -44,6 +31,19 @@ export default class UsersContent extends PureComponent {
   componentDidUpdate(prevProps, prevState) {
     if (prevState.id !== this.state.id) {
       this.handleRefresh()
+    }
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (prevState.id !== getID(nextProps.history.location.pathname)) {
+      return {
+        id: getID(nextProps.history.location.pathname),
+        data: undefined,
+        emails: [],
+      }
+    }
+    return {
+      ...prevState,
     }
   }
 

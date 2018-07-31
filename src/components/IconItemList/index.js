@@ -94,7 +94,7 @@ export default class IconItemList extends PureComponent {
 
     return (
       <div className={className} style={style}>
-        <div className={this.props.imgClass} role="button" tabIndex="0" onClick={this.props.imgClick} >
+        <div className={this.props.imgClass} role="button" tabIndex="0" onClick={this.props.imgClick}>
           <img alt="" src={this.state.image} style={style} />
         </div>
       </div>

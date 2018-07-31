@@ -33,23 +33,30 @@ class SignIn extends PureComponent {
     }
     let form
     if (this.state.phase === 1) {
-      form =
-        (<UsernameFieldset
+      form = (
+        <UsernameFieldset
           username={this.state.username}
           changeInput={this.changeInput}
           changePhase={this.changePhase}
-        />)
+        />
+      )
     } else {
-      form = (<AsyncPasswordFieldset
-        username={this.state.username}
-        password={this.state.password}
-        changeInput={this.changeInput}
-        changePhase={this.changePhase}
-        history={this.props.history}
-        handleOnSubmit={this.handleFormSubmit}
-      />)
+      form = (
+        <AsyncPasswordFieldset
+          username={this.state.username}
+          password={this.state.password}
+          changeInput={this.changeInput}
+          changePhase={this.changePhase}
+          history={this.props.history}
+          handleOnSubmit={this.handleFormSubmit}
+        />
+      )
     }
-    return this.state.isLoading ? <div style={{ height: '140px' }}><Loading message={`${i18n.t('commons.loading')}...`} /></div> : form
+    return this.state.isLoading ? (
+      <div style={{ height: '140px' }}>
+        <Loading message={`${i18n.t('commons.loading')}...`} />
+      </div>
+    ) : form
   }
 }
 
