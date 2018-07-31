@@ -16,7 +16,9 @@ const Loader = (props) => {
   }
 
   return (
-    <div>{content}</div>
+    <div>
+      {content}
+    </div>
   )
 }
 

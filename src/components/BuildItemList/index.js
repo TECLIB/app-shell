@@ -13,14 +13,16 @@ export default function (dataSource) {
     if (dataSource.order === 'ASC') {
       if (a < b) {
         return -1
-      } else if (a > b) {
+      }
+      if (a > b) {
         return 1
       }
       return 0
     }
     if (a > b) {
       return -1
-    } else if (a < b) {
+    }
+    if (a < b) {
       return 1
     }
     return 0
@@ -29,7 +31,8 @@ export default function (dataSource) {
   const sorter = (a, b) => {
     if (a[Object.keys(a)[0]] < b[Object.keys(b)[0]]) {
       return -1
-    } else if (a[Object.keys(a)[0]] > b[Object.keys(b)[0]]) {
+    }
+    if (a[Object.keys(a)[0]] > b[Object.keys(b)[0]]) {
       return 1
     }
     return 0

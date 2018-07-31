@@ -29,8 +29,14 @@ class UsernameFieldset extends PureComponent {
         classInput: 'win-textbox color-line-alert',
         errorMessage: (
           <p className="color-type-alert">
-            <span> {i18n.t('login.username_not_registered')} </span>
-            <a href="/">{i18n.t('login.create_an_new')}</a>
+            <span>
+              {' '}
+              {i18n.t('login.username_not_registered')}
+              {' '}
+            </span>
+            <a href="/">
+              {i18n.t('login.create_an_new')}
+            </a>
           </p>
         ),
       })
@@ -57,7 +63,7 @@ class UsernameFieldset extends PureComponent {
           <input
             type="text"
             name="username"
-            ref={(input) => { this.usernameInput = input; }}
+            ref={(input) => { this.usernameInput = input }}
             className={this.state.classInput}
             placeholder={i18n.t('commons.username')}
             value={this.props.username}

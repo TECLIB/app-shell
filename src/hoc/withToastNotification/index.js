@@ -9,6 +9,22 @@ import nativeNotification from '../../shared/nativeNotification'
 
 const withToastNotification = (WrappedComponent) => {
   class ToastNotification extends PureComponent {
+    constructor(props) {
+      super(props)
+      this.state = {
+        timer: {},
+        title: this.props.toast.notification.title,
+        body: this.props.toast.notification.body,
+        type: this.props.toast.notification.type,
+      }
+    }
+
+    componentDidUpdate(prevProps) {
+      if (prevProps.toast.notification.title !== this.props.toast.notification.title || prevProps.toast.notification.body !== this.props.toast.notification.body) {
+        this.setDalay()
+      }
+    }
+
     static getDerivedStateFromProps(nextProps, prevState) {
       if (nextProps.toast.notification.title !== prevState.title || nextProps.toast.notification.body !== prevState.body) {
         const notification = validateNotifications()
@@ -28,29 +44,9 @@ const withToastNotification = (WrappedComponent) => {
           }
         }
       } else {
-        return {
-          ...prevState,
-        }
+        return null
       }
-      return {
-        ...prevState,
-      }
-    }
-
-    constructor(props) {
-      super(props)
-      this.state = {
-        timer: {},
-        title: this.props.toast.notification.title,
-        body: this.props.toast.notification.body,
-        type: this.props.toast.notification.type,
-      }
-    }
-
-    componentDidUpdate(prevProps) {
-      if (prevProps.toast.notification.title !== this.props.toast.notification.title || prevProps.toast.notification.body !== this.props.toast.notification.body) {
-        this.setDalay()
-      }
+      return null
     }
 
     setDalay = () => {

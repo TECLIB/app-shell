@@ -58,8 +58,8 @@ class SplitView extends PureComponent {
                 <nav className="splitview-wrapped__navbar" onClick={this.props.mode === 'small' ? this.props.handleContract : null}>
                   <ScrollSyncPane>
                     <div className={`splitview-wrapper-wrapper__div --large --end --opening ${
-                        this.props.contract && '--closing'
-                      }`}
+                      this.props.contract && '--closing'
+                    }`}
                     >
                       <section className="splitview-wrapped-navbar-wrapped-top__section --description">
                         <SpanWithPopper description={i18n.t('commons.dashboard')} to={`${publicURL}/app`} />

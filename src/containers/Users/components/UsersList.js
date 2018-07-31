@@ -13,12 +13,13 @@ import delay from '../../../shared/delay'
 import users from '../../../data/users.json'
 
 export default class UsersList extends PureComponent {
-  static getDerivedStateFromProps(nextProps, prevState) {
-    return {
-      ...prevState,
-      selectedItems: nextProps.selectedItems,
-    }
-  }
+  ItemListRenderer = ReactWinJS.reactRenderer(ItemList => <UsersItemList itemList={ItemList.data} />)
+
+  groupHeaderRenderer = ReactWinJS.reactRenderer(item => (
+    <div>
+      {item.data.title}
+    </div>
+  ))
 
   constructor(props) {
     super(props)
@@ -42,7 +43,7 @@ export default class UsersList extends PureComponent {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.toolBar) {
-      this.toolBar.winControl.forceLayout();
+      this.toolBar.winControl.forceLayout()
     }
 
     if (this.props.action === 'reload') {
@@ -62,9 +63,12 @@ export default class UsersList extends PureComponent {
     this.props.changeSelectionMode(false)
   }
 
-  ItemListRenderer = ReactWinJS.reactRenderer(ItemList => <UsersItemList itemList={ItemList.data} />)
-
-  groupHeaderRenderer = ReactWinJS.reactRenderer(item => <div>{item.data.title}</div>)
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      ...prevState,
+      selectedItems: nextProps.selectedItems,
+    }
+  }
 
   handleToggleSelectionMode = () => {
     this.props.history.push(`${publicURL}/app/users`)

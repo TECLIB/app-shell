@@ -10,18 +10,6 @@ import calc100PercentMinus from '../../shared/calc100PercentMinus'
 import publicURL from '../../shared/publicURL'
 
 class Users extends PureComponent {
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.history.location.pathname === `${publicURL}/app/users` && prevState.selectedItems.length > 0) {
-      return {
-        ...prevState,
-        selectedItems: [],
-      }
-    }
-    return {
-      ...prevState,
-    }
-  }
-
   constructor(props) {
     super(props)
     this.state = {
@@ -38,6 +26,16 @@ class Users extends PureComponent {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize)
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.history.location.pathname === `${publicURL}/app/users` && prevState.selectedItems.length > 0) {
+      return {
+        ...prevState,
+        selectedItems: [],
+      }
+    }
+    return null
   }
 
   handleResize = () => {
@@ -60,22 +58,23 @@ class Users extends PureComponent {
     }
   }
 
-  propsData = () =>
-    ({
-      icon: this.state.icon,
-      changeSelectionMode: this.changeSelectionMode,
-      selectionMode: this.state.selectionMode,
-      selectedItems: this.state.selectedItems,
-      changeSelectedItems: this.changeSelectedItems,
-      action: this.state.action,
-      changeAction: this.changeAction,
-      history: this.props.history,
-      handleMessage: this.props.handleMessage,
-      toast: this.props.toast,
-    })
+  propsData = () => ({
+    icon: this.state.icon,
+    changeSelectionMode: this.changeSelectionMode,
+    selectionMode: this.state.selectionMode,
+    selectedItems: this.state.selectedItems,
+    changeSelectedItems: this.changeSelectedItems,
+    action: this.state.action,
+    changeAction: this.changeAction,
+    history: this.props.history,
+    handleMessage: this.props.handleMessage,
+    toast: this.props.toast,
+  })
 
   changeSelectedItems = selectedItems => this.setState({ selectedItems })
+
   changeAction = action => this.setState({ action })
+
   changeSelectionMode = selectionMode => this.setState({ selectionMode })
 
   stylesList = () => {
@@ -84,10 +83,10 @@ class Users extends PureComponent {
     }
 
     if (this.state.mode === 'small') {
-      if ((this.state.selectedItems.length === 0 && this.props.history.location.pathname === `${publicURL}/app/users`) ||
-        this.props.history.location.pathname === `${publicURL}/app/users` ||
-        (this.props.history.location.pathname === `${publicURL}/app/users` &&
-          this.state.selectionMode)) {
+      if ((this.state.selectedItems.length === 0 && this.props.history.location.pathname === `${publicURL}/app/users`)
+        || this.props.history.location.pathname === `${publicURL}/app/users`
+        || (this.props.history.location.pathname === `${publicURL}/app/users`
+          && this.state.selectionMode)) {
         styles.display = 'inline-block'
       } else {
         styles.display = 'none'
@@ -107,10 +106,10 @@ class Users extends PureComponent {
     }
 
     if (this.state.mode === 'small') {
-      if ((this.state.selectedItems.length === 0 && this.props.history.location.pathname === `${publicURL}/app/users`) ||
-        this.props.history.location.pathname === `${publicURL}/app/users` ||
-        (this.props.history.location.pathname === `${publicURL}/app/users` &&
-          this.state.selectionMode)) {
+      if ((this.state.selectedItems.length === 0 && this.props.history.location.pathname === `${publicURL}/app/users`)
+        || this.props.history.location.pathname === `${publicURL}/app/users`
+        || (this.props.history.location.pathname === `${publicURL}/app/users`
+          && this.state.selectionMode)) {
         styles.display = 'none'
       } else {
         styles.display = 'inline-flex'

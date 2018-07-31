@@ -14,7 +14,7 @@ function tryRequire(path) {
     // eslint-disable-next-line
     return require(`${path}`);
   } catch (err) {
-    return null;
+    return null
   }
 }
 

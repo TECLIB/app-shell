@@ -40,7 +40,7 @@ export class AuthenticationProvider extends PureComponent {
       <AuthenticationContext.Provider value={{ state: value }}>
         {this.props.children}
       </AuthenticationContext.Provider>
-    );
+    )
   }
 }
 

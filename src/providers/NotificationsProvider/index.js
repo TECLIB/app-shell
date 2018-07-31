@@ -38,7 +38,7 @@ export class NotificationsProvider extends PureComponent {
       <NotificationsContext.Provider value={{ state: value }}>
         {this.props.children}
       </NotificationsContext.Provider>
-    );
+    )
   }
 }
 

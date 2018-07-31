@@ -24,7 +24,7 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
 
     render() {
       return (
-        <div className="authentication-block " style={this.state.style} >
+        <div className="authentication-block " style={this.state.style}>
           <section className="authentication__section">
             <figure className="authentication__figure">
               <img alt="Flyve MDM Dashboard" src={logo} />
@@ -36,7 +36,9 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
               {i18n.t('commons.terms_and_conditions')}
             </a>
             <br />
-            <span>© 2018 Teclib&apos;.</span>
+            <span>
+© 2018 Teclib&apos;.
+            </span>
             <br />
             <select onChange={event => this.props.changeLanguage(event.target.value)}>
               <option value="en_GB">
