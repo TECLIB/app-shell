@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import IconItemList from '../../../components/IconItemList'
+import IconItemList from 'components/IconItemList'
 
 export default class UsersItemList extends PureComponent {
   render() {

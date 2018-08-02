@@ -4,13 +4,13 @@ import { Icon } from 'office-ui-fabric-react/lib/Icon'
 import { Breadcrumb } from 'office-ui-fabric-react/lib/Breadcrumb'
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button'
 import { Link } from 'react-router-dom'
-import i18n from '../../shared/i18n'
-import publicURL from '../../shared/publicURL'
+import I18n from 'shared/i18n'
+import publicURL from 'shared/publicURL'
 
 class HeaderBreadcrumb extends PureComponent {
   breadcrumbs() {
     const breadcrumbs = []
-    breadcrumbs.push({ text: i18n.t('commons.dashboard'), key: `${publicURL}/app`, href: `${publicURL}/app` })
+    breadcrumbs.push({ text: I18n.t('commons.dashboard'), key: `${publicURL}/app`, href: `${publicURL}/app` })
     const customDivider = () => (
       <span className="header-breadcrumb">
         &nbsp;/&nbsp;

@@ -1,6 +1,6 @@
 import React from 'react'
-import i18n from '../../shared/i18n'
-import logo from '../../assets/images/logo.png'
+import I18n from 'shared/i18n'
+import logo from 'assets/images/logo.png'
 
 const NotFound = () => (
   <div className="authentication-block " style={{ textAlign: 'center' }}>
@@ -9,7 +9,7 @@ const NotFound = () => (
         <img alt="App Shell" src={logo} />
       </figure>
       <h1>
-        {i18n.t('commons.not_found')}
+        {I18n.t('commons.not_found')}
       </h1>
       <h1>
 404
@@ -17,7 +17,7 @@ const NotFound = () => (
     </section>
     <footer className="authenticaton__footer">
       <a href="https://flyve-mdm.com/privacy-policy/">
-        {i18n.t('commons.terms_and_conditions')}
+        {I18n.t('commons.terms_and_conditions')}
       </a>
       <br />
       <span>

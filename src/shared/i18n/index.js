@@ -1,22 +1,22 @@
 import Polyglot from 'node-polyglot'
-import language from '../language'
+import language from 'shared/language'
 import sourceFile from './source_file.json'
 
 const languageDefault = 'en_GB'
 
-let polyglot = new Polyglot({
-  locale: language,
-  phrases: sourceFile,
-})
-
 function tryRequire(path) {
   try {
     // eslint-disable-next-line
-    return require(`${path}`);
+    return require(`${path}`)
   } catch (err) {
     return null
   }
 }
+
+const polyglot = new Polyglot({
+  locale: language,
+  phrases: tryRequire(`./translations/${language}`) || sourceFile,
+})
 
 function getTranslations(lang) {
   try {
@@ -33,15 +33,14 @@ function getTranslations(lang) {
 function setPolyglot(lang) {
   localStorage.setItem('language', lang)
   const json = getTranslations(lang) || sourceFile
-  polyglot = new Polyglot({
-    locale: lang,
-    phrases: json,
-  })
+  polyglot.extend(json)
+  polyglot.locale(lang)
 }
 
 export default {
   languageDefault,
   languageCurrent: language,
   setPolyglot,
+  getTranslations,
   t: polyglot.t.bind(polyglot),
 }

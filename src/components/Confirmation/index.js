@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import ReactWinJS from 'react-winjs'
-import i18n from '../../shared/i18n'
+import I18n from 'shared/i18n'
 
 class Confirmation extends PureComponent {
   static isOK = async (contentDialog) => {
@@ -14,8 +14,8 @@ class Confirmation extends PureComponent {
       <ReactWinJS.ContentDialog
         ref={this.props.reference}
         title={this.props.title}
-        primaryCommandText={i18n.t('commons.ok')}
-        secondaryCommandText={i18n.t('commons.cancel')}
+        primaryCommandText={I18n.t('commons.ok')}
+        secondaryCommandText={I18n.t('commons.cancel')}
       >
         <p>
           {this.props.message}

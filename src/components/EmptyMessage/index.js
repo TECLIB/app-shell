@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import i18n from '../../shared/i18n'
+import I18n from 'shared/i18n'
 
 const EmptyMessage = props => (
   <div className="center-block-content">
@@ -20,7 +20,7 @@ EmptyMessage.propTypes = {
 EmptyMessage.defaultProps = {
   icon: '',
   showIcon: false,
-  message: i18n.t('commons.no_selection'),
+  message: I18n.t('commons.no_selection'),
 }
 
 export default EmptyMessage

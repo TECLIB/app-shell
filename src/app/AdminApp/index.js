@@ -1,19 +1,34 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import withAdminAppLayout from '../../hoc/withAdminAppLayout'
-import withToastNotification from '../../hoc/withToastNotification'
-
+import GenerateRoutes from 'components/GenerateRoutes'
+import withAdminDashboardLayout from 'hoc/withAdminAppLayout'
+import withHandleMessages from 'hoc/withHandleMessages'
 import routes from './routes'
-import GenerateRoutes from '../../components/GenerateRoutes'
 
-class AdminApp extends PureComponent {
-  render() {
-    return <GenerateRoutes routes={routes} rootPath={this.props.match.url} />
-  }
-}
+/**
+ * Represents internal routes
+ * @class AdminDashboard
+ * @extends Component
+ */
+const AdminApp = props => (
+  <GenerateRoutes
+    routes={routes}
+    rootPath={props.match.url}
+    toast={props.toast}
+    handleMessage={props.handleMessage}
+    changeLanguage={props.changeLanguage}
+    languageCurrent={props.languageCurrent}
+  />
+)
 
 AdminApp.propTypes = {
-  match: PropTypes.object.isRequired,
+  toast: PropTypes.object.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string,
+  }).isRequired,
+  handleMessage: PropTypes.func.isRequired,
+  changeLanguage: PropTypes.func.isRequired,
+  languageCurrent: PropTypes.string.isRequired,
 }
 
-export default withAdminAppLayout(withToastNotification(AdminApp))
+export default withAdminDashboardLayout(withHandleMessages(AdminApp))

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import profile from '../../assets/images/profile.png'
+import profile from 'assets/images/profile.png'
 
 export default class IconItemList extends PureComponent {
   constructor(props) {
