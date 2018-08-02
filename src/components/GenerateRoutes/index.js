@@ -1,9 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Route, Switch } from 'react-router-dom'
+import ErrorPage from 'components/ErrorPage'
 import PropsRoute from './PropsRoute'
-import NotFound from '../NotFound'
 
+// TODO: Enable PrivateRoute if route if private
+
+/**
+ * Generate routes
+ * @function GenerateRoutes
+ * @param {array} routes
+ * @param {string} rootPath
+ * @param {boolean} withNotFound
+ * @param {object} data
+ * @return {component}
+ */
 const GenerateRoutes = (props) => {
   const r = props.routes.map(({
     exact, path, component, authenticate,
@@ -15,17 +26,22 @@ const GenerateRoutes = (props) => {
       {...props}
       key={path}
       path={
-          typeof props.rootPath === 'string'
-            ? path === '/'
-              ? props.rootPath
-              : props.rootPath + path
-            : path
-        }
+        typeof props.rootPath === 'string'
+          ? path === '/'
+            ? props.rootPath
+            : props.rootPath + path
+          : path
+      }
     />
   ))
 
   props.withNotFound
-    && r.push(<Route key={props.routes.length + 1} render={() => <NotFound />} />)
+    && r.push(
+      <Route
+        key={props.routes.length + 1}
+        render={() => <ErrorPage />}
+      />,
+    )
 
   return (
     <Switch>

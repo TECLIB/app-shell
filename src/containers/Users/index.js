@@ -1,15 +1,19 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import routes from './routes'
-import withHandleMessages from '../../hoc/withHandleMessages'
-import withToastNotification from '../../hoc/withToastNotification'
-import GenerateRoutes from '../../components/GenerateRoutes'
+import getMode from 'shared/getMode'
+import calc100PercentMinus from 'shared/calc100PercentMinus'
+import publicURL from 'shared/publicURL'
+import GenerateRoutes from 'components/GenerateRoutes'
 import UsersList from './components/UsersList'
-import getMode from '../../shared/getMode'
-import calc100PercentMinus from '../../shared/calc100PercentMinus'
-import publicURL from '../../shared/publicURL'
+import routes from './routes'
 
+/**
+ * Component with the users section
+ * @class Users
+ * @extends PureComponent
+ */
 class Users extends PureComponent {
+  /** @constructor */
   constructor(props) {
     super(props)
     this.state = {
@@ -20,24 +24,40 @@ class Users extends PureComponent {
       action: null,
       selectedItems: [],
     }
-
     window.addEventListener('resize', this.handleResize)
   }
 
+  /**
+   * Remove event listener 'resize'
+   * @function componentWillUnmount
+   */
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize)
   }
 
+  /**
+   * Make sure that the state and props are in sync for when it is required
+   * @static
+   * @function getDerivedStateFromProps
+   * @param {object} nextProps
+   * @param {object} prevState
+   */
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.history.location.pathname === `${publicURL}/app/users` && prevState.selectedItems.length > 0) {
+    if (nextProps.history.location.pathname === `${publicURL}/app/users` && prevState.selectedItems.length > 0 && prevState.selectionMode === false) {
       return {
         ...prevState,
         selectedItems: [],
       }
     }
-    return null
+    return {
+      ...prevState,
+    }
   }
 
+  /**
+   * Change state according to the resolution of the screen
+   * @function handleResize
+   */
   handleResize = () => {
     const nextMode = getMode()
 
@@ -58,25 +78,56 @@ class Users extends PureComponent {
     }
   }
 
+  /**
+   * Construct the props data
+   * @function propsData
+   * @return {object}
+   */
   propsData = () => ({
     icon: this.state.icon,
-    changeSelectionMode: this.changeSelectionMode,
     selectionMode: this.state.selectionMode,
     selectedItems: this.state.selectedItems,
-    changeSelectedItems: this.changeSelectedItems,
     action: this.state.action,
-    changeAction: this.changeAction,
     history: this.props.history,
     handleMessage: this.props.handleMessage,
+    changeSelectionMode: this.changeSelectionMode,
+    changeSelectedItems: this.changeSelectedItems,
     toast: this.props.toast,
+    changeAction: this.changeAction,
   })
 
-  changeSelectedItems = selectedItems => this.setState({ selectedItems })
+  /**
+   * Change selected items
+   * @function changeSelectedItems
+   * @param {array} selectedItems
+   */
+  changeSelectedItems = selectedItems => this.setState({
+    selectedItems,
+  })
 
-  changeAction = action => this.setState({ action })
+  /**
+   * Change action
+   * @function changeAction
+   * @param {string} action
+   */
+  changeAction = action => this.setState({
+    action,
+  })
 
-  changeSelectionMode = selectionMode => this.setState({ selectionMode })
+  /**
+   * Change selection mode
+   * @function changeSelectionMode
+   * @param {boolean} selectionMode
+   */
+  changeSelectionMode = selectionMode => this.setState({
+    selectionMode,
+  })
 
+  /**
+   * Construct the styles of the list
+   * @function stylesList
+   * @return {object}
+   */
   stylesList = () => {
     const styles = {
       width: this.state.itemListPaneWidth,
@@ -98,6 +149,11 @@ class Users extends PureComponent {
     return styles
   }
 
+  /**
+   * Construct the styles of the content
+   * @function stylesContent
+   * @return {object}
+   */
   stylesContent = () => {
     const validWidth = this.state.itemListPaneWidth === '100%' ? 0 : this.state.itemListPaneWidth
     const styles = {
@@ -121,17 +177,26 @@ class Users extends PureComponent {
     return styles
   }
 
+  /**
+   * Render component
+   * @function render
+   */
   render() {
-    const renderComponents = (
-
-      <React.Fragment>
-        <div className="listPane flex-block-list" style={{ ...this.stylesList() }}>
+    return (
+      <div className="flex-block flex-block--with-scroll">
+        <div
+          className="list-pane flex-block__list"
+          style={{ ...this.stylesList() }}
+        >
           <UsersList
             key="list"
             {...this.propsData()}
           />
         </div>
-        <div className="flex-block-content" style={{ ...this.stylesContent() }}>
+        <div
+          className="flex-block__content"
+          style={{ ...this.stylesContent() }}
+        >
           <GenerateRoutes
             key="content"
             routes={routes}
@@ -139,23 +204,16 @@ class Users extends PureComponent {
             {...this.propsData()}
           />
         </div>
-      </React.Fragment>
-
-    )
-
-    return (
-      <div className="flex-block --with-scroll">
-        {renderComponents}
       </div>
     )
   }
 }
 
 Users.propTypes = {
-  history: PropTypes.object.isRequired,
-  toast: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
   handleMessage: PropTypes.func.isRequired,
+  toast: PropTypes.object.isRequired,
 }
 
-export default withToastNotification(withHandleMessages(Users))
+export default Users

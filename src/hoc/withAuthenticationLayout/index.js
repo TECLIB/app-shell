@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import withI18n from '../withI18n'
-import i18n from '../../shared/i18n'
-import logo from '../../assets/images/logo.png'
+import languagesList from 'shared/i18n/languages'
+import withI18n from 'hoc/withI18n'
+import I18n from 'shared/i18n'
+import logo from 'assets/images/logo.png'
 
 /**
  * Wrapper a component with divs's stylizeds
@@ -33,26 +34,18 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
           </section>
           <footer className="authenticaton__footer">
             <a href="http://teclib-edition.com/en/privacy-policy/">
-              {i18n.t('commons.terms_and_conditions')}
+              {I18n.t('commons.terms_and_conditions')}
             </a>
             <br />
             <span>
 © 2018 Teclib&apos;.
             </span>
             <br />
-            <select onChange={event => this.props.changeLanguage(event.target.value)}>
-              <option value="en_GB">
-                {i18n.t('commons.english')}
-              </option>
-              <option value="pt_BR">
-                {i18n.t('commons.portuguese')}
-              </option>
-              <option value="fr_FR">
-                {i18n.t('commons.french')}
-              </option>
-              <option value="es_ES">
-                {i18n.t('commons.spanish')}
-              </option>
+            <select
+              onChange={event => this.props.changeLanguage(event.target.value)}
+              value={this.props.languageCurrent}
+            >
+              {languagesList()}
             </select>
           </footer>
         </div>
@@ -71,6 +64,7 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
       PropTypes.string,
       PropTypes.number,
     ]),
+    languageCurrent: PropTypes.string.isRequired,
     changeLanguage: PropTypes.func.isRequired,
   }
 

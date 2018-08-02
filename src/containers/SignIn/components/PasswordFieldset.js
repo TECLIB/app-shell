@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { PrimaryButton, DefaultButton } from 'office-ui-fabric-react/lib/Button'
 import { Link } from 'react-router-dom'
-import i18n from '../../../shared/i18n'
-import Loading from '../../../components/Loading'
-import publicURL from '../../../shared/publicURL'
+import I18n from 'shared/i18n'
+import Loading from 'components/Loading'
+import publicURL from 'shared/publicURL'
 
 class PasswordFieldset extends PureComponent {
   constructor(props) {
@@ -27,17 +27,17 @@ class PasswordFieldset extends PureComponent {
     if (this.state.isLoading) {
       renderComponent = (
         <div style={{ margin: 50, height: '140px' }}>
-          <Loading message={`${i18n.t('commons.loading')}...`} />
+          <Loading message={`${I18n.t('commons.loading')}...`} />
         </div>
       )
     } else {
       renderComponent = (
         <div className="authentication-password__div">
           <h2 className="win-h2">
-            {i18n.t('login.enter_password')}
+            {I18n.t('login.enter_password')}
           </h2>
           <p>
-            {i18n.t('login.enter_password_for')}
+            {I18n.t('login.enter_password_for')}
             <br />
             {this.props.username}
             <br />
@@ -49,23 +49,23 @@ class PasswordFieldset extends PureComponent {
               name="password"
               ref={(input) => { this.passwordInput = input }}
               className={this.state.classInput}
-              placeholder={i18n.t('commons.password')}
+              placeholder={I18n.t('commons.password')}
               value={this.props.password}
               onChange={this.props.changeInput}
               required
             />
 
             <DefaultButton className="btn" onClick={() => this.props.changePhase(1)}>
-              {i18n.t('commons.back')}
+              {I18n.t('commons.back')}
             </DefaultButton>
             &nbsp;
             <PrimaryButton type="submit" className="btn">
-              {i18n.t('commons.sign_in')}
+              {I18n.t('commons.sign_in')}
             </PrimaryButton>
           </form>
           <p>
             <Link to={`${publicURL}/`}>
-              {i18n.t('login.forgot_my_password')}
+              {I18n.t('login.forgot_my_password')}
             </Link>
           </p>
         </div>

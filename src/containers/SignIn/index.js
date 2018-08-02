@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Redirect } from 'react-router'
-import i18n from '../../shared/i18n'
-import UsernameFieldset from './components/UsernameFieldset'
-import withAuthenticationLayout from '../../hoc/withAuthenticationLayout'
-import withAuthentication from '../../hoc/withAuthentication'
-import withHandleMessages from '../../hoc/withHandleMessages'
-import publicURL from '../../shared/publicURL'
+import I18n from 'shared/i18n'
+import withAuthenticationLayout from 'hoc/withAuthenticationLayout'
+import withAuthentication from 'hoc/withAuthentication'
+import withHandleMessages from 'hoc/withHandleMessages'
+import publicURL from 'shared/publicURL'
 // Async Component
-import AsyncPasswordFieldset from '../../async/asyncPasswordFielset'
-import Loading from '../../components/Loading'
+import AsyncPasswordFieldset from 'async/asyncPasswordFielset'
+import Loading from 'components/Loading'
+import UsernameFieldset from './components/UsernameFieldset'
 import { changeInput, changePhase, handleFormSubmit } from './actions'
 
 class SignIn extends PureComponent {
@@ -28,7 +28,7 @@ class SignIn extends PureComponent {
   }
 
   render() {
-    if (this.props.authentication.currentUser && this.props.authentication.sessionToken) {
+    if (this.props.auth.currentUser && this.props.auth.sessionToken) {
       return <Redirect to={`${publicURL}/app`} />
     }
     let form
@@ -54,14 +54,14 @@ class SignIn extends PureComponent {
     }
     return this.state.isLoading ? (
       <div style={{ height: '140px' }}>
-        <Loading message={`${i18n.t('commons.loading')}...`} />
+        <Loading message={`${I18n.t('commons.loading')}...`} />
       </div>
     ) : form
   }
 }
 
 SignIn.propTypes = {
-  authentication: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
 }
 

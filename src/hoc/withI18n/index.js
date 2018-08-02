@@ -1,5 +1,5 @@
 import React from 'react'
-import { I18nConsumer } from '../../providers/I18nProvider'
+import { I18nConsumer } from 'providers/I18nProvider'
 
 export default (WrappedComponent) => {
   const i18n = props => (

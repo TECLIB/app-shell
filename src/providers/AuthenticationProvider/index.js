@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import publicURL from '../../shared/publicURL'
+import publicURL from 'shared/publicURL'
 
 const AuthenticationContext = React.createContext()
 
@@ -37,7 +37,7 @@ export class AuthenticationProvider extends PureComponent {
   render() {
     const value = { ...this.state }
     return (
-      <AuthenticationContext.Provider value={{ state: value }}>
+      <AuthenticationContext.Provider value={{ auth: value }}>
         {this.props.children}
       </AuthenticationContext.Provider>
     )

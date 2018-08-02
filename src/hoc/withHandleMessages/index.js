@@ -1,27 +1,22 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-import handleMessage from '../../shared/handleMessage'
+import React, {
+  PureComponent,
+} from 'react'
+import handleMessage from 'shared/handleMessage'
 
 /**
- *
- * @param { React Component } WrappedComponent
- *
+ * Wrapper component to pass to the props the 'handleMessage' function
+ * @param {component} WrappedComponent Component to wrap
+ * @return {component} The component with the message function
  */
-
 const withHandleMessages = (WrappedComponent) => {
   class HandleMessages extends PureComponent {
+    /**
+     * Render component
+     * @function render
+     */
     render() {
-      return <WrappedComponent {...this.props} />
+      return <WrappedComponent handleMessage={handleMessage} {...this.props} />
     }
-  }
-
-  HandleMessages.defaultProps = {
-    handleMessage,
-  }
-
-  HandleMessages.propTypes = {
-    history: PropTypes.object.isRequired,
-    handleMessage: PropTypes.func,
   }
 
   return HandleMessages

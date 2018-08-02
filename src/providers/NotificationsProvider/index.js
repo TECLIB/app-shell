@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import WinJS from 'winjs'
+import validateNotifications from 'shared/validateNotifications'
+import nativeNotification from 'shared/nativeNotification'
 
 const NotificationsContext = React.createContext()
 
@@ -13,31 +16,84 @@ export class NotificationsProvider extends PureComponent {
       type: 'info',
     },
     show: false,
-    setNotification: (notification) => {
+    setNotification: (notification = {}) => {
+      let getNotification = notification
+      if (typeof getNotification !== 'object') {
+        getNotification = {}
+      }
       this.setState(
         {
           show: true,
-          notification,
+          notification: getNotification,
         },
-        () => { },
+        () => {
+          const { type } = validateNotifications()
+          if (type === 'Native') {
+            nativeNotification(
+              getNotification.title,
+              getNotification.body,
+            )
+          }
+          setTimeout(() => {
+            this.state.hidenNotification()
+          }, 4000)
+        },
       )
     },
     hidenNotification: () => {
-      this.setState(
-        {
-          show: false,
+      WinJS.UI.Animation.exitContent(
+        document.getElementsByClassName('toast'), {
+          top: '0px',
+          left: '20px',
         },
-        () => { },
-      )
+      ).then(() => {
+        this.setState(
+          {
+            show: false,
+            notification: {
+              title: '',
+              body: '',
+              type: 'info',
+            },
+          },
+          () => { },
+        )
+      })
     },
   }
 
   render() {
-    const value = { ...this.state }
+    const context = { ...this.state }
+    const notification = validateNotifications()
+    let toast = null
+    if (context.show && notification.type === 'Toast') {
+      toast = (
+        <div className={`toast toast--${context.notification.type}`}>
+          <span
+            className="iconFont cancelIcon"
+            style={{ float: 'right', cursor: 'pointer', color: '#ffffff' }}
+            onClick={() => {
+              context.hidenNotification()
+            }}
+            role="button"
+            tabIndex="0"
+          />
+          <div className="toast__title">
+            {context.notification.title}
+          </div>
+          <div className="toast__body">
+            {context.notification.body}
+          </div>
+        </div>)
+    }
+
     return (
-      <NotificationsContext.Provider value={{ state: value }}>
-        {this.props.children}
-      </NotificationsContext.Provider>
+      <React.Fragment>
+        {toast}
+        <NotificationsContext.Provider value={{ toast: context }}>
+          {this.props.children}
+        </NotificationsContext.Provider>
+      </React.Fragment>
     )
   }
 }

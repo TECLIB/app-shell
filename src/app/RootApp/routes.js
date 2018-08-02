@@ -1,6 +1,6 @@
-import publicURL from '../../shared/publicURL'
-import SignIn from '../../containers/SignIn'
-import asyncAdminApp from '../../async/asyncAdminApp'
+import publicURL from 'shared/publicURL'
+import SignIn from 'containers/SignIn'
+import asyncAdminApp from 'async/asyncAdminApp'
 
 const routes = [
   {
