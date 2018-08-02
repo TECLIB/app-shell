@@ -9,12 +9,12 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
-    "node-sass": "^4.9.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "sass": "^1.10.1"
   },
   "dependencies": {
     "node-polyglot": "^2.3.0",
-    "office-ui-fabric-react": "^6.42.0",
+    "office-ui-fabric-react": "^6.43.0",
     "react": "^16.4.1",
     "react-content-loader": "^3.1.2",
     "react-dom": "^16.4.1",
@@ -23,12 +23,14 @@
     "winjs": "^4.4.3"
   },
   "scripts": {
+    "prestart": "yarn sass &",
     "start": "react-scripts start",
-    "build": "yarn build-styles && yarn lint && react-scripts build",
+    "build": "yarn sass:build && yarn lint && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "prestart": "yarn build-styles && node-sass --watch src/assets/styles/scss/index.scss src/assets/styles/css/index.css &",
     "build-styles": "node-sass src/assets/styles/scss/index.scss src/assets/styles/css/index.css",
+    "sass": "sass --watch src/assets/styles/scss:src/assets/styles/css",
+    "sass:build": "sass src/assets/styles/scss:src/assets/styles/css",
     "lint": "yarn eslint src"
   }
 }
