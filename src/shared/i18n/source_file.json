@@ -19,7 +19,8 @@
     "element_successfully_removed": "Element successfully removed",
     "elements_successfully_created": "Elements successfully created",
     "elements_successfully_updated": "Elements successfully updated",
-    "elements_successfully_removed": "Elements successfully removed"
+    "elements_successfully_removed": "Elements successfully removed",
+    "no_internet_connection": "No Internet Connection"
   },
   "validate_account": {
     "title": "Validate Account",
@@ -48,6 +49,28 @@
   },
   "logout": {
     "close_session": "Close session"
+  },
+  "error": {
+    "400": {
+      "title": "Oops! Bad request",
+      "message": "Apparently you are making an erroneous request. Please return to the dashboard."
+    },
+    "401": {
+      "title": "Unauthorized",
+      "message": "The request has not been applied because it lacks valid authentication credentials for the target resource."
+    },
+    "403": {
+      "title": "Action is forbidden",
+      "message": "Apparently you are trying to perform an action not allowed. Please return to the dashboard."
+    },
+    "404": {
+      "title": "Oops! Page not Found.",
+      "message": "We could not find the page you were looking for. Meanwhile, you may return to the dashboard."
+    },
+    "500": {
+      "title": "Oops! Something went wrong.",
+      "message": "We will work on fixing that rigth away. Meanwhile, you may return to the dashboard."
+    }
   },
   "commons": {
     "success": "Success",
