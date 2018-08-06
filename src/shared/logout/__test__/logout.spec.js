@@ -1,5 +1,5 @@
+import history from 'shared/history'
 import logout from '../index'
-import history from '../../history'
 
 describe('logout', () => {
   beforeEach(() => {

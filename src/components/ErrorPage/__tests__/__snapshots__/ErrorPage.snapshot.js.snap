@@ -12,8 +12,8 @@ exports[`ErrorPage renders ErrorPage 1`] = `
   <section>
     <figure>
       <img
-        alt="Flyve MDM Dashboard"
-        src="dashboard.svg"
+        alt="Teclib Dashboard"
+        src="logo.png"
       />
     </figure>
     <h1>
