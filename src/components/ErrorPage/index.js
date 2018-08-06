@@ -51,7 +51,7 @@ export default () => {
       <section>
         <figure>
           <img
-            alt="Flyve MDM Dashboard"
+            alt="Teclib Dashboard"
             src={logo}
           />
         </figure>
