@@ -18,6 +18,31 @@ export class AuthenticationProvider extends PureComponent {
         this.props.children.props.history.push(`${publicURL}/app`)
       })
     },
+    fetchSignUp: data => new Promise((resolve, reject) => {
+      this.setState(
+        {
+          isLoading: true,
+        },
+        () => {
+          if (data) {
+            setTimeout(() => {
+              this.setState({
+                isLoading: false,
+              }, () => {
+                resolve()
+              })
+            }, 3000)
+          }
+          setTimeout(() => {
+            this.setState({
+              isLoading: false,
+            }, () => {
+              reject()
+            })
+          }, 3000)
+        },
+      )
+    }),
     logout: () => {
       this.setState(
         {
