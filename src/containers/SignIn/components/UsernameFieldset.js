@@ -76,7 +76,7 @@ class UsernameFieldset extends PureComponent {
         <p>
           {I18n.t('login.no_account')}
           &nbsp;
-          <Link to={`${publicURL}/`}>
+          <Link to={`${publicURL}/signUp`}>
             {I18n.t('login.create_one')}
           </Link>
         </p>
