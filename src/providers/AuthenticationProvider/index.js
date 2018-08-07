@@ -8,8 +8,7 @@ export const AuthenticationConsumer = AuthenticationContext.Consumer
 
 export class AuthenticationProvider extends PureComponent {
   state = {
-    configurationPassword: {},
-    captcha: {},
+    isLoading: false,
     sessionToken: localStorage.getItem('sessionToken') ? localStorage.getItem('sessionToken') : undefined,
     currentUser: localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : undefined,
     setCurrentUser: (currentUser, sessionToken) => {
@@ -32,6 +31,38 @@ export class AuthenticationProvider extends PureComponent {
         },
       )
     },
+    fetchSignIn: (username, password) => new Promise((resolve, reject) => {
+      this.setState(
+        {
+          isLoading: true,
+        },
+        () => {
+          if (username !== '' && password !== '') {
+            setTimeout(() => {
+              this.setState({
+                isLoading: false,
+              }, () => {
+                const user = {
+                  id: 1,
+                  name: 'User App',
+                  email: 'user@teclib.com',
+                  picture: null,
+                }
+                this.state.setCurrentUser(user, 'token')
+                resolve()
+              })
+            }, 3000)
+          }
+          setTimeout(() => {
+            this.setState({
+              isLoading: false,
+            }, () => {
+              reject()
+            })
+          }, 3000)
+        },
+      )
+    }),
   }
 
   render() {

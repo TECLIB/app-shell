@@ -28,7 +28,7 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
         <div className="authentication-block " style={this.state.style}>
           <section className="authentication__section">
             <figure className="authentication__figure">
-              <img alt="Flyve MDM Dashboard" src={logo} />
+              <img alt="Teclib MDM Dashboard" src={logo} />
             </figure>
             <WrappedComponent {...this.props} />
           </section>
