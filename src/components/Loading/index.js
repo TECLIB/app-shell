@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Spinner, SpinnerSize } from 'office-ui-fabric-react'
 
 const Loading = (props) => {
-  const headerSize = props.headerSize ? props.headerSize : 0
-
   const loadComponent = props.small
     ? (
       <div
@@ -14,22 +13,15 @@ const Loading = (props) => {
           margin: '10px',
         }}
       >
-        <div>
-          <div className="small-loader">
-            <div className="circle" />
-            <div className="circle" />
-            <div className="circle" />
-            <div className="circle" />
-            <div className="circle" />
-          </div>
-        </div>
+        <Spinner
+          size={SpinnerSize.small}
+        />
       </div>
     )
     : (
       <div
         className="loading"
         style={{
-          marginTop: -headerSize,
           display: 'flex',
           height: '100%',
           width: '100%',
@@ -39,28 +31,32 @@ const Loading = (props) => {
           flexDirection: 'column',
         }}
       >
-        <div>
-          <div className="loader">
-            <div className="circle" />
-            <div className="circle" />
-            <div className="circle" />
-            <div className="circle" />
-            <div className="circle" />
-          </div>
-          <p>
-            {props.message}
-          </p>
-        </div>
+        <Spinner
+          size={SpinnerSize.large}
+          label={props.message}
+          styles={props.style}
+        />
       </div>
     )
-
   return loadComponent
+}
+
+Loading.defaultProps = {
+  style: {
+    circle: {
+      height: 50,
+      width: 50,
+      borderWidth: 4,
+    },
+  },
+  small: false,
+  message: '',
 }
 
 Loading.propTypes = {
   message: PropTypes.string,
-  headerSize: PropTypes.number,
   small: PropTypes.bool,
+  style: PropTypes.object,
 }
 
 export default Loading
