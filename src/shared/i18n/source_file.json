@@ -26,12 +26,19 @@
     "elements_successfully_created": "Elements successfully created",
     "elements_successfully_updated": "Elements successfully updated",
     "elements_successfully_removed": "Elements successfully removed",
-    "no_internet_connection": "No Internet Connection"
+    "no_internet_connection": "No Internet Connection",
+    "request_sent": "Request sent"
   },
   "validate_account": {
     "title": "Validate Account",
     "message": "Your user is not yet activated, please check your email and activate your account",
     "is_validated": "Your account is activated"
+  },
+  "forgot_password": {
+    "title": "Recover account",
+    "go_home": "Go home",
+    "help_reset_password": "We can help you reset password and security info. Please, enter your Teclib account in the following text box.",
+    "reset_your_password": "To reset your password, open your mailbox an find the email with the subject \"Reset Password\" and open the link to create a new password."
   },
   "validation": {
     "required_field": "Required field",
@@ -83,12 +90,14 @@
     "info": "Info",
     "warning": "Warning",
     "error": "Error",
+    "sending": "Sending",
     "language": "Language",
     "english": "English",
     "portuguese": "Portuguese",
     "french": "French",
     "spanish": "Spanish",
     "terms_and_conditions": "Terms and Conditions",
+    "teclib_email": "Teclib email",
     "dashboard": "Dashboard",
     "next": "Next",
     "back": "Back",
