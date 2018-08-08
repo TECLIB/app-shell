@@ -2,6 +2,8 @@ import publicURL from 'shared/publicURL'
 import SignIn from 'containers/SignIn'
 import SignUp from 'containers/SignUp'
 import asyncValidateAccount from 'async/asyncValidateAccount'
+import asyncForgotPassword from 'async/asyncForgotPassword'
+import asyncResetPassword from 'async/asyncResetPassword'
 import asyncAdminApp from 'async/asyncAdminApp'
 
 const routes = [
@@ -20,6 +22,18 @@ const routes = [
   {
     path: `${publicURL}/validateAccount`,
     component: asyncValidateAccount,
+    exact: false,
+    private: false,
+  },
+  {
+    path: `${publicURL}/forgotPassword`,
+    component: asyncForgotPassword,
+    exact: false,
+    private: false,
+  },
+  {
+    path: `${publicURL}/resetPassword`,
+    component: asyncResetPassword,
     exact: false,
     private: false,
   },
