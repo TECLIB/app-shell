@@ -44,9 +44,9 @@ const Loading = (props) => {
 Loading.defaultProps = {
   style: {
     circle: {
-      height: 50,
-      width: 50,
-      borderWidth: 4,
+      height: 40,
+      width: 40,
+      borderWidth: 2,
     },
   },
   small: false,
