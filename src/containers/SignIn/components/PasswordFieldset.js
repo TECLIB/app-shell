@@ -64,7 +64,7 @@ class PasswordFieldset extends PureComponent {
             </PrimaryButton>
           </form>
           <p>
-            <Link to={`${publicURL}/`}>
+            <Link to={`${publicURL}/forgotPassword`}>
               {I18n.t('login.forgot_my_password')}
             </Link>
           </p>
