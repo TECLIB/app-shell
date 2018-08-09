@@ -49,9 +49,7 @@ class Users extends PureComponent {
         selectedItems: [],
       }
     }
-    return {
-      ...prevState,
-    }
+    return null
   }
 
   /**

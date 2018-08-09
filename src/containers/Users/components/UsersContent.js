@@ -41,9 +41,7 @@ export default class UsersContent extends PureComponent {
         emails: [],
       }
     }
-    return {
-      ...prevState,
-    }
+    return null
   }
 
   dialogDelete = () => {
