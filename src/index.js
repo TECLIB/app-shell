@@ -8,6 +8,7 @@ import history from 'shared/history'
 import RootApp from 'app/RootApp'
 import { AuthenticationProvider } from 'providers/AuthenticationProvider'
 import { NotificationsProvider } from 'providers/NotificationsProvider'
+import { ConfirmationProvider } from 'providers/ConfirmationProvider'
 import { I18nProvider } from 'providers/I18nProvider'
 import registerServiceWorker from 'registerServiceWorker'
 import 'assets/styles/css/index.css'
@@ -26,11 +27,13 @@ ReactDOM.render(
     <Fabric>
       <I18nProvider>
         <NotificationsProvider>
-          <AuthenticationProvider>
-            <Router history={history}>
-              <RootApp />
-            </Router>
-          </AuthenticationProvider>
+          <ConfirmationProvider>
+            <AuthenticationProvider>
+              <Router history={history}>
+                <RootApp />
+              </Router>
+            </AuthenticationProvider>
+          </ConfirmationProvider>
         </NotificationsProvider>
       </I18nProvider>
     </Fabric>
