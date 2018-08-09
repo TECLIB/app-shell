@@ -9,7 +9,6 @@ import {
 } from 'office-ui-fabric-react/lib/Persona'
 import I18n from 'shared/i18n'
 import ContentPane from 'components/ContentPane'
-import Confirmation from 'components/Confirmation'
 import Loading from 'components/Loading'
 import getID from 'shared/getID'
 import publicURL from 'shared/publicURL'
@@ -47,14 +46,24 @@ export default class UsersContent extends PureComponent {
     }
   }
 
-  handleDelete = async () => {
-    const isOK = await Confirmation.isOK(this.contentDialog)
-    if (isOK) {
-      this.setState({
-        isLoading: true,
-      })
+  dialogDelete = () => {
+    this.props.confirmation.showDialog({
+      title: I18n.t('users.delete_one'),
+      message: 'Users',
+      isOk: this.handleDelete,
+      isCancel: this.cancelDelete,
+    })
+  }
 
-      try {
+  cancelDelete = () => {
+    this.props.changeSelectionMode(false)
+  }
+
+  handleDelete = async () => {
+    this.setState({
+      isLoading: true,
+    }, () => {
+      setTimeout(() => {
         this.props.toast.setNotification({
           title: I18n.t('commons.success'),
           body: I18n.t('notifications.elements_successfully_removed'),
@@ -63,10 +72,8 @@ export default class UsersContent extends PureComponent {
         this.props.changeAction('reload')
         this.props.changeSelectionMode(false)
         this.props.history.push(`${publicURL}/app/users`)
-      } catch (error) {
-        this.props.toast.setNotification(this.props.handleMessage({ type: 'alert', message: error }))
-      }
-    }
+      }, 3000)
+    })
   }
 
   handleRefresh = async () => {
@@ -122,7 +129,7 @@ export default class UsersContent extends PureComponent {
                   data-automation-id="remove"
                   iconProps={{ iconName: 'delete' }}
                   text="Delete"
-                  onClick={this.handleDelete}
+                  onClick={this.dialogDelete}
                 />
               </div>
             </div>
@@ -165,7 +172,6 @@ export default class UsersContent extends PureComponent {
               </li>
             </ul>
           </div>
-          <Confirmation title={I18n.t('users.delete_one')} message="Users" reference={(el) => { this.contentDialog = el }} />
         </div>
       )
     }
@@ -182,6 +188,7 @@ UsersContent.defaultProps = {
 }
 
 UsersContent.propTypes = {
+  confirmation: PropTypes.object.isRequired,
   selectedItems: PropTypes.array,
   changeAction: PropTypes.func.isRequired,
   changeSelectionMode: PropTypes.func.isRequired,

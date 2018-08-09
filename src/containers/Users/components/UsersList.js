@@ -5,7 +5,6 @@ import ReactWinJS from 'react-winjs'
 import I18n from 'shared/i18n'
 import BuildItemList from 'components/BuildItemList'
 import Loader from 'components/Loader'
-import Confirmation from 'components/Confirmation'
 import EmptyMessage from 'components/EmptyMessage'
 import publicURL from 'shared/publicURL'
 import delay from 'shared/delay'
@@ -128,38 +127,46 @@ export default class UsersList extends PureComponent {
 
   }
 
+  dialogDelete = () => {
+    this.props.confirmation.showDialog({
+      title: I18n.t('users.delete'),
+      message: `${this.state.selectedItems.length} ${I18n.t('commons.users')}`,
+      isOk: this.handleDelete,
+      isCancel: this.cancelDelete,
+    })
+  }
+
+  cancelDelete = () => {
+    this.props.changeSelectionMode(false)
+    this.props.changeSelectedItems([])
+    this.listView.winControl.selection.clear()
+  }
+
   handleDelete = async () => {
-    const isOK = await Confirmation.isOK(this.contentDialog)
-    if (isOK) {
-      this.setState({
-        isLoading: true,
-      }, async () => {
-        try {
-          this.props.toast.setNotification({
-            title: I18n.t('commons.success'),
-            body: I18n.t('notifications.elements_successfully_removed'),
-            type: 'success',
-          })
-          this.props.changeSelectionMode(false)
-          this.props.changeSelectedItems([])
-          this.props.changeAction('reload')
-        } catch (error) {
-          this.props.toast.setNotification(this.props.handleMessage({ type: 'alert', message: error }))
-          this.props.changeSelectionMode(false)
-          this.props.changeSelectedItems([])
-          if (this.listView) {
-            this.listView.winControl.selection.clear()
-          }
-          this.setState(({
-            isLoading: false,
-          }))
+    this.setState({
+      isLoading: true,
+    }, async () => {
+      try {
+        this.props.toast.setNotification({
+          title: I18n.t('commons.success'),
+          body: I18n.t('notifications.elements_successfully_removed'),
+          type: 'success',
+        })
+        this.props.changeSelectionMode(false)
+        this.props.changeSelectedItems([])
+        this.props.changeAction('reload')
+      } catch (error) {
+        this.props.toast.setNotification(this.props.handleMessage({ type: 'alert', message: error }))
+        this.props.changeSelectionMode(false)
+        this.props.changeSelectedItems([])
+        if (this.listView) {
+          this.listView.winControl.selection.clear()
         }
-      })
-    } else {
-      this.props.changeSelectionMode(false)
-      this.props.changeSelectedItems([])
-      this.listView.winControl.selection.clear()
-    }
+        this.setState(({
+          isLoading: false,
+        }))
+      }
+    })
   }
 
   handleSort = async () => {
@@ -197,7 +204,7 @@ export default class UsersList extends PureComponent {
         label={I18n.t('commons.delete')}
         priority={0}
         disabled={this.state.selectedItems.length === 0}
-        onClick={this.handleDelete}
+        onClick={this.dialogDelete}
       />
     )
 
@@ -272,8 +279,6 @@ export default class UsersList extends PureComponent {
         </ReactWinJS.ToolBar>
 
         {listComponent}
-
-        <Confirmation title={I18n.t('users.delete')} message={`${this.state.selectedItems.length} ${I18n.t('commons.users')}`} reference={(el) => { this.contentDialog = el }} />
       </React.Fragment>
     )
   }
@@ -284,6 +289,7 @@ UsersList.defaultProps = {
 }
 
 UsersList.propTypes = {
+  confirmation: PropTypes.object.isRequired,
   selectedItems: PropTypes.array.isRequired,
   changeSelectedItems: PropTypes.func.isRequired,
   selectionMode: PropTypes.bool.isRequired,

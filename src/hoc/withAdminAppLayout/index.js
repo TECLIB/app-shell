@@ -7,7 +7,6 @@ import animationsWinJs from 'shared/animationsWinJs'
 import I18n from 'shared/i18n'
 import SplitView from 'components/SplitView'
 import HeaderBreadcrumb from 'components/HeaderBreadcrumb'
-import Confirmation from 'components/Confirmation'
 import withAuthentication from 'hoc/withAuthentication'
 import withHandleMessages from 'hoc/withHandleMessages'
 
@@ -43,12 +42,14 @@ const withAdminAppLayout = (WrappedComponent) => {
       window.removeEventListener('resize', this.handleResize)
     }
 
+    /** Open dialog to handle logout */
+    dialogDelete = () => {
+      this.props.confirmation.showDialog({ title: I18n.t('logout.close_session'), message: I18n.t('settings.security.close_session_message'), isOk: this.logout })
+    }
+
     /** Close current session */
-    logout = async () => {
-      const isOK = await Confirmation.isOK(this.contentDialog)
-      if (isOK) {
-        this.props.auth.logout(this.props.history)
-      }
+    logout = () => {
+      this.props.auth.logout(this.props.history)
     }
 
     /** Change 'mode' according to the resolution of the screen */
@@ -121,14 +122,9 @@ const withAdminAppLayout = (WrappedComponent) => {
               handleSetTimeOut={this.handleSetTimeOut}
               handleToggleExpand={this.handleToggleExpand}
               mode={this.state.mode}
-              logout={this.logout}
+              logout={this.dialogDelete}
             />
             <WrappedComponent {...this.props} mode={this.state.mode} />
-            <Confirmation
-              title={I18n.t('logout.close_session')}
-              message={I18n.t('settings.security.close_session_message')}
-              reference={(el) => { this.contentDialog = el }}
-            />
           </div>
         </main>
       )
@@ -139,6 +135,7 @@ const withAdminAppLayout = (WrappedComponent) => {
     toast: PropTypes.shape({
       setNotification: PropTypes.func,
     }).isRequired,
+    confirmation: PropTypes.object.isRequired,
     handleMessage: PropTypes.func.isRequired,
     auth: PropTypes.shape({
       logout: PropTypes.func,
