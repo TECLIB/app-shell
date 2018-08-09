@@ -4,7 +4,6 @@ import React, {
 import PropTypes from 'prop-types'
 import { Icon } from 'office-ui-fabric-react'
 import I18n from 'shared/i18n'
-import Confirmation from 'components/Confirmation'
 import ErrorValidation from 'components/ErrorValidation'
 
 /**
@@ -20,7 +19,6 @@ class Input extends PureComponent {
       isCorrect: true,
       errors: [],
       className: 'win-textbox',
-      hideContentDialog: true,
     }
   }
 
@@ -78,10 +76,24 @@ class Input extends PureComponent {
   }
 
   /**
+   * Open dialog to handle email delete
+   * @function dialogDelete
+   */
+  dialogDelete = () => {
+    this.props.confirmation.showDialog({
+      title: `${I18n.t('commons.delete')} ${this.props.label}`,
+      message: this.props.value,
+      isOk: this.deleteEmail,
+    })
+  }
+
+  /**
    * Delete an email of the list
    * @function deleteEmail
    */
-  deleteEmail = () => this.setState({ hideContentDialog: false })
+  deleteEmail = () => {
+    this.props.delete(this.props.name)
+  }
 
   /**
    * Render component
@@ -93,7 +105,7 @@ class Input extends PureComponent {
         <Icon
           iconName="Delete"
           style={{ margin: 10, fontSize: 18 }}
-          onClick={this.deleteEmail}
+          onClick={this.dialogDelete}
         />
       )
       : undefined
@@ -117,23 +129,6 @@ class Input extends PureComponent {
         />
         <ErrorValidation errors={this.state.errors} />
         { deleteIcon }
-        {
-          this.props.delete
-            ? (
-              <Confirmation
-                hideDialog={this.state.hideContentDialog}
-                title={`${I18n.t('commons.delete')} ${this.props.label}`}
-                message={this.props.value}
-                isOK={() => {
-                  this.setState({ hideContentDialog: true }, () => {
-                    this.props.delete(this.props.name)
-                  })
-                }}
-                cancel={() => this.setState({ hideContentDialog: true })}
-              />
-            )
-            : <span />
-        }
       </div>
     )
   }
@@ -152,6 +147,7 @@ Input.defaultProps = {
   delete: null,
   parametersToEvaluate: null,
   forceValidation: false,
+  confirmation: { showDialog: () => {} },
 }
 
 Input.propTypes = {
@@ -172,6 +168,7 @@ Input.propTypes = {
   // eslint-disable-next-line
   forceValidation: PropTypes.bool,
   required: PropTypes.bool,
+  confirmation: PropTypes.object,
 }
 
 export default Input

@@ -93,6 +93,7 @@ class Users extends PureComponent {
     changeSelectionMode: this.changeSelectionMode,
     changeSelectedItems: this.changeSelectedItems,
     toast: this.props.toast,
+    confirmation: this.props.confirmation,
     changeAction: this.changeAction,
   })
 
@@ -214,6 +215,7 @@ Users.propTypes = {
   history: PropTypes.object.isRequired,
   handleMessage: PropTypes.func.isRequired,
   toast: PropTypes.object.isRequired,
+  confirmation: PropTypes.object.isRequired,
 }
 
 export default Users
