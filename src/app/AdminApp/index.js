@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import GenerateRoutes from 'components/GenerateRoutes'
 import withAdminDashboardLayout from 'hoc/withAdminAppLayout'
 import withHandleMessages from 'hoc/withHandleMessages'
+import withConfirmation from 'hoc/withConfirmation'
 import routes from './routes'
 
 /**
@@ -15,6 +16,7 @@ const AdminApp = props => (
     routes={routes}
     rootPath={props.match.url}
     toast={props.toast}
+    confirmation={props.confirmation}
     handleMessage={props.handleMessage}
     changeLanguage={props.changeLanguage}
     languageCurrent={props.languageCurrent}
@@ -23,6 +25,7 @@ const AdminApp = props => (
 
 AdminApp.propTypes = {
   toast: PropTypes.object.isRequired,
+  confirmation: PropTypes.object.isRequired,
   match: PropTypes.shape({
     url: PropTypes.string,
   }).isRequired,
@@ -31,4 +34,4 @@ AdminApp.propTypes = {
   languageCurrent: PropTypes.string.isRequired,
 }
 
-export default withAdminDashboardLayout(withHandleMessages(AdminApp))
+export default withConfirmation(withAdminDashboardLayout(withHandleMessages(AdminApp)))
