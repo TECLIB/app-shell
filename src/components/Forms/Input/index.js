@@ -39,13 +39,9 @@ class Input extends PureComponent {
           className: validation.isCorrect ? 'win-textbox' : 'win-textbox error-input',
         }
       }
-      return {
-        ...prevState,
-      }
+      return null
     }
-    return {
-      ...prevState,
-    }
+    return null
   }
 
   /**
