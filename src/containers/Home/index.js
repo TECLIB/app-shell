@@ -4,7 +4,6 @@ import Loading from 'components/Loading'
 import EmptyMessage from 'components/EmptyMessage'
 import ContentPane from 'components/ContentPane'
 import delay from 'shared/delay'
-import I18n from 'shared/i18n'
 
 class Dashboard extends PureComponent {
   constructor(props) {
@@ -26,7 +25,7 @@ class Dashboard extends PureComponent {
   render() {
     const renderComponent = this.state.isLoading ? (
       <div style={{ width: '100%', height: 'calc(100vh - 80px)' }}>
-        <Loading message={`${I18n.t('commons.loading')}...`} />
+        <Loading logo />
       </div>
     )
       : (

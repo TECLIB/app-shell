@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Spinner, SpinnerSize } from 'office-ui-fabric-react'
+import { Spinner, SpinnerSize, Image } from 'office-ui-fabric-react/lib'
+import logo from 'assets/images/logo.png'
 
 const Loading = (props) => {
   const loadComponent = props.small
@@ -31,9 +32,20 @@ const Loading = (props) => {
           flexDirection: 'column',
         }}
       >
+        {
+          props.logo
+            ? (
+              <Image
+                src={logo}
+                width={160}
+                alt="Teclib dashboard"
+                style={{ marginBottom: '20px' }}
+              />)
+            : null
+        }
         <Spinner
           size={SpinnerSize.large}
-          label={props.message}
+          label={props.message || ''}
           styles={props.style}
         />
       </div>
@@ -44,17 +56,19 @@ const Loading = (props) => {
 Loading.defaultProps = {
   style: {
     circle: {
-      height: 40,
-      width: 40,
-      borderWidth: 2,
+      height: 64,
+      width: 64,
+      borderWidth: 3,
     },
   },
+  logo: false,
   small: false,
   message: '',
 }
 
 Loading.propTypes = {
   message: PropTypes.string,
+  logo: PropTypes.bool,
   small: PropTypes.bool,
   style: PropTypes.object,
 }
