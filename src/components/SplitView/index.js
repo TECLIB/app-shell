@@ -4,9 +4,9 @@ import I18n from 'shared/i18n'
 import publicURL from 'shared/publicURL'
 import logo from 'assets/images/logo.png'
 import { ScrollSync, ScrollSyncPane } from '../ScrollSync'
+import ImgWithPopper from './ImgWithPopper'
 import IconWithPopper from './IconWithPopper'
-import ImgWithPopper from './imgWithPopper'
-import SpanWithPopper from './spanWithAnchor'
+import SpanWithPopper from './SpanWithPopper'
 
 class SplitView extends PureComponent {
   logout = () => {

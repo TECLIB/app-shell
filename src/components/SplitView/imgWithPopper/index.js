@@ -1,35 +1,36 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
-import ImageResponsive from 'components/ImageResponsive'
+import { Image } from 'office-ui-fabric-react/lib'
 
-class imgWithPopper extends PureComponent {
+class ImgWithPopper extends PureComponent {
   render() {
     return (
       <div>
         <NavLink to={this.props.to} activeClassName="selected">
-          <ImageResponsive
-            alt={this.props.alt}
-            src={this.props.img}
-            styleNew={{ width: '20px' }}
-            title={this.props.title}
-          />
+          <span title={this.props.title}>
+            <Image
+              src={this.props.img}
+              alt={this.props.alt}
+              width={20}
+            />
+          </span>
         </NavLink>
       </div>
     )
   }
 }
 
-imgWithPopper.defaultProps = {
+ImgWithPopper.defaultProps = {
   alt: '',
   title: '',
 }
 
-imgWithPopper.propTypes = {
+ImgWithPopper.propTypes = {
   to: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   alt: PropTypes.string,
   title: PropTypes.string,
 }
 
-export default imgWithPopper
+export default ImgWithPopper

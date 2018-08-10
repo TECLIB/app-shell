@@ -1,35 +1,40 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
+import { Label } from 'office-ui-fabric-react/lib'
 
-class spanWithPopper extends PureComponent {
+class SpanWithPopper extends PureComponent {
   render() {
     if (this.props.to) {
       return (
         <div>
           <NavLink to={this.props.to} activeClassName="selected">
-            { this.props.description }
+            <Label style={{ cursor: 'pointer' }}>
+              {this.props.description}
+            </Label>
           </NavLink>
         </div>
       )
     }
     return (
       <div role="button" tabIndex="0" onClick={this.props.click}>
-        {this.props.description}
+        <Label style={{ cursor: 'pointer' }}>
+          {this.props.description}
+        </Label>
       </div>
     )
   }
 }
 
-spanWithPopper.defaultProps = {
+SpanWithPopper.defaultProps = {
   to: null,
   click: () => {},
 }
 
-spanWithPopper.propTypes = {
+SpanWithPopper.propTypes = {
   description: PropTypes.string.isRequired,
   to: PropTypes.string,
   click: PropTypes.func,
 }
 
-export default spanWithPopper
+export default SpanWithPopper
