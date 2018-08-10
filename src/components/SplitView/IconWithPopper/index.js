@@ -4,13 +4,15 @@ import { NavLink } from 'react-router-dom'
 import { Icon } from 'office-ui-fabric-react/lib/Icon'
 
 
-class iconWithPopper extends PureComponent {
+class IconWithPopper extends PureComponent {
   render() {
     if (this.props.to) {
       return (
         <div>
           <NavLink to={this.props.to} activeClassName="selected">
-            <Icon iconName={this.props.iconName} ariaLabel={this.props.title} />
+            <span title={this.props.title}>
+              <Icon iconName={this.props.iconName} />
+            </span>
           </NavLink>
         </div>
       )
@@ -18,24 +20,26 @@ class iconWithPopper extends PureComponent {
     return (
       <div role="button" tabIndex="0" onClick={this.props.click}>
         <a>
-          <Icon iconName={this.props.iconName} ariaLabel={this.props.title} />
+          <span title={this.props.title}>
+            <Icon iconName={this.props.iconName} />
+          </span>
         </a>
       </div>
     )
   }
 }
 
-iconWithPopper.defaultProps = {
+IconWithPopper.defaultProps = {
   to: null,
   click: () => {},
   title: '',
 }
 
-iconWithPopper.propTypes = {
+IconWithPopper.propTypes = {
   to: PropTypes.string,
   iconName: PropTypes.string.isRequired,
   click: PropTypes.func,
   title: PropTypes.string,
 }
 
-export default iconWithPopper
+export default IconWithPopper
