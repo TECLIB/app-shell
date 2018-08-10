@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import { Image } from 'office-ui-fabric-react/lib'
 
-class ImgWithPopper extends PureComponent {
+class ImageWithPopper extends PureComponent {
   render() {
     return (
       <div>
@@ -21,12 +21,12 @@ class ImgWithPopper extends PureComponent {
   }
 }
 
-ImgWithPopper.defaultProps = {
+ImageWithPopper.defaultProps = {
   alt: '',
   title: '',
 }
 
-ImgWithPopper.propTypes = {
+ImageWithPopper.propTypes = {
   to: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   alt: PropTypes.string,

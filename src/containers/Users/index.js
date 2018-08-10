@@ -17,7 +17,7 @@ class Users extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      icon: 'peopleIcon',
+      icon: 'Contact',
       mode: getMode(),
       itemListPaneWidth: getMode() === 'small' ? '100%' : 320,
       selectionMode: false,
@@ -83,6 +83,7 @@ class Users extends PureComponent {
    */
   propsData = () => ({
     icon: this.state.icon,
+    showIcon: true,
     selectionMode: this.state.selectionMode,
     selectedItems: this.state.selectedItems,
     action: this.state.action,

@@ -52,7 +52,7 @@ class HeaderBreadcrumb extends PureComponent {
           primary
           onClick={this.props.handleToggleExpand}
         >
-          <Icon iconName="CollapseMenu" onClick={this.props.handleToggleExpand} />
+          <Icon iconName="GlobalNavButton" onClick={this.props.handleToggleExpand} />
         </DefaultButton>
         <nav className="header-breadcrumb">
           {this.breadcrumbs()}
