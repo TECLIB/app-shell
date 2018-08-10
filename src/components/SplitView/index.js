@@ -4,7 +4,7 @@ import I18n from 'shared/i18n'
 import publicURL from 'shared/publicURL'
 import logo from 'assets/images/logo.png'
 import { ScrollSync, ScrollSyncPane } from 'components/ScrollSync'
-import ImageWithPopper from './ImageWithPopper'
+import ImgWithPopper from './ImgWithPopper'
 import IconWithPopper from './IconWithPopper'
 import SpanWithPopper from './SpanWithPopper'
 
@@ -29,7 +29,7 @@ class SplitView extends PureComponent {
                   <ScrollSyncPane>
                     <div className="splitview-wrapper-wrapper__div">
                       <section className="splitview-wrapped-navbar-wrapped-top__section">
-                        <ImageWithPopper
+                        <ImgWithPopper
                           to={`${publicURL}/app`}
                           alt="Teclib Dashboard"
                           img={logo}
