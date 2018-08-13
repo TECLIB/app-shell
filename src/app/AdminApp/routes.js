@@ -1,6 +1,7 @@
 import I18n from 'shared/i18n'
 import Home from 'containers/Home'
 import Users from 'containers/Users'
+import ListView from 'containers/ListView'
 
 const routes = [
   {
@@ -14,6 +15,13 @@ const routes = [
     path: '/users',
     name: I18n.t('commons.users'),
     component: Users,
+    exact: false,
+    authenticate: true,
+  },
+  {
+    path: '/list',
+    name: 'List',
+    component: ListView,
     exact: false,
     authenticate: true,
   },
