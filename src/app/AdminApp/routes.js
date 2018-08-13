@@ -1,7 +1,7 @@
 import I18n from 'shared/i18n'
 import Home from 'containers/Home'
 import Users from 'containers/Users'
-import ListView from 'containers/ListView'
+import Contact from 'containers/Contact'
 
 const routes = [
   {
@@ -21,7 +21,7 @@ const routes = [
   {
     path: '/list',
     name: 'List',
-    component: ListView,
+    component: Contact,
     exact: false,
     authenticate: true,
   },
