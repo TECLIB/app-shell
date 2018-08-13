@@ -53,20 +53,6 @@ class ToolBar extends PureComponent {
           style: { display: '' },
         },
       ],
-<<<<<<< HEAD
-      // farItems: [
-      //   {
-      //     key: 'Infotem',
-      //     text: 'Info',
-      //     iconProps: { iconName: 'Info' },
-      //     iconOnly: true,
-      //     disabled: false,
-      //     checked: false,
-      //     style: { display: '' },
-      //   },
-      // ],
-=======
->>>>>>> 0aaa827... refactor(toolbar): configure toolbar on contact component
     }
   }
 
@@ -74,10 +60,6 @@ class ToolBar extends PureComponent {
     return (
       <CommandBar
         items={this.state.items}
-<<<<<<< HEAD
-        // farItems={this.state.farItems}
-=======
->>>>>>> 0aaa827... refactor(toolbar): configure toolbar on contact component
       />
     )
   }
