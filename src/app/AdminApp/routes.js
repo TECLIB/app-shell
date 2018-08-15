@@ -1,6 +1,5 @@
 import I18n from 'shared/i18n'
 import Home from 'containers/Home'
-import Users from 'containers/Users'
 import Contact from 'containers/Contact'
 
 const routes = [
@@ -12,15 +11,8 @@ const routes = [
     authenticate: true,
   },
   {
-    path: '/users',
-    name: I18n.t('commons.users'),
-    component: Users,
-    exact: false,
-    authenticate: true,
-  },
-  {
-    path: '/list',
-    name: 'List',
+    path: '/contacts',
+    name: I18n.t('commons.contacts'),
     component: Contact,
     exact: false,
     authenticate: true,
