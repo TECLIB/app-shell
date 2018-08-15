@@ -5,6 +5,7 @@ import {
   Selection,
   SelectionMode,
 } from 'office-ui-fabric-react/lib/DetailsList'
+import { MarqueeSelection } from 'office-ui-fabric-react/lib/MarqueeSelection'
 import { CommandBar } from 'office-ui-fabric-react/lib/CommandBar'
 import I18n from 'shared/i18n'
 import publicURL from 'shared/publicURL'
@@ -263,15 +264,19 @@ export default class ContactList extends PureComponent {
     } else if (this.state.itemList) {
       if (this.state.itemList.length > 0) {
         listComponent = (
-          <DetailsList
-            columns={this.columns}
-            items={this.state.itemList}
-            isHeaderVisible={false}
-            selectionMode={this.props.selectionMode ? SelectionMode.multiple : SelectionMode.none}
-            setKey="set"
-            selection={this.selection}
-            compact
-          />
+          <div style={{ height: 'calc(100% - 88px)', overflowY: 'overlay', overflowX: 'hidden' }}>
+            <MarqueeSelection selection={this.selection} isEnabled={false}>
+              <DetailsList
+                columns={this.columns}
+                items={this.state.itemList}
+                isHeaderVisible={false}
+                selectionMode={this.props.selectionMode ? SelectionMode.multiple : SelectionMode.none}
+                setKey="set"
+                selection={this.selection}
+                compact
+              />
+            </MarqueeSelection>
+          </div>
         )
       } else {
         listComponent = <EmptyMessage message={I18n.t('users.not_found')} icon={this.props.icon} showIcon />
