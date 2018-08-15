@@ -41,7 +41,10 @@ class ContentPane extends PureComponent {
 }
 
 ContentPane.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.array,
+  ]).isRequired,
 }
 
 export default ContentPane
