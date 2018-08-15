@@ -9,8 +9,8 @@ import routes from './routes'
 
 
 /**
- * Component with the users section
- * @class Users
+ * Component with the contacts section
+ * @class Contacts
  * @extends PureComponent
  */
 class Contact extends PureComponent {
@@ -44,7 +44,7 @@ class Contact extends PureComponent {
    */
   static getDerivedStateFromProps(nextProps, prevState) {
     if (
-      nextProps.history.location.pathname === `${publicURL}/app/users`
+      nextProps.history.location.pathname === `${publicURL}/app/contacts`
       && prevState.selectedItems.length > 0
       && prevState.selectionMode === false
     ) {
@@ -138,9 +138,9 @@ class Contact extends PureComponent {
     }
 
     if (this.state.mode === 'small') {
-      if ((this.state.selectedItems.length === 0 && this.props.history.location.pathname === `${publicURL}/app/users`)
-        || this.props.history.location.pathname === `${publicURL}/app/users`
-        || (this.props.history.location.pathname === `${publicURL}/app/users`
+      if ((this.state.selectedItems.length === 0 && this.props.history.location.pathname === `${publicURL}/app/contacts`)
+        || this.props.history.location.pathname === `${publicURL}/app/contacts`
+        || (this.props.history.location.pathname === `${publicURL}/app/contacts`
           && this.state.selectionMode)) {
         styles.display = 'inline-block'
       } else {
@@ -167,9 +167,9 @@ class Contact extends PureComponent {
 
     if (this.state.mode === 'small') {
       if (
-        (this.state.selectedItems.length === 0 && this.props.history.location.pathname === `${publicURL}/app/users`)
-        || this.props.history.location.pathname === `${publicURL}/app/users`
-        || (this.props.history.location.pathname === `${publicURL}/app/users` && this.state.selectionMode)
+        (this.state.selectedItems.length === 0 && this.props.history.location.pathname === `${publicURL}/app/contacts`)
+        || this.props.history.location.pathname === `${publicURL}/app/contacts`
+        || (this.props.history.location.pathname === `${publicURL}/app/contacts` && this.state.selectionMode)
       ) {
         styles.display = 'none'
       } else {
