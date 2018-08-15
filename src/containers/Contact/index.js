@@ -5,7 +5,6 @@ import calc100PercentMinus from 'shared/calc100PercentMinus'
 import publicURL from 'shared/publicURL'
 import GenerateRoutes from 'components/GenerateRoutes'
 import ContactList from './components/ContactList'
-import ToolBar from './components/ToolBar'
 import routes from './routes'
 
 
@@ -186,7 +185,6 @@ class Contact extends PureComponent {
   render() {
     return (
       <div style={{ display: 'block', width: '100%' }}>
-        <ToolBar />
         <div className="flex-block flex-block--with-scroll">
           <div className="list-pane flex-block__list" style={{ ...this.stylesList() }}>
             <ContactList key="list" {...this.propsData()} />
