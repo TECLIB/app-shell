@@ -37,9 +37,9 @@ class SplitView extends PureComponent {
                           disabled={this.props.expanded}
                         />
                         <IconWithPopper
-                          to={`${publicURL}/app/users`}
+                          to={`${publicURL}/app/contacts`}
                           iconName="Contact"
-                          title={I18n.t('commons.user')}
+                          title={I18n.t('commons.contacts')}
                           disabled={this.props.expanded}
                         />
                       </section>
@@ -63,7 +63,7 @@ class SplitView extends PureComponent {
                     >
                       <section className="splitview-wrapped-navbar-wrapped-top__section --description">
                         <SpanWithPopper description={I18n.t('commons.dashboard')} to={`${publicURL}/app`} />
-                        <SpanWithPopper description={I18n.t('commons.user')} to={`${publicURL}/app/users`} />
+                        <SpanWithPopper description={I18n.t('commons.contacts')} to={`${publicURL}/app/contacts`} />
                       </section>
                       <section className="splitview-wrapped-navbar-wrapped-bottom__section --description">
                         <SpanWithPopper description={I18n.t('commons.logout')} click={this.logout} />
