@@ -274,6 +274,7 @@ export default class ContactList extends PureComponent {
                 setKey="set"
                 selection={this.selection}
                 compact
+                onShouldVirtualize={() => false}
               />
             </MarqueeSelection>
           </div>
