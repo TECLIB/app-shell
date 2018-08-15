@@ -5,8 +5,8 @@ import { Persona, PersonaSize, PersonaPresence } from 'office-ui-fabric-react/li
 export default class ContactItemList extends PureComponent {
   render() {
     const dataPersona = {
-      text: this.props.itemList.name,
-      secondaryText: this.props.itemList.name,
+      text: this.props.itemList['User.name'],
+      secondaryText: this.props.itemList['User.name'],
     }
 
     return (
