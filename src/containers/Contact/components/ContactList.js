@@ -7,6 +7,8 @@ import {
 } from 'office-ui-fabric-react/lib/DetailsList'
 import { MarqueeSelection } from 'office-ui-fabric-react/lib/MarqueeSelection'
 import { CommandBar } from 'office-ui-fabric-react/lib/CommandBar'
+import { ActionButton } from 'office-ui-fabric-react/lib/Button'
+import Loading from 'components/Loading'
 import I18n from 'shared/i18n'
 import publicURL from 'shared/publicURL'
 import delay from 'shared/delay'
@@ -44,13 +46,8 @@ export default class ContactList extends PureComponent {
     this.state = {
       selectedItems: this.props.selectedItems,
       isLoading: false,
+      isLoadingMore: false,
       itemList: [],
-    }
-    this.order = 'ASC'
-    this.pagination = {
-      start: 0,
-      page: 1,
-      count: 15,
     }
   }
 
@@ -209,9 +206,30 @@ export default class ContactList extends PureComponent {
 
   itemListRenderer = ItemList => (<ContactItemList itemList={ItemList} />)
 
-  loadMoreData = () => {
-
-  }
+  footerListRenderer = () => (
+    <div style={{
+      width: '320px',
+      height: '48px',
+    }}
+    >
+      <ActionButton
+        data-automation-id="loadMore"
+        iconProps={{ iconName: 'Refresh' }}
+        onClick={() => {
+          this.setState({
+            isLoadingMore: true,
+          }, () => {
+            this.loadMoreData()
+          })
+        }}
+      >
+        Load more data
+      </ActionButton>
+      <span style={{ display: this.state.isLoadingMore ? '' : 'none' }}>
+        <Loading small />
+      </span>
+    </div>
+  )
 
   render() {
     const toolbarItems = [
@@ -280,9 +298,7 @@ export default class ContactList extends PureComponent {
                 compact
                 onShouldVirtualize={() => false}
                 onRenderDetailsFooter={() => (
-                  <div>
-                    load more data
-                  </div>
+                  this.footerListRenderer()
                 )}
               />
             </MarqueeSelection>
