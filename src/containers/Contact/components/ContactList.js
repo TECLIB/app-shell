@@ -209,6 +209,10 @@ export default class ContactList extends PureComponent {
 
   itemListRenderer = ItemList => (<ContactItemList itemList={ItemList} />)
 
+  loadMoreData = () => {
+
+  }
+
   render() {
     const toolbarItems = [
       {
@@ -275,6 +279,11 @@ export default class ContactList extends PureComponent {
                 selection={this.selection}
                 compact
                 onShouldVirtualize={() => false}
+                onRenderDetailsFooter={() => (
+                  <div>
+                    load more data
+                  </div>
+                )}
               />
             </MarqueeSelection>
           </div>
