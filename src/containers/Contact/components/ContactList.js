@@ -106,11 +106,7 @@ export default class ContactList extends PureComponent {
       this.selection.setAllSelected(false)
       this.props.history.push(`${publicURL}/app/contacts`)
       this.props.changeSelectedItems([])
-      this.pagination = {
-        start: 0,
-        page: 1,
-        count: 15,
-      }
+
       this.setState({
         isLoading: true,
       })
@@ -179,11 +175,7 @@ export default class ContactList extends PureComponent {
       this.selection.setAllSelected(false)
       this.props.history.push(`${publicURL}/app/contacts`)
       this.props.changeSelectedItems([])
-      this.pagination = {
-        start: 0,
-        page: 1,
-        count: 15,
-      }
+
       this.setState({
         isLoading: true,
       })
