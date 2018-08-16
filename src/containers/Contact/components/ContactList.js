@@ -126,6 +126,34 @@ export default class ContactList extends PureComponent {
     }
   }
 
+  loadMoreData = async () => {
+    try {
+      await delay(2000)
+      const response = contacts
+      let items = []
+      for (const item in response.data) {
+        if (Object.prototype.hasOwnProperty.call(response.data, item)) {
+          items.push(response.data[item])
+        }
+      }
+
+      items = this.state.itemList.slice(0, this.state.itemList.length - 1).concat(items)
+
+      this.selection.setItems(response.data)
+
+      this.setState({
+        isLoadingMore: false,
+        itemList: items,
+      })
+
+      this.selection.setItems(items)
+    } catch (e) {
+      this.setState({
+        isLoadingMore: false,
+      })
+    }
+  }
+
   handleEdit = () => {
 
   }
