@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { TextField } from 'office-ui-fabric-react/lib/TextField'
 import { PrimaryButton } from 'office-ui-fabric-react/lib/Button'
 import I18n from 'shared/i18n'
 import publicURL from 'shared/publicURL'
@@ -10,7 +11,6 @@ class UsernameFieldset extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      classInput: 'win-textbox',
       errorMessage: '',
     }
   }
@@ -25,7 +25,6 @@ class UsernameFieldset extends PureComponent {
       this.props.changePhase(2)
     } else {
       this.setState({
-        classInput: 'win-textbox color-line-alert',
         errorMessage: (
           <p className="color-type-alert">
             <span>
@@ -42,10 +41,24 @@ class UsernameFieldset extends PureComponent {
     }
   }
 
+  styleTextField = () => (
+    {
+      fieldGroup: [
+        {
+          selectors: {
+            ':after': {
+              content: "''",
+            },
+          },
+        },
+      ],
+    }
+  )
+
   render() {
     return (
       <div className="authentication-email__div">
-        <h2 className="win-h2">
+        <h2>
           {I18n.t('login.title')}
         </h2>
         <p className="paragraph__p --description">
@@ -59,16 +72,16 @@ class UsernameFieldset extends PureComponent {
         {this.state.errorMessage}
 
         <form onSubmit={this.LogInServer}>
-          <input
+          <TextField
             type="text"
-            name="username"
-            ref={(input) => { this.usernameInput = input }}
-            className={this.state.classInput}
+            componentRef={(input) => { this.usernameInput = input }}
             placeholder={I18n.t('commons.username')}
             value={this.props.username}
-            onChange={this.props.changeInput}
+            onChanged={() => this.props.changeInput({ name: 'username', value: this.usernameInput.value.trim() })}
             required
+            styles={this.styleTextField()}
           />
+          <br />
           <PrimaryButton type="submit" className="btn">
             {I18n.t('commons.next')}
           </PrimaryButton>

@@ -22,7 +22,7 @@ class SignIn extends PureComponent {
       phase: 1,
     }
 
-    this.changeInput = event => changeInput(this, event.target)
+    this.changeInput = event => changeInput(this, event)
     this.changePhase = newPhase => changePhase(this, newPhase)
     this.handleFormSubmit = event => handleFormSubmit(this, event)
   }

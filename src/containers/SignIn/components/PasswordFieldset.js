@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { TextField } from 'office-ui-fabric-react/lib/TextField'
 import { PrimaryButton, DefaultButton } from 'office-ui-fabric-react/lib/Button'
 import { Link } from 'react-router-dom'
 import I18n from 'shared/i18n'
@@ -10,7 +11,6 @@ class PasswordFieldset extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      classInput: 'win-textbox',
       errorMessage: '',
       isLoading: false,
     }
@@ -21,6 +21,20 @@ class PasswordFieldset extends PureComponent {
       this.passwordInput.focus()
     }
   }
+
+  styleTextField = () => (
+    {
+      fieldGroup: [
+        {
+          selectors: {
+            ':after': {
+              content: "''",
+            },
+          },
+        },
+      ],
+    }
+  )
 
   render() {
     let renderComponent
@@ -33,7 +47,7 @@ class PasswordFieldset extends PureComponent {
     } else {
       renderComponent = (
         <div className="authentication-password__div">
-          <h2 className="win-h2">
+          <h2>
             {I18n.t('login.enter_password')}
           </h2>
           <p>
@@ -44,17 +58,16 @@ class PasswordFieldset extends PureComponent {
             {this.state.errorMessage}
           </p>
           <form onSubmit={this.props.handleOnSubmit}>
-            <input
+            <TextField
               type="password"
-              name="password"
-              ref={(input) => { this.passwordInput = input }}
-              className={this.state.classInput}
+              componentRef={(input) => { this.passwordInput = input }}
               placeholder={I18n.t('commons.password')}
               value={this.props.password}
-              onChange={this.props.changeInput}
+              onChanged={() => this.props.changeInput({ name: 'password', value: this.passwordInput.value.trim() })}
               required
+              styles={this.styleTextField()}
             />
-
+            <br />
             <DefaultButton className="btn" onClick={() => this.props.changePhase(1)}>
               {I18n.t('commons.back')}
             </DefaultButton>
