@@ -6,11 +6,11 @@ import PropTypes from 'prop-types'
 import {
   Link,
 } from 'react-router-dom'
+import { TextField } from 'office-ui-fabric-react/lib/TextField'
 import { PrimaryButton, DefaultButton } from 'office-ui-fabric-react/lib/Button'
 import I18n from 'shared/i18n'
 import publicURL from 'shared/publicURL'
 import Loading from 'components/Loading'
-import Input from 'components/Forms/Input'
 import withAuthenticationLayout from 'hoc/withAuthenticationLayout'
 import withHandleMessages from 'hoc/withHandleMessages'
 
@@ -76,6 +76,20 @@ class ForgotPassword extends PureComponent {
     })
   }
 
+  styleTextField = () => (
+    {
+      fieldGroup: [
+        {
+          selectors: {
+            ':after': {
+              content: "''",
+            },
+          },
+        },
+      ],
+    }
+  )
+
   /**
    * Validate if necessary the form or the button to go home
    * @function renderElement
@@ -90,16 +104,16 @@ class ForgotPassword extends PureComponent {
             {I18n.t('forgot_password.help_reset_password')}
           </p>
           <form onSubmit={this.handleRecover}>
-            <Input
-              label=""
+            <TextField
               type="text"
-              name="text"
-              value={this.state.text}
+              componentRef={(input) => { this.textInput = input }}
               placeholder={I18n.t('commons.teclib_email')}
+              value={this.state.text}
+              onChanged={() => this.setState({ text: this.textInput.value })}
               required
-              function={(name, value) => { this.setState({ text: value }) }}
-              inputRef={(input) => { this.textInput = input }}
+              styles={this.styleTextField()}
             />
+            <br />
 
             <DefaultButton className="btn" onClick={() => this.props.history.push(`${publicURL}/`)}>
               {I18n.t('commons.back')}
