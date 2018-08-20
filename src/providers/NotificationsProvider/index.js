@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import WinJS from 'winjs'
 import { Icon } from 'office-ui-fabric-react/lib/Icon'
 import validateNotifications from 'shared/validateNotifications'
 import nativeNotification from 'shared/nativeNotification'
@@ -42,24 +41,17 @@ export class NotificationsProvider extends PureComponent {
       )
     },
     hidenNotification: () => {
-      WinJS.UI.Animation.exitContent(
-        document.getElementsByClassName('toast'), {
-          top: '0px',
-          left: '20px',
-        },
-      ).then(() => {
-        this.setState(
-          {
-            show: false,
-            notification: {
-              title: '',
-              body: '',
-              type: 'info',
-            },
+      this.setState(
+        {
+          show: false,
+          notification: {
+            title: '',
+            body: '',
+            type: 'info',
           },
-          () => { },
-        )
-      })
+        },
+        () => { },
+      )
     },
   }
 

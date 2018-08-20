@@ -3,7 +3,6 @@ import React, {
 } from 'react'
 import PropTypes from 'prop-types'
 import getMode from 'shared/getMode'
-import animationsWinJs from 'shared/animationsWinJs'
 import I18n from 'shared/i18n'
 import SplitView from 'components/SplitView'
 import HeaderBreadcrumb from 'components/HeaderBreadcrumb'
@@ -34,7 +33,6 @@ const withAdminAppLayout = (WrappedComponent) => {
       }
 
       window.addEventListener('resize', this.handleResize)
-      animationsWinJs()
     }
 
     /** Remove 'resize' event listener */
