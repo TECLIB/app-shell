@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { Dropdown } from 'office-ui-fabric-react/lib/Dropdown'
 import languagesList from 'shared/i18n/languages'
 import withI18n from 'hoc/withI18n'
 import I18n from 'shared/i18n'
@@ -41,12 +42,16 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
 © 2018 Teclib&apos;.
             </span>
             <br />
-            <select
-              onChange={event => this.props.changeLanguage(event.target.value)}
-              value={this.props.languageCurrent}
-            >
-              {languagesList()}
-            </select>
+            <div style={{ margin: '10px', textAlign: '-webkit-center' }}>
+              <Dropdown
+                placeHolder={I18n.t('commons.language')}
+                onChanged={item => this.props.changeLanguage(item.key)}
+                selectedKey={this.props.languageCurrent || undefined}
+                options={languagesList()}
+                styles={{ root: [{ width: '220px' }] }}
+                calloutProps={{ directionalHintFixed: false }}
+              />
+            </div>
           </footer>
         </div>
       )

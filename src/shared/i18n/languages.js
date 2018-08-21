@@ -1,5 +1,4 @@
 /** import dependencies */
-import React from 'react'
 import I18n from '.'
 
 /**
@@ -157,11 +156,10 @@ export default () => {
   const renderList = []
   languages.forEach((language) => {
     if (language.isAvailable) {
-      renderList.push(
-        <option value={language.abbreviation} key={language.abbreviation}>
-          {`${language.name} - ${language.country}`}
-        </option>,
-      )
+      renderList.push({
+        key: language.abbreviation,
+        text: `${language.name} - ${language.country}`,
+      })
     }
   })
   return (renderList)
