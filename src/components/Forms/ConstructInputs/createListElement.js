@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Select from '../Select'
 import DatePicker from '../DatePicker'
-import TextArea from '../TextArea'
 import TextFieldForm from '../TextFieldForm'
 
 /**
@@ -52,24 +51,17 @@ const createListElement = ({
                 key={element.name}
               />
             )
-          } else if (element.type === 'textArea') {
-            renderElement = (
-              <TextArea
-                label={element.label}
-                type={element.type}
-                name={element.name}
-                value={element.value}
-                placeholder={element.placeholder}
-                function={element.function}
-                disabled={element.disabled}
-                style={element.style}
-                delete={element.delete}
-                key={element.name}
-              />
-            )
           } else {
+            let isMultiLine = null
+            if (element.multiline) {
+              isMultiLine = {
+                multiline: true,
+                rows: element.rows,
+              }
+            }
             renderElement = (
               <TextFieldForm
+                {...isMultiLine}
                 label={element.label}
                 type={element.type}
                 name={element.name}
@@ -77,7 +69,7 @@ const createListElement = ({
                 placeholder={element.placeholder}
                 function={element.function}
                 disabled={element.disabled}
-                style={element.style}
+                styles={element.styles}
                 delete={element.delete}
                 parametersToEvaluate={element.parametersToEvaluate}
                 forceValidation={element.forceValidation}

@@ -94,6 +94,15 @@ class TextFieldForm extends PureComponent {
    * @function render
    */
   render() {
+    let isMultiLine = null
+
+    if (this.props.multiline) {
+      isMultiLine = {
+        multiline: true,
+        rows: this.props.rows,
+      }
+    }
+
     const deleteIcon = this.props.delete
       ? (
         <Icon
@@ -106,6 +115,7 @@ class TextFieldForm extends PureComponent {
     return (
       <div className="froms__col">
         <TextField
+          {...isMultiLine}
           componentRef={(input) => { this.inputRef = input }}
           label={this.props.label}
           type={this.props.type}
@@ -115,7 +125,7 @@ class TextFieldForm extends PureComponent {
           onChanged={() => this.change(this.inputRef.value.trim())}
           onBlur={() => this.validate(this.props.parametersToEvaluate, this.props.value)}
           disabled={this.props.disabled}
-          styles={this.props.style}
+          styles={this.props.styles}
           required={this.props.required}
           errorMessage={this.state.isCorrect ? '' : this.state.errors.join(', ')}
         />
@@ -131,10 +141,12 @@ TextFieldForm.defaultProps = {
   value: '',
   type: 'text',
   required: false,
+  multiline: false,
+  rows: 1,
   placeholder: null,
   function: () => {},
   disabled: false,
-  style: {},
+  styles: {},
   delete: null,
   parametersToEvaluate: null,
   forceValidation: false,
@@ -148,11 +160,13 @@ TextFieldForm.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]).isRequired,
+  multiline: PropTypes.bool,
+  rows: PropTypes.number,
   value: PropTypes.string,
   placeholder: PropTypes.string,
   function: PropTypes.func,
   disabled: PropTypes.bool,
-  style: PropTypes.object,
+  styles: PropTypes.object,
   delete: PropTypes.func,
   parametersToEvaluate: PropTypes.object,
   // eslint-disable-next-line
