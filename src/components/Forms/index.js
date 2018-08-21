@@ -1,14 +1,12 @@
-import Input from './Input'
+import TextFieldForm from './TextFieldForm'
 import Select from './Select'
 import DatePicker from './DatePicker'
-import TextArea from './TextArea'
 import ConstructInputs from './ConstructInputs'
 
 export default ConstructInputs
 
 export {
-  Input,
+  TextFieldForm,
   Select,
   DatePicker,
-  TextArea,
 }
