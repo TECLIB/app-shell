@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Select from '../Select'
 import DatePicker from '../DatePicker'
 import TextArea from '../TextArea'
-import Input from '../Input'
+import TextFieldForm from '../TextFieldForm'
 
 /**
  * Component to select the type of the form entry
@@ -69,7 +69,7 @@ const createListElement = ({
             )
           } else {
             renderElement = (
-              <Input
+              <TextFieldForm
                 label={element.label}
                 type={element.type}
                 name={element.name}
