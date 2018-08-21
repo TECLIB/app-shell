@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Select from '../Select'
+import DropdownForm from '../DropdownForm'
 import DatePicker from '../DatePicker'
 import TextFieldForm from '../TextFieldForm'
 
@@ -28,16 +28,14 @@ const createListElement = ({
       {
         elements.map((element) => {
           let renderElement
-          if (element.type === 'select') {
+          if (element.type === 'dropdown') {
             renderElement = (
-              <Select
+              <DropdownForm
                 label={element.label}
                 name={element.name}
                 value={element.value}
                 options={element.options}
                 function={element.function}
-                glpi={element.glpi}
-                request={element.request}
                 key={element.name}
               />
             )
