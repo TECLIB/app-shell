@@ -22,9 +22,7 @@
     "react": "^16.4.1",
     "react-content-loader": "^3.1.2",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1",
-    "react-winjs": "git+https://github.com/TECLIB/react-winjs.git#develop",
-    "winjs": "^4.4.3"
+    "react-router-dom": "^4.3.1"
   },
   "scripts": {
     "prestart": "yarn sass && yarn test:watch -u &",
