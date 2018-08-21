@@ -19,11 +19,7 @@ class Select extends PureComponent {
 
   /** Validate the needs of the list of options */
   componentDidMount = () => {
-    if (this.props.glpi && this.props.request) {
-      this.listRequest()
-    } else {
-      this.handleRefresh(this.state.options)
-    }
+    this.handleRefresh(this.state.options)
   }
 
   /**
@@ -33,82 +29,6 @@ class Select extends PureComponent {
    */
   change = (eventObject) => {
     this.props.function(this.props.name, eventObject.target.value)
-  }
-
-  /**
-   * Make the necessary requests to glpi
-   * @async
-   * @function listRequest
-   */
-  listRequest = async () => {
-    const options = []
-    let response = await this.props.glpi[this.props.request.method](this.props.request.params)
-
-    switch (this.props.request.method) {
-      case 'getMyProfiles':
-        response.myprofiles.forEach((element) => {
-          options.push({
-            content: element[this.props.request.content],
-            value: element[this.props.request.value],
-          })
-        })
-        break
-
-      case 'searchItems':
-        if (response.data) {
-          if (response.totalcount !== response.count) {
-            const params = {
-              itemtype: this.props.request.params.itemtype,
-              options: {
-                ...this.props.request.params.options,
-                range: `0-${response.totalcount - 1}`,
-              },
-            }
-            response = await this.props.glpi[this.props.request.method](params)
-          }
-
-          response.data.forEach((element) => {
-            options.push({
-              content: element[this.props.request.content],
-              value: element[this.props.request.value],
-            })
-          })
-        }
-        break
-      case 'getAllItems':
-        if (response) {
-          response.forEach((element) => {
-            options.push({
-              content: element[this.props.request.content],
-              value: element[this.props.request.value],
-            })
-          })
-        }
-        break
-
-      case 'getSubItems':
-        response.forEach((element) => {
-          options.push({
-            content: element[this.props.request.content],
-            value: element[this.props.request.value],
-          })
-        })
-        break
-      case 'getMyEntities':
-        response.myentities.forEach((element) => {
-          options.push({
-            content: element[this.props.request.content],
-            value: element[this.props.request.value],
-          })
-        })
-        break
-      default:
-        break
-    }
-
-    this.setState({
-      options,
-    })
   }
 
   /**
@@ -172,8 +92,6 @@ Select.defaultProps = {
   options: [],
   required: false,
   label: null,
-  glpi: null,
-  request: null,
   value: undefined,
 }
 
@@ -186,8 +104,6 @@ Select.propTypes = {
   ]),
   options: PropTypes.array,
   function: PropTypes.func.isRequired,
-  glpi: PropTypes.object,
-  request: PropTypes.object,
   required: PropTypes.bool,
 }
 
