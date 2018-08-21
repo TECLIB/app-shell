@@ -6324,10 +6324,6 @@ react-test-renderer@^16.0.0-0:
     prop-types "^15.6.0"
     react-is "^16.4.2"
 
-"react-winjs@git+https://github.com/TECLIB/react-winjs.git#develop":
-  version "2.5.0"
-  resolved "git+https://github.com/TECLIB/react-winjs.git#b91a177f6791e5ede8c0892a65ccd86662a4eccd"
-
 react@^16.4.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.4.1.tgz#de51ba5764b5dbcd1f9079037b862bd26b82fe32"
@@ -7838,10 +7834,6 @@ widest-line@^2.0.0:
 window-size@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.0.tgz#5438cd2ea93b202efa3a19fe8887aee7c94f9c9d"
-
-winjs@^4.4.3:
-  version "4.4.3"
-  resolved "https://registry.yarnpkg.com/winjs/-/winjs-4.4.3.tgz#085a105018ffe16f9797bf69bd9c1fd6d428ade3"
 
 wordwrap@0.0.2:
   version "0.0.2"
