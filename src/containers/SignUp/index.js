@@ -61,8 +61,12 @@ class SignUp extends PureComponent {
           placeholder: I18n.t('commons.email'),
           function: this.changeState,
           disabled: false,
-          style: {
-            width: 340,
+          styles: {
+            root: [
+              {
+                width: 340,
+              },
+            ],
           },
           parametersToEvaluate: {
             isRequired: true,
@@ -78,7 +82,7 @@ class SignUp extends PureComponent {
           placeholder: I18n.t('create_account.full_name'),
           function: this.changeState,
           disabled: false,
-          style: {
+          styles: {
             width: 340,
           },
           parametersToEvaluate: {
@@ -97,7 +101,7 @@ class SignUp extends PureComponent {
           placeholder: I18n.t('commons.password'),
           function: this.changeState,
           disabled: false,
-          style: {
+          styles: {
             width: 340,
           },
           parametersToEvaluate: {
@@ -114,7 +118,7 @@ class SignUp extends PureComponent {
           placeholder: I18n.t('commons.password_confirmation'),
           function: this.changeState,
           disabled: false,
-          style: {
+          styles: {
             width: 340,
           },
           parametersToEvaluate: {
