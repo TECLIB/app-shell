@@ -11,17 +11,17 @@ $nav-width: 320px;
         padding-left: 11px;
         padding-bottom: 20px;
         padding-top: 20px;
-        
+
         @extend %normalize-anchor;
 
         @include transition(all, .2s, ease);
 
         &:hover {
-          background-color: lighten($color-2-secondary, 45) 
+          background-color: lighten($color-1-secondary, 15)
         }
 
         &.--active {
-          background-color: lighten($color-2-secondary, 25) 
+          background-color: lighten($color-1-secondary, 5)
         }
       }
     }
@@ -29,5 +29,5 @@ $nav-width: 320px;
 }
 
 .navlinks--animate {
-  @include animation('slide-up 0.1s')  
+  @include animation('slide-up 0.1s')
 }
