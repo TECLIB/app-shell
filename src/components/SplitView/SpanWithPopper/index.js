@@ -9,7 +9,7 @@ class SpanWithPopper extends PureComponent {
       return (
         <div>
           <NavLink to={this.props.to} activeClassName="selected">
-            <Label style={{ cursor: 'pointer' }}>
+            <Label style={{ cursor: 'pointer', padding: 0 }}>
               {this.props.description}
             </Label>
           </NavLink>
@@ -18,7 +18,7 @@ class SpanWithPopper extends PureComponent {
     }
     return (
       <div role="button" tabIndex="0" onClick={this.props.click}>
-        <Label style={{ cursor: 'pointer' }}>
+        <Label style={{ cursor: 'pointer', padding: 0 }}>
           {this.props.description}
         </Label>
       </div>
