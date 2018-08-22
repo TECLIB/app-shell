@@ -45,6 +45,11 @@ class SplitView extends PureComponent {
                       </section>
                       <section className="splitview-wrapped-navbar-wrapped-bottom__section">
                         <IconWithPopper
+                          to={`${publicURL}/app/settings`}
+                          iconName="Settings"
+                          title={I18n.t('commons.settings')}
+                        />
+                        <IconWithPopper
                           click={this.logout}
                           iconName="SignOut"
                           title={I18n.t('commons.logout')}
@@ -66,6 +71,7 @@ class SplitView extends PureComponent {
                         <SpanWithPopper description={I18n.t('commons.contacts')} to={`${publicURL}/app/contacts`} />
                       </section>
                       <section className="splitview-wrapped-navbar-wrapped-bottom__section --description">
+                        <SpanWithPopper description={I18n.t('commons.settings')} to={`${publicURL}/app/settings`} />
                         <SpanWithPopper description={I18n.t('commons.logout')} click={this.logout} />
                       </section>
                     </div>
