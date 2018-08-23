@@ -2,6 +2,7 @@
 import EmptyMessage from 'components/EmptyMessage'
 import Overview from './components/Overview'
 import Contact from './components/Contact'
+import ReleaseNotes from './components/ReleaseNotes'
 import TermsOfUse from './components/TermsOfUse'
 import Licence from './components/License'
 
@@ -27,6 +28,12 @@ const routes = [{
   name: 'about.contact.title',
   component: Contact,
   exact: true,
+},
+{
+  path: '/release',
+  name: 'about.release_notes.title',
+  component: ReleaseNotes,
+  exact: false,
 },
 {
   path: '/term',
