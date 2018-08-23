@@ -50,6 +50,11 @@ class SplitView extends PureComponent {
                           title={I18n.t('commons.settings')}
                         />
                         <IconWithPopper
+                          to={`${publicURL}/app/about`}
+                          iconName="ContactInfo"
+                          title={I18n.t('commons.about_flyve_mdm')}
+                        />
+                        <IconWithPopper
                           click={this.logout}
                           iconName="SignOut"
                           title={I18n.t('commons.logout')}
@@ -72,6 +77,7 @@ class SplitView extends PureComponent {
                       </section>
                       <section className="splitview-wrapped-navbar-wrapped-bottom__section --description">
                         <SpanWithPopper description={I18n.t('commons.settings')} to={`${publicURL}/app/settings`} />
+                        <SpanWithPopper description={I18n.t('commons.about')} to={`${publicURL}/app/about`} />
                         <SpanWithPopper description={I18n.t('commons.logout')} click={this.logout} />
                       </section>
                     </div>

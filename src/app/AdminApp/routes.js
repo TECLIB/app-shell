@@ -2,6 +2,7 @@ import I18n from 'shared/i18n'
 import Home from 'containers/Home'
 import Contact from 'containers/Contact'
 import Settings from 'containers/Settings'
+import About from 'containers/About'
 
 const routes = [
   {
@@ -22,6 +23,12 @@ const routes = [
     path: '/settings',
     name: I18n.t('commons.settings'),
     component: Settings,
+    exact: false,
+  },
+  {
+    path: '/about',
+    name: I18n.t('commons.about'),
+    component: About,
     exact: false,
   },
 ]
