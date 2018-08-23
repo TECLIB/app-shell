@@ -3,6 +3,7 @@ import EmptyMessage from 'components/EmptyMessage'
 import Overview from './components/Overview'
 import Contact from './components/Contact'
 import TermsOfUse from './components/TermsOfUse'
+import Licence from './components/License'
 
 /**
  * Represents all private routes from About
@@ -31,6 +32,12 @@ const routes = [{
   path: '/term',
   name: 'about.term_of_use.title',
   component: TermsOfUse,
+  exact: false,
+},
+{
+  path: '/license',
+  name: 'about.license.title',
+  component: Licence,
   exact: false,
 },
 ]
