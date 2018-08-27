@@ -1,7 +1,11 @@
 {
   "name": "app-shell",
   "version": "0.1.0",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TECLIB/app-shell.git"
+  },
+  "license": "GPL-3.0",
   "devDependencies": {
     "babel-eslint": "^8.2.6",
     "enzyme": "^3.5.0",
