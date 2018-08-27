@@ -14,7 +14,8 @@
     "eslint-plugin-react": "^7.11.1",
     "react-scripts": "1.1.5",
     "sass": "^1.13.0",
-    "sinon": "^6.1.5"
+    "sinon": "^6.1.5",
+    "source-map-explorer": "^1.6.0"
   },
   "dependencies": {
     "node-polyglot": "^2.3.0",
@@ -35,6 +36,7 @@
     "eject": "react-scripts eject",
     "sass": "sass --watch src/assets/styles/scss:src/assets/styles/css",
     "sass:build": "sass src/assets/styles/scss:src/assets/styles/css",
-    "lint": "yarn eslint src --fix"
+    "lint": "yarn eslint src --fix",
+    "analyze": "source-map-explorer build/static/js/main.*"
   }
 }
