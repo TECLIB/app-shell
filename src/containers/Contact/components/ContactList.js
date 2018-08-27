@@ -383,5 +383,6 @@ ContactList.propTypes = {
   action: PropTypes.string,
   changeAction: PropTypes.func.isRequired,
   toast: PropTypes.object.isRequired,
+  handleMessage: PropTypes.func.isRequired,
   icon: PropTypes.string.isRequired,
 }
