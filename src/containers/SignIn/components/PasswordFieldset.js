@@ -48,19 +48,17 @@ class PasswordFieldset extends PureComponent {
     }
   }
 
-  styleTextField = () => (
-    {
-      fieldGroup: [
-        {
-          selectors: {
-            ':after': {
-              content: "''",
-            },
+  styleTextField = () => ({
+    fieldGroup: [
+      {
+        selectors: {
+          ':after': {
+            content: "''",
           },
         },
-      ],
-    }
-  )
+      },
+    ],
+  });
 
   render() {
     let renderComponent
@@ -73,9 +71,7 @@ class PasswordFieldset extends PureComponent {
     } else {
       renderComponent = (
         <div className="authentication-password__div">
-          <h2>
-            {I18n.t('login.enter_password')}
-          </h2>
+          <h2>{I18n.t('login.enter_password')}</h2>
           <p>
             {I18n.t('login.enter_password_for')}
             <br />
@@ -86,10 +82,12 @@ class PasswordFieldset extends PureComponent {
           <form onSubmit={this.props.handleOnSubmit}>
             <TextField
               type="password"
-              componentRef={(input) => { this.passwordInput = input }}
+              componentRef={(input) => {
+                this.passwordInput = input
+              }}
               placeholder={I18n.t('commons.password')}
               value={this.props.password}
-              onChanged={() => this.props.changeInput({ name: 'password', value: this.passwordInput.value.trim() })}
+              onChange={() => this.props.changeInput({ name: 'password', value: this.passwordInput.value.trim() })}
               required
               styles={this.styleTextField()}
             />
@@ -103,9 +101,7 @@ class PasswordFieldset extends PureComponent {
             </PrimaryButton>
           </form>
           <p>
-            <Link to={`${publicURL}/forgotPassword`}>
-              {I18n.t('login.forgot_my_password')}
-            </Link>
+            <Link to={`${publicURL}/forgotPassword`}>{I18n.t('login.forgot_my_password')}</Link>
           </p>
         </div>
       )

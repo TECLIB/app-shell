@@ -25,9 +25,7 @@
  */
 
 /** import dependencies */
-import React, {
-  PureComponent,
-} from 'react'
+import React, { PureComponent } from 'react'
 import { Toggle } from 'office-ui-fabric-react/lib/Toggle'
 import { Dropdown } from 'office-ui-fabric-react/lib/Dropdown'
 import I18n from 'shared/i18n'
@@ -43,12 +41,12 @@ class Notifications extends PureComponent {
   constructor(props) {
     super(props)
 
-    const notificationType = (localStorage.getItem('notificationType') && Notification.permission === 'granted')
+    const notificationType = localStorage.getItem('notificationType') && Notification.permission === 'granted'
       ? localStorage.getItem('notificationType')
       : 'Toast'
 
     const showNotifications = localStorage.getItem('showNotifications')
-      ? (localStorage.getItem('showNotifications') === 'true')
+      ? localStorage.getItem('showNotifications') === 'true'
       : true
 
     this.state = {
@@ -74,7 +72,7 @@ class Notifications extends PureComponent {
         }
       })
     }
-  }
+  };
 
   /**
    * Change show notifications
@@ -85,20 +83,18 @@ class Notifications extends PureComponent {
     this.setState(prevState => ({
       showNotifications: !prevState.showNotifications,
     }))
-  }
+  };
 
-  notificationsOptions = () => (
-    [
-      {
-        key: I18n.t('settings.notifications.toast'),
-        text: I18n.t('settings.notifications.toast'),
-      },
-      {
-        key: I18n.t('settings.notifications.native'),
-        text: I18n.t('settings.notifications.native'),
-      },
-    ]
-  )
+  notificationsOptions = () => [
+    {
+      key: I18n.t('settings.notifications.toast'),
+      text: I18n.t('settings.notifications.toast'),
+    },
+    {
+      key: I18n.t('settings.notifications.native'),
+      text: I18n.t('settings.notifications.native'),
+    },
+  ];
 
   /**
    * Render component
@@ -107,34 +103,25 @@ class Notifications extends PureComponent {
   render() {
     return (
       <ContentPane>
-        <h2 style={{ margin: '10px' }}>
-          {I18n.t('settings.notifications.title')}
-        </h2>
+        <h2 style={{ margin: '10px' }}>{I18n.t('settings.notifications.title')}</h2>
         <div className="list-element">
           <div className="list-element__message">
             {I18n.t('settings.notifications.show')}
-            <div className="list-element__detail">
-              {I18n.t('settings.notifications.show_deatil')}
-            </div>
+            <div className="list-element__detail">{I18n.t('settings.notifications.show_deatil')}</div>
           </div>
           <div className="list-element__controller">
-            <Toggle
-              defaultChecked={this.state.showNotifications}
-              onChanged={() => this.changeShowNotifications()}
-            />
+            <Toggle defaultChecked={this.state.showNotifications} onChange={() => this.changeShowNotifications()} />
           </div>
         </div>
 
         <div className="list-element">
           <div className="list-element__message">
             {I18n.t('settings.notifications.type')}
-            <div className="list-element__detail">
-              {I18n.t('settings.notifications.type_detail')}
-            </div>
+            <div className="list-element__detail">{I18n.t('settings.notifications.type_detail')}</div>
           </div>
           <div className="list-element__controller" style={{ paddingTop: 10 }}>
             <Dropdown
-              onChanged={item => this.changeNotificationType(item.key)}
+              onChange={item => this.changeNotificationType(item.key)}
               selectedKey={this.state.notificationType || undefined}
               options={this.notificationsOptions()}
               styles={{ root: [{ width: '100px' }] }}

@@ -32,7 +32,6 @@ import { PrimaryButton } from 'office-ui-fabric-react/lib/Button'
 import I18n from 'shared/i18n'
 import publicURL from 'shared/publicURL'
 
-
 class UsernameFieldset extends PureComponent {
   constructor(props) {
     super(props)
@@ -58,41 +57,33 @@ class UsernameFieldset extends PureComponent {
               {I18n.t('login.username_not_registered')}
               {' '}
             </span>
-            <a href="/">
-              {I18n.t('login.create_an_new')}
-            </a>
+            <a href="/">{I18n.t('login.create_an_new')}</a>
           </p>
         ),
       })
     }
-  }
+  };
 
-  styleTextField = () => (
-    {
-      fieldGroup: [
-        {
-          selectors: {
-            ':after': {
-              content: "''",
-            },
+  styleTextField = () => ({
+    fieldGroup: [
+      {
+        selectors: {
+          ':after': {
+            content: "''",
           },
         },
-      ],
-    }
-  )
+      },
+    ],
+  });
 
   render() {
     return (
       <div className="authentication-email__div">
-        <h2>
-          {I18n.t('login.title')}
-        </h2>
+        <h2>{I18n.t('login.title')}</h2>
         <p className="paragraph__p --description">
           {I18n.t('login.use_your_account')}
           <br />
-          <a href="https://flyve-mdm.com/">
-            {I18n.t('login.what_is_this')}
-          </a>
+          <a href="https://flyve-mdm.com/">{I18n.t('login.what_is_this')}</a>
         </p>
 
         {this.state.errorMessage}
@@ -100,10 +91,12 @@ class UsernameFieldset extends PureComponent {
         <form onSubmit={this.LogInServer}>
           <TextField
             type="text"
-            componentRef={(input) => { this.usernameInput = input }}
+            componentRef={(input) => {
+              this.usernameInput = input
+            }}
             placeholder={I18n.t('commons.username')}
             value={this.props.username}
-            onChanged={() => this.props.changeInput({ name: 'username', value: this.usernameInput.value.trim() })}
+            onChange={() => this.props.changeInput({ name: 'username', value: this.usernameInput.value.trim() })}
             required
             styles={this.styleTextField()}
           />
@@ -115,9 +108,7 @@ class UsernameFieldset extends PureComponent {
         <p>
           {I18n.t('login.no_account')}
           &nbsp;
-          <Link to={`${publicURL}/signUp`}>
-            {I18n.t('login.create_one')}
-          </Link>
+          <Link to={`${publicURL}/signUp`}>{I18n.t('login.create_one')}</Link>
         </p>
       </div>
     )

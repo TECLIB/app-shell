@@ -24,9 +24,7 @@
  *  ------------------------------------------------------------------------------
  */
 
-import React, {
-  PureComponent,
-} from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Dropdown } from 'office-ui-fabric-react/lib/Dropdown'
 
@@ -47,7 +45,7 @@ class DropdownForm extends PureComponent {
   /** Validate the needs of the list of options */
   componentDidMount = () => {
     this.handleRefresh(this.state.options)
-  }
+  };
 
   /**
    * Return the name and value to the father
@@ -56,7 +54,7 @@ class DropdownForm extends PureComponent {
    */
   change = (eventObject) => {
     this.props.function(this.props.name, eventObject.target.value)
-  }
+  };
 
   /**
    * Update the list of options
@@ -81,19 +79,17 @@ class DropdownForm extends PureComponent {
     this.setState({
       options: optionsList,
     })
-  }
+  };
 
   buildOptions = () => {
     const list = []
-    this.state.options.map((element, index) => (
-      list.push({
-        key: `${this.props.name}${index.toString()}`,
-        value: element.value,
-        text: element.content,
-      })
-    ))
+    this.state.options.map((element, index) => list.push({
+      key: `${this.props.name}${index.toString()}`,
+      value: element.value,
+      text: element.content,
+    }))
     return list
-  }
+  };
 
   /**
    * Render component
@@ -102,15 +98,13 @@ class DropdownForm extends PureComponent {
   render() {
     return (
       <div className="froms__col">
-        <p>
-          {this.props.label}
-        </p>
+        <p>{this.props.label}</p>
         <Dropdown
           label={this.props.label}
           name={this.props.name}
           placeHolder="---"
-          onChanged={this.change}
-          selectedKey={(this.props.value || undefined)}
+          onChange={this.change}
+          selectedKey={this.props.value || undefined}
           options={this.buildOptions()}
           calloutProps={{ directionalHintFixed: false }}
         />
@@ -128,10 +122,7 @@ DropdownForm.defaultProps = {
 DropdownForm.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   options: PropTypes.array,
   function: PropTypes.func.isRequired,
 }

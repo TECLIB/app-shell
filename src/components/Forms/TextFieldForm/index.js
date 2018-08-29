@@ -24,9 +24,7 @@
  *  ------------------------------------------------------------------------------
  */
 
-import React, {
-  PureComponent,
-} from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Icon } from 'office-ui-fabric-react'
 import { TextField } from 'office-ui-fabric-react/lib/TextField'
@@ -76,7 +74,7 @@ class TextFieldForm extends PureComponent {
    */
   change = (value) => {
     this.props.function(this.props.name, value)
-  }
+  };
 
   /**
    * Validate if the entered data are valid
@@ -93,7 +91,7 @@ class TextFieldForm extends PureComponent {
         errors: validation.errors,
       })
     }
-  }
+  };
 
   /**
    * Open dialog to handle email delete
@@ -105,7 +103,7 @@ class TextFieldForm extends PureComponent {
       message: this.props.value,
       isOk: this.deleteEmail,
     })
-  }
+  };
 
   /**
    * Delete an email of the list
@@ -113,7 +111,7 @@ class TextFieldForm extends PureComponent {
    */
   deleteEmail = () => {
     this.props.delete(this.props.name)
-  }
+  };
 
   /**
    * Render component
@@ -129,33 +127,31 @@ class TextFieldForm extends PureComponent {
       }
     }
 
-    const deleteIcon = this.props.delete
-      ? (
-        <Icon
-          iconName="Delete"
-          style={{ margin: 10, fontSize: 18 }}
-          onClick={this.dialogDelete}
-        />
-      )
-      : undefined
+    const deleteIcon = this.props.delete ? (
+      <Icon iconName="Delete" style={{ margin: 10, fontSize: 18 }} onClick={this.dialogDelete} />
+    ) : (
+      undefined
+    )
     return (
       <div className="froms__col">
         <TextField
           {...isMultiLine}
-          componentRef={(input) => { this.inputRef = input }}
+          componentRef={(input) => {
+            this.inputRef = input
+          }}
           label={this.props.label}
           type={this.props.type}
           name={`${this.props.type}-${this.props.name}`}
-          value={(this.props.value || '')}
+          value={this.props.value || ''}
           placeholder={this.props.placeholder}
-          onChanged={() => this.change(this.inputRef.value.trim())}
+          onChange={() => this.change(this.inputRef.value.trim())}
           onBlur={() => this.validate(this.props.parametersToEvaluate, this.props.value)}
           disabled={this.props.disabled}
           styles={this.props.styles}
           required={this.props.required}
           errorMessage={this.state.isCorrect ? '' : this.state.errors.join(', ')}
         />
-        { deleteIcon }
+        {deleteIcon}
         <br />
       </div>
     )
@@ -182,10 +178,7 @@ TextFieldForm.defaultProps = {
 TextFieldForm.propTypes = {
   label: PropTypes.string,
   type: PropTypes.string,
-  name: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
+  name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   multiline: PropTypes.bool,
   rows: PropTypes.number,
   value: PropTypes.string,
