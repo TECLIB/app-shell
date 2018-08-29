@@ -25,9 +25,7 @@
  */
 
 /** import dependencies */
-import React, {
-  PureComponent,
-} from 'react'
+import React, { PureComponent } from 'react'
 import { Dropdown } from 'office-ui-fabric-react/lib/Dropdown'
 import { Toggle } from 'office-ui-fabric-react/lib/Toggle'
 import PropTypes from 'prop-types'
@@ -68,27 +66,21 @@ class Display extends PureComponent {
     this.setState({
       [name]: !currentValue,
     })
-  }
+  };
 
   /**
    * Render component
    * @function render
    */
   render() {
-    const {
-      animations,
-    } = this.state
+    const { animations } = this.state
 
     return (
       <ContentPane>
-        <h2 style={{ margin: '10px' }}>
-          {I18n.t('settings.display.title')}
-        </h2>
+        <h2 style={{ margin: '10px' }}>{I18n.t('settings.display.title')}</h2>
 
         <div className="list-element">
-          <div className="list-element__message">
-            {I18n.t('settings.display.change_interface')}
-          </div>
+          <div className="list-element__message">{I18n.t('settings.display.change_interface')}</div>
           <div
             className="list-element__controller"
             style={{
@@ -97,7 +89,7 @@ class Display extends PureComponent {
           >
             <Dropdown
               placeHolder={I18n.t('commons.language')}
-              onChanged={item => this.props.changeLanguage(item.key)}
+              onChange={item => this.props.changeLanguage(item.key)}
               selectedKey={this.props.languageCurrent || undefined}
               options={languageList()}
               styles={{ root: [{ width: '160px' }] }}
@@ -111,10 +103,7 @@ class Display extends PureComponent {
             {animations ? I18n.t('settings.display.disable_animations') : I18n.t('settings.display.enable_animations')}
           </div>
           <div className="list-element__controller">
-            <Toggle
-              defaultChecked={animations}
-              onChanged={() => this.changeLocalStorage('animations')}
-            />
+            <Toggle defaultChecked={animations} onChange={() => this.changeLocalStorage('animations')} />
           </div>
         </div>
       </ContentPane>

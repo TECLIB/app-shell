@@ -25,13 +25,9 @@
  */
 
 /** import dependencies */
-import React, {
-  PureComponent,
-} from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import {
-  Link,
-} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { TextField } from 'office-ui-fabric-react/lib/TextField'
 import { PrimaryButton, DefaultButton } from 'office-ui-fabric-react/lib/Button'
 import I18n from 'shared/i18n'
@@ -72,49 +68,60 @@ class ForgotPassword extends PureComponent {
    */
   handleRecover = (event) => {
     event.preventDefault()
-    this.setState({
-      isLoading: true,
-    }, () => {
-      if (this.state.text !== '') {
-        setTimeout(() => {
-          this.setState({
-            isRecoverSent: true,
-            isLoading: false,
-          }, () => {
-            this.props.toast.setNotification(this.props.handleMessage({
-              type: 'success',
-              message: I18n.t('notifications.request_sent'),
-            }))
-          })
-        }, 3000)
-      } else {
-        setTimeout(() => {
-          this.setState({
-            isLoading: false,
-          }, () => {
-            this.props.toast.setNotification(this.props.handleMessage({
-              type: 'warning',
-              message: 'Error',
-            }))
-          })
-        }, 3000)
-      }
-    })
-  }
+    this.setState(
+      {
+        isLoading: true,
+      },
+      () => {
+        if (this.state.text !== '') {
+          setTimeout(() => {
+            this.setState(
+              {
+                isRecoverSent: true,
+                isLoading: false,
+              },
+              () => {
+                this.props.toast.setNotification(
+                  this.props.handleMessage({
+                    type: 'success',
+                    message: I18n.t('notifications.request_sent'),
+                  }),
+                )
+              },
+            )
+          }, 3000)
+        } else {
+          setTimeout(() => {
+            this.setState(
+              {
+                isLoading: false,
+              },
+              () => {
+                this.props.toast.setNotification(
+                  this.props.handleMessage({
+                    type: 'warning',
+                    message: 'Error',
+                  }),
+                )
+              },
+            )
+          }, 3000)
+        }
+      },
+    )
+  };
 
-  styleTextField = () => (
-    {
-      fieldGroup: [
-        {
-          selectors: {
-            ':after': {
-              content: "''",
-            },
+  styleTextField = () => ({
+    fieldGroup: [
+      {
+        selectors: {
+          ':after': {
+            content: "''",
           },
         },
-      ],
-    }
-  )
+      },
+    ],
+  });
 
   /**
    * Validate if necessary the form or the button to go home
@@ -126,21 +133,20 @@ class ForgotPassword extends PureComponent {
     if (!this.state.isRecoverSent) {
       element = (
         <div className="authentication__forgot-password">
-          <p>
-            {I18n.t('forgot_password.help_reset_password')}
-          </p>
+          <p>{I18n.t('forgot_password.help_reset_password')}</p>
           <form onSubmit={this.handleRecover}>
             <TextField
               type="text"
-              componentRef={(input) => { this.textInput = input }}
+              componentRef={(input) => {
+                this.textInput = input
+              }}
               placeholder={I18n.t('commons.teclib_email')}
               value={this.state.text}
-              onChanged={() => this.setState({ text: this.textInput.value })}
+              onChange={() => this.setState({ text: this.textInput.value })}
               required
               styles={this.styleTextField()}
             />
             <br />
-
             <DefaultButton className="btn" onClick={() => this.props.history.push(`${publicURL}/`)}>
               {I18n.t('commons.back')}
             </DefaultButton>
@@ -154,19 +160,15 @@ class ForgotPassword extends PureComponent {
     } else {
       element = (
         <div>
+          <p>{I18n.t('forgot_password.reset_your_password')}</p>
           <p>
-            {I18n.t('forgot_password.reset_your_password')}
-          </p>
-          <p>
-            <Link to={`${publicURL}/`}>
-              {I18n.t('commons.sign_in')}
-            </Link>
+            <Link to={`${publicURL}/`}>{I18n.t('commons.sign_in')}</Link>
           </p>
         </div>
       )
     }
     return element
-  }
+  };
 
   /**
    * Render component
@@ -182,10 +184,8 @@ class ForgotPassword extends PureComponent {
     }
     return (
       <React.Fragment>
-        <h2>
-          {I18n.t('forgot_password.title')}
-        </h2>
-        { this.renderElement() }
+        <h2>{I18n.t('forgot_password.title')}</h2>
+        {this.renderElement()}
       </React.Fragment>
     )
   }
@@ -199,6 +199,6 @@ ForgotPassword.propTypes = {
   history: PropTypes.object.isRequired,
 }
 
-export default withAuthenticationLayout((withHandleMessages(ForgotPassword)), {
+export default withAuthenticationLayout(withHandleMessages(ForgotPassword), {
   centerContent: true,
 })

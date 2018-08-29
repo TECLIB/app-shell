@@ -60,18 +60,14 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
             <WrappedComponent {...this.props} />
           </section>
           <footer className="authenticaton__footer">
-            <a href="http://teclib-edition.com/en/privacy-policy/">
-              {I18n.t('commons.terms_and_conditions')}
-            </a>
+            <a href="http://teclib-edition.com/en/privacy-policy/">{I18n.t('commons.terms_and_conditions')}</a>
             <br />
-            <span>
-© 2018 Teclib&apos;.
-            </span>
+            <span>© 2018 Teclib&apos;.</span>
             <br />
             <div style={{ margin: '10px', textAlign: '-webkit-center' }}>
               <Dropdown
                 placeHolder={I18n.t('commons.language')}
-                onChanged={item => this.props.changeLanguage(item.key)}
+                onChange={item => this.props.changeLanguage(item.key)}
                 selectedKey={this.props.languageCurrent || undefined}
                 options={languagesList()}
                 styles={{ root: [{ width: '220px' }] }}
@@ -91,10 +87,7 @@ const withAuthenticationLayout = (WrappedComponent, configStyles) => {
 
   authenticationLayout.propTypes = {
     centerContent: PropTypes.bool,
-    width: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     languageCurrent: PropTypes.string.isRequired,
     changeLanguage: PropTypes.func.isRequired,
   }
