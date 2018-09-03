@@ -24,55 +24,7 @@
  *  ------------------------------------------------------------------------------
  */
 
-/** import dependencies */
-import EmptyMessage from 'components/EmptyMessage'
-import asyncOverview from './async/asyncOverview'
-import asyncContact from './async/asyncContact'
-import asyncReleaseNotes from './async/asyncReleaseNotes'
-import asyncTermsOfUse from './async/asyncTermsOfUse'
-import asyncLicense from './async/asyncLicense'
+import withAsyncComponent from 'hoc/withAsyncComponent'
 
-/**
- * Represents all private routes from About
- * @constant
- * @type {Array}
- */
-const routes = [{
-  path: '/',
-  name: 'commons.no_selection',
-  component: EmptyMessage,
-  exact: true,
-},
-{
-  path: '/overview',
-  name: 'about.overview.title',
-  component: asyncOverview,
-  exact: true,
-},
-{
-  path: '/contact',
-  name: 'about.contact.title',
-  component: asyncContact,
-  exact: true,
-},
-{
-  path: '/release',
-  name: 'about.release_notes.title',
-  component: asyncReleaseNotes,
-  exact: false,
-},
-{
-  path: '/term',
-  name: 'about.term_of_use.title',
-  component: asyncTermsOfUse,
-  exact: false,
-},
-{
-  path: '/license',
-  name: 'about.license.title',
-  component: asyncLicense,
-  exact: false,
-},
-]
-
-export default routes
+const asyncLicense = withAsyncComponent(() => import('containers/About/components/License'))
+export default asyncLicense
