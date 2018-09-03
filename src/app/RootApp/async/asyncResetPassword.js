@@ -32,6 +32,6 @@ import withAsyncComponent from 'hoc/withAsyncComponent'
  * @constant
  * @type {component}
  */
-const asyncResetPassword = withAsyncComponent(() => import('../containers/ResetPassword'))
+const asyncResetPassword = withAsyncComponent(() => import('containers/ResetPassword'))
 
 export default asyncResetPassword

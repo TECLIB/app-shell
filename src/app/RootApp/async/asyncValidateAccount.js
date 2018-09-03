@@ -28,10 +28,10 @@
 import withAsyncComponent from 'hoc/withAsyncComponent'
 
 /**
- * Calls asynchronous ForgotPassword component
+ * Calls asynchronous ValidateAccount component
  * @constant
  * @type {component}
  */
-const asyncForgotPassword = withAsyncComponent(() => import('../containers/ForgotPassword'))
+const asyncValidateAccount = withAsyncComponent(() => import('components/ValidateAccount'))
 
-export default asyncForgotPassword
+export default asyncValidateAccount
