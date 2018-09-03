@@ -24,39 +24,7 @@
  *  ------------------------------------------------------------------------------
  */
 
-import I18n from 'shared/i18n'
-import asyncHome from './async/asyncHome'
-import asyncContact from './async/asyncContact'
-import asyncSettings from './async/asyncSettings'
-import asyncAbout from './async/asyncAbout'
+import withAsyncComponent from 'hoc/withAsyncComponent'
 
-const routes = [
-  {
-    path: '/',
-    name: I18n.t('commons.home'),
-    component: asyncHome,
-    exact: true,
-    authenticate: true,
-  },
-  {
-    path: '/contacts',
-    name: I18n.t('commons.contacts'),
-    component: asyncContact,
-    exact: false,
-    authenticate: true,
-  },
-  {
-    path: '/settings',
-    name: I18n.t('commons.settings'),
-    component: asyncSettings,
-    exact: false,
-  },
-  {
-    path: '/about',
-    name: I18n.t('commons.about'),
-    component: asyncAbout,
-    exact: false,
-  },
-]
-
-export default routes
+const asyncContact = withAsyncComponent(() => import('containers/Contact'))
+export default asyncContact
