@@ -25,9 +25,7 @@
  */
 
 /** import dependencies */
-import EmptyMessage from 'components/EmptyMessage'
-import Notifications from './components/Notifications'
-import Display from './components/Display'
+import withAsyncComponent from 'hoc/withAsyncComponent'
 
 /**
  * Represents all private routes from Settings
@@ -37,19 +35,19 @@ import Display from './components/Display'
 const routes = [{
   path: '/',
   name: 'commons.no_selection',
-  component: EmptyMessage,
+  component: withAsyncComponent(() => import('components/EmptyMessage')),
   exact: true,
 },
 {
   path: '/notifications',
   name: 'commons.notifications',
-  component: Notifications,
+  component: withAsyncComponent(() => import('./components/Notifications')),
   exact: false,
 },
 {
   path: '/display',
   name: 'commons.display',
-  component: Display,
+  component: withAsyncComponent(() => import('./components/Display')),
   exact: false,
 },
 ]
