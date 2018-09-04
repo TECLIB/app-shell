@@ -25,21 +25,20 @@
  */
 
 import I18n from 'shared/i18n'
-import EmptyMessage from 'components/EmptyMessage'
-import ContactContent from './components/ContactContent'
+import withAsyncComponent from 'hoc/withAsyncComponent'
 
 const routes = [
   {
     path: '/',
     name: I18n.t('commons.no_selection'),
-    component: EmptyMessage,
+    component: withAsyncComponent(() => import('components/EmptyMessage')),
     exact: true,
     authenticate: true,
   },
   {
     path: '/:id',
     name: I18n.t('commons.selected'),
-    component: ContactContent,
+    component: withAsyncComponent(() => import('./components/ContactContent')),
     exact: true,
     authenticate: true,
   },
