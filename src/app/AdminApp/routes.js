@@ -25,36 +25,33 @@
  */
 
 import I18n from 'shared/i18n'
-import asyncHome from './async/asyncHome'
-import asyncContact from './async/asyncContact'
-import asyncSettings from './async/asyncSettings'
-import asyncAbout from './async/asyncAbout'
+import withAsyncComponent from 'hoc/withAsyncComponent'
 
 const routes = [
   {
     path: '/',
     name: I18n.t('commons.home'),
-    component: asyncHome,
+    component: withAsyncComponent(() => import('containers/Home')),
     exact: true,
     authenticate: true,
   },
   {
     path: '/contacts',
     name: I18n.t('commons.contacts'),
-    component: asyncContact,
+    component: withAsyncComponent(() => import('containers/Contact')),
     exact: false,
     authenticate: true,
   },
   {
     path: '/settings',
     name: I18n.t('commons.settings'),
-    component: asyncSettings,
+    component: withAsyncComponent(() => import('containers/Settings')),
     exact: false,
   },
   {
     path: '/about',
     name: I18n.t('commons.about'),
-    component: asyncAbout,
+    component: withAsyncComponent(() => import('containers/About')),
     exact: false,
   },
 ]

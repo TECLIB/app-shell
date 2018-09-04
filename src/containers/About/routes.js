@@ -25,12 +25,7 @@
  */
 
 /** import dependencies */
-import EmptyMessage from 'components/EmptyMessage'
-import asyncOverview from './async/asyncOverview'
-import asyncContact from './async/asyncContact'
-import asyncReleaseNotes from './async/asyncReleaseNotes'
-import asyncTermsOfUse from './async/asyncTermsOfUse'
-import asyncLicense from './async/asyncLicense'
+import withAsyncComponent from 'hoc/withAsyncComponent'
 
 /**
  * Represents all private routes from About
@@ -40,37 +35,37 @@ import asyncLicense from './async/asyncLicense'
 const routes = [{
   path: '/',
   name: 'commons.no_selection',
-  component: EmptyMessage,
+  component: withAsyncComponent(() => import('components/EmptyMessage')),
   exact: true,
 },
 {
   path: '/overview',
   name: 'about.overview.title',
-  component: asyncOverview,
+  component: withAsyncComponent(() => import('./components/Overview')),
   exact: true,
 },
 {
   path: '/contact',
   name: 'about.contact.title',
-  component: asyncContact,
+  component: withAsyncComponent(() => import('./components/Contact')),
   exact: true,
 },
 {
   path: '/release',
   name: 'about.release_notes.title',
-  component: asyncReleaseNotes,
+  component: withAsyncComponent(() => import('./components/ReleaseNotes')),
   exact: false,
 },
 {
   path: '/term',
   name: 'about.term_of_use.title',
-  component: asyncTermsOfUse,
+  component: withAsyncComponent(() => import('./components/TermsOfUse')),
   exact: false,
 },
 {
   path: '/license',
   name: 'about.license.title',
-  component: asyncLicense,
+  component: withAsyncComponent(() => import('./components/License')),
   exact: false,
 },
 ]
