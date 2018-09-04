@@ -25,47 +25,42 @@
  */
 
 import publicURL from 'shared/publicURL'
-import asyncValidateAccount from './async/asyncValidateAccount'
-import asyncForgotPassword from './async/asyncForgotPassword'
-import asyncResetPassword from './async/asyncResetPassword'
-import asyncAdminApp from './async/asyncAdminApp'
-import asyncSignUp from './async/asyncSignUp'
-import asyncSignIn from './async/asyncSignIn'
+import withAsyncComponent from 'hoc/withAsyncComponent'
 
 const routes = [
   {
     path: `${publicURL}/`,
-    component: asyncSignIn,
+    component: withAsyncComponent(() => import('containers/SignIn')),
     exact: true,
     authenticate: false,
   },
   {
     path: `${publicURL}/SignUp`,
-    component: asyncSignUp,
+    component: withAsyncComponent(() => import('containers/SignUp')),
     exact: true,
     authenticate: false,
   },
   {
     path: `${publicURL}/validateAccount`,
-    component: asyncValidateAccount,
+    component: withAsyncComponent(() => import('components/ValidateAccount')),
     exact: false,
     private: false,
   },
   {
     path: `${publicURL}/forgotPassword`,
-    component: asyncForgotPassword,
+    component: withAsyncComponent(() => import('containers/ForgotPassword')),
     exact: false,
     private: false,
   },
   {
     path: `${publicURL}/resetPassword`,
-    component: asyncResetPassword,
+    component: withAsyncComponent(() => import('containers/ResetPassword')),
     exact: false,
     private: false,
   },
   {
     path: `${publicURL}/app`,
-    component: asyncAdminApp,
+    component: withAsyncComponent(() => import('app/AdminApp')),
     exact: false,
     authenticate: true,
   },
